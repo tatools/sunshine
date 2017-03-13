@@ -2,6 +2,7 @@ sunshine
 ========
 
 "sunshine" is a Java library, with allows you to run your automated tests without build systems (like maven, gradle).
+[![Build Status](https://travis-ci.org/SoftServe-Test-Automation-Tools/sunshine.svg?branch=master)](https://travis-ci.org/SoftServe-Test-Automation-Tools/sunshine)
 
 Join us
 -------
