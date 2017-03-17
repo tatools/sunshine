@@ -1,5 +1,7 @@
 package org.sstat.sunshine;
 
+import org.testng.xml.XmlSuite;
+
 import java.util.List;
 
 /**
@@ -11,4 +13,6 @@ import java.util.List;
 public interface TestFiles {
 
     List<TestFile> allTests();
+
+    XmlSuite asTestNGSuite();
 }

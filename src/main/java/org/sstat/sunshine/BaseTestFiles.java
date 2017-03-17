@@ -2,6 +2,8 @@ package org.sstat.sunshine;
 
 import org.sstat.sunshine.location.Jar;
 import org.sstat.sunshine.location.Location;
+import org.testng.xml.XmlSuite;
+import org.testng.xml.XmlTest;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -20,6 +22,18 @@ public class BaseTestFiles implements TestFiles {
     @Override
     public List<TestFile> allTests() {
         return testFiles(location, new ArrayList<>());
+    }
+
+    @Override
+    public XmlSuite asTestNGSuite() {
+        XmlSuite xmlSuite = new XmlSuite();
+        xmlSuite.setName("Sunshine default tests suit");
+        for (TestFile testFile : allTests()) {
+            XmlTest test = testFile.asTestNGTest();
+            test.setSuite(xmlSuite);
+            xmlSuite.addTest(test);
+        }
+        return xmlSuite;
     }
 
     private List<TestFile> testFiles(Location location, List<TestFile> result) {
