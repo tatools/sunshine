@@ -17,4 +17,9 @@ public class JarTest {
                 Matchers.hasItem(new Artifact("org/sstat/testng/Test1.class"))
         );
     }
+
+    @Test(expected = LocationException.class)
+    public void incorrectPath() {
+        new Jar("faffasfas").files();
+    }
 }

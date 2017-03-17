@@ -1,5 +1,7 @@
 package org.sstat.sunshine;
 
+import org.testng.xml.XmlTest;
+
 /**
  * The interface represents a class with a test (tests).
  *
@@ -9,4 +11,6 @@ package org.sstat.sunshine;
 public interface TestFile {
 
     Class<?> asClass() throws ClassNotFoundException;
+
+    XmlTest asTestNGTest();
 }
