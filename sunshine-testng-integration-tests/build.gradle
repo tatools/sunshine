@@ -1,0 +1,31 @@
+dependencies {
+    jar {
+        manifest {
+            attributes 'Main-Class': 'org.sstat.sunshine.Sunshine'
+            attributes "Class-Path": configurations.runtime.collect {
+                "deps/" + it.getName()
+            }.join(' ')
+        }
+    }
+}
+
+task copyToLib(type: Copy) {
+    into "$buildDir/libs/deps"
+    from configurations.runtime
+}
+
+build.dependsOn(copyToLib)
+
+task runJar(type: Exec) {
+    executable "sh"
+    args "-c", "cd build/libs/ && java -jar ${project.name}-${version}.jar"
+}
+runJar.dependsOn(build)
+
+task ready(dependsOn: runJar) {
+    doLast{
+        println("Sunshine TestNG integration testing is completed.")
+    }
+}
+
+defaultTasks 'clean', 'ready'

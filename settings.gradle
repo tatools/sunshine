@@ -1,2 +1,2 @@
-rootProject.name = 'sunshine'
-include 'testng-tests'
+rootProject.name = 'sunshine-root'
+include 'sunshine-tests-deps', 'sunshine', 'sunshine-testng-integration-tests'
