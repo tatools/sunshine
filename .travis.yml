@@ -7,4 +7,4 @@ notifications:
     rooms:
           - test-automation-tools:CMmRQOwodzTGByyGqAnySHHS#sunshine-robots
 
-script: ./test.sh
+script: ./gradlew

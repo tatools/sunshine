@@ -1,0 +1,7 @@
+task ready(dependsOn: build) {
+    doFirst {
+        println("A JAR file for Sunshine unit testing is ready.")
+    }
+}
+
+defaultTasks 'clean', 'ready'

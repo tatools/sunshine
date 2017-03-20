@@ -1,19 +1,30 @@
-group 'org.sstat'
-version '0.1.0'
 
-apply plugin: 'java'
+subprojects {
+    apply plugin: 'java'
+    group 'org.sstat'
+    version '0.1.0'
+    sourceCompatibility = JavaVersion.VERSION_1_8
 
-sourceCompatibility = 1.8
+    repositories {
+        mavenLocal()
+        mavenCentral()
+    }
 
-repositories {
-    mavenCentral()
+    dependencies {
+        compile 'org.testng:testng:6.11'
+    }
 }
 
-dependencies {
-    compileOnly 'org.projectlombok:lombok:1.16.14'
-    compile 'org.testng:testng:6.11'
-    testCompile 'junit:junit:4.11'
-    testCompile 'org.hamcrest:hamcrest-all:1.3'
+project(':sunshine-testng-integration-tests') {
+    dependencies {
+        compile project(':sunshine')
+    }
 }
 
-defaultTasks 'clean', 'test'
+project(':sunshine') {
+    dependencies {
+        compile project(':sunshine-tests-deps')
+    }
+}
+
+defaultTasks 'clean', 'ready'
