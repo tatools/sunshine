@@ -1,0 +1,9 @@
+name: "Sunshine TestNG integration tests"
+tests:
+  - name: 1
+    classes:
+      - com.sstat.sunshine.testngtests.TestNGXmlTest1
+
+  - name: 2
+    classes:
+      - com.sstat.sunshine.testngtests.TestNGXmlTest1

@@ -1,0 +1,13 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="Sunshine TestNG integration tests">
+    <test name="1">
+        <classes>
+            <class name="com.sstat.sunshine.testngtests.TestNGXmlTest1"/>
+        </classes>
+    </test>
+    <test name="2">
+        <classes>
+            <class name="com.sstat.sunshine.testngtests.TestNGXmlTest2"/>
+        </classes>
+    </test>
+</suite>

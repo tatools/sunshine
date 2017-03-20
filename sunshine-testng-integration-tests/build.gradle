@@ -1,7 +1,7 @@
 dependencies {
     jar {
         manifest {
-            attributes 'Main-Class': 'org.sstat.sunshine.Sunshine'
+            attributes 'Main-Class': 'org.sstat.sunshine.SunshineTestNG'
             attributes "Class-Path": configurations.runtime.collect {
                 "deps/" + it.getName()
             }.join(' ')
@@ -16,14 +16,29 @@ task copyToLib(type: Copy) {
 
 build.dependsOn(copyToLib)
 
-task runJar(type: Exec) {
-    executable "sh"
-    args "-c", "cd build/libs/ && java -jar ${project.name}-${version}.jar"
+task runJar { Task task ->
+    doLast {
+        task.project.exec {
+            executable "sh"
+            args "-c", "cd build/libs/ && java -jar ${project.name}-${version}.jar " +
+                    "| grep \"Total tests run: 3\""
+        }
+        task.project.exec {
+            executable "sh"
+            args "-c", "cd build/libs/ && java -jar ${project.name}-${version}.jar ../../src/main/resources/testng.xml " +
+                    "| grep \"Total tests run: 2\""
+        }
+        task.project.exec {
+            executable "sh"
+            args "-c", "cd build/libs/ && java -jar ${project.name}-${version}.jar ../../src/main/resources/testng.yaml " +
+                    "| grep \"Total tests run: 2\""
+        }
+    }
 }
 runJar.dependsOn(build)
 
 task ready(dependsOn: runJar) {
-    doLast{
+    doLast {
         println("Sunshine TestNG integration testing is completed.")
     }
 }

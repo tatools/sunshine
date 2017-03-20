@@ -1,6 +1,4 @@
-package org.sstat.sunshine.location;
-
-import org.sstat.sunshine.Artifact;
+package org.sstat.sunshine;
 
 import java.io.File;
 import java.util.Arrays;
@@ -8,6 +6,9 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
+ * The {@link Classpath} class provides an implementation of {@link Location} interface
+ * which allows to find {@link Artifact}s in current Java CLASSPATH.
+ *
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
  * @since 16.03.2017
  */
