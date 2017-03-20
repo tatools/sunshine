@@ -4,19 +4,18 @@ package org.sstat.sunshine;
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
  * @since 18.03.2017
  */
-public final class PathToClass {
+final class TestClass {
     private final String path;
 
-    public PathToClass(String path) {
+    TestClass(String path) {
         this.path = path;
     }
 
-    public Class aClass() {
+    Class aClass() {
         try {
-
             return Class.forName(toString());
         } catch (ClassNotFoundException e) {
-            throw new TestException(e);
+            throw new TestClassException(e);
         }
     }
 

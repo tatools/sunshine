@@ -1,6 +1,4 @@
-package org.sstat.sunshine.location;
-
-import org.sstat.sunshine.Artifact;
+package org.sstat.sunshine;
 
 import java.io.IOException;
 import java.nio.file.FileVisitResult;
@@ -12,13 +10,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * The {@link Path} class allows to find {@link Artifact}s by given path.
+ *
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
  * @since 16.03.2017
  */
-public class Path implements Location {
+class Path implements Location {
     private final String path;
 
-    public Path(String path) {
+    Path(String path) {
         this.path = path;
     }
 

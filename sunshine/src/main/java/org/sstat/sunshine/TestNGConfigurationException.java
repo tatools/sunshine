@@ -1,6 +1,9 @@
 package org.sstat.sunshine;
 
 /**
+ * The {@link TestNGConfigurationException} class represents an unchecked exception to handle errors
+ * in the implementations of the {@link TestNGConfiguration} interface.
+ *
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
  * @since 18.03.2017
  */

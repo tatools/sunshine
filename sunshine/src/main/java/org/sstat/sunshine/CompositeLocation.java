@@ -1,11 +1,12 @@
-package org.sstat.sunshine.location;
-
-import org.sstat.sunshine.Artifact;
+package org.sstat.sunshine;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * The {@link CompositeLocation} class allows to represent several locations as an instance of
+ * {@link Location} interface.
+ *
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
  * @since 16.03.2017
  */

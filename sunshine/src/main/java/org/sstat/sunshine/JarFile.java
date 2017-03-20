@@ -1,6 +1,4 @@
-package org.sstat.sunshine.location;
-
-import org.sstat.sunshine.Artifact;
+package org.sstat.sunshine;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -10,13 +8,15 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
 /**
+ * The {@link JarFile} class allows to find {@link Artifact}s in give <b>jar</b> file.
+ *
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
  * @since 16.03.2017
  */
-public class Jar implements Location {
+class JarFile implements Location {
     private final String jarPath;
 
-    public Jar(String jarPath) {
+    public JarFile(String jarPath) {
         this.jarPath = jarPath;
     }
 
@@ -25,10 +25,7 @@ public class Jar implements Location {
         try (ZipInputStream zip = new ZipInputStream(new FileInputStream(jarPath))) {
             List<Artifact> data = new ArrayList<>();
             for (ZipEntry entry = zip.getNextEntry(); entry != null; entry = zip.getNextEntry()) {
-                String name = entry.getName();
-                if (!name.endsWith("/")) {
-                    data.add(new Artifact(name));
-                }
+                data.add(new Artifact(entry.getName()));
             }
             return data;
         } catch (IOException e) {

@@ -8,7 +8,7 @@ import org.junit.Test;
  */
 public class TestNGTestTest {
 
-    @Test(expected = TestException.class)
+    @Test(expected = TestClassException.class)
     public void asClassWithGhostClass() {
         new TestNGTest("org/sstat/testng/Test11.class").object();
     }

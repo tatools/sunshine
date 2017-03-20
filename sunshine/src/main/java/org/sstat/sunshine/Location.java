@@ -1,6 +1,4 @@
-package org.sstat.sunshine.location;
-
-import org.sstat.sunshine.Artifact;
+package org.sstat.sunshine;
 
 import java.util.List;
 
@@ -8,6 +6,7 @@ import java.util.List;
  * The interface declares a place to search tests classes.
  *
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
+ * @see LocationException
  * @since 16.03.2017
  */
 public interface Location {

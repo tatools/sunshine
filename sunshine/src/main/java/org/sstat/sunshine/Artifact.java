@@ -9,20 +9,20 @@ import lombok.ToString;
  */
 @EqualsAndHashCode
 @ToString(of = {"artifactPath"})
-public final class Artifact {
+final class Artifact {
     private final String fromPath;
     private final String artifactPath;
 
-    public Artifact(String fromPath, String artifactPath) {
+    Artifact(String fromPath, String artifactPath) {
         this.fromPath = fromPath;
         this.artifactPath = artifactPath;
     }
 
-    public Artifact(String relativePath) {
+    Artifact(String relativePath) {
         this("", relativePath);
     }
 
-    public String asString() {
+    String asString() {
         if (fromPath.isEmpty()) return artifactPath;
         if (fromPath.equals(artifactPath)) return artifactPath;
         if (fromPath.endsWith("/")) {
