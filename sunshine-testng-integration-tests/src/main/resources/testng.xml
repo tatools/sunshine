@@ -2,12 +2,12 @@
 <suite name="Sunshine TestNG integration tests">
     <test name="1">
         <classes>
-            <class name="com.sstat.sunshine.testngtests.TestNGXmlTest1"/>
+            <class name="com.softserveinc.sstat.testngtests.TestNGXmlTest1"/>
         </classes>
     </test>
     <test name="2">
         <classes>
-            <class name="com.sstat.sunshine.testngtests.TestNGXmlTest2"/>
+            <class name="com.softserveinc.sstat.testngtests.TestNGXmlTest2"/>
         </classes>
     </test>
 </suite>
