@@ -2,10 +2,10 @@ sunshine
 ========
 
 "sunshine" is a Java library, with allows you to run your automated tests without build systems (like maven, gradle).
-[![Build Status](https://travis-ci.org/SoftServe-Test-Automation-Tools/sunshine.svg?branch=master)](https://travis-ci.org/SoftServe-Test-Automation-Tools/sunshine)
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/914c367dea7f4d4bb3184cf12e4fdd05)](https://www.codacy.com/app/extsoft/sunshine?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=SoftServe-Test-Automation-Tools/sunshine&amp;utm_campaign=Badge_Grade)
-[![codebeat badge](https://codebeat.co/badges/7f5dd975-9861-475a-ada4-21488b365579)](https://codebeat.co/projects/github-com-softserve-test-automation-tools-sunshine-master)
-[![codecov](https://codecov.io/gh/SoftServe-Test-Automation-Tools/sunshine/branch/master/graph/badge.svg)](https://codecov.io/gh/SoftServe-Test-Automation-Tools/sunshine)
+[![Build Status](https://travis-ci.org/tatools/sunshine.svg?branch=master)](https://travis-ci.org/tatools/sunshine)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/b9ccdf7644db4658bb998eb3c8f0689b)](https://www.codacy.com/app/extsoft/sunshine?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=tatools/sunshine&amp;utm_campaign=Badge_Grade)
+[![codebeat badge](https://codebeat.co/badges/74ffce5e-e3be-45b7-9459-98d13f5f4d4e)](https://codebeat.co/projects/github-com-tatools-sunshine-master)
+[![codecov](https://codecov.io/gh/tatools/sunshine/branch/master/graph/badge.svg)](https://codecov.io/gh/tatools/sunshine)
 
 Join us
 -------

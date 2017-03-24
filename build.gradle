@@ -1,7 +1,7 @@
 
 subprojects {
     apply plugin: 'java'
-    group 'com.softserveinc.sstat'
+    group 'io.github.tatools'
     version '0.1.0'
     sourceCompatibility = JavaVersion.VERSION_1_8
 
