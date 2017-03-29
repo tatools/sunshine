@@ -23,7 +23,7 @@ public final class TestNGLocationRunner implements Engine {
      * @param location - an instance of a {@link Location} where need to find tests
      */
     public TestNGLocationRunner(Location location) {
-        this(location, new SkipDefaultListeners());
+        this(location, new TestNGSkipDefaultListeners());
     }
 
     /**
@@ -40,10 +40,9 @@ public final class TestNGLocationRunner implements Engine {
 
     @Override
     public void run() {
-        configuration.applyBeforeRun(engine);
+        configuration.apply(engine);
         engine.setXmlSuites(Collections.singletonList(new TestNGTests(location).suite()));
         engine.run();
-        configuration.applyAfterRun(engine);
         System.exit(engine.getStatus());
     }
 }
