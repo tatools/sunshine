@@ -17,7 +17,7 @@ public class Classpath implements Location {
     public List<Artifact> files() {
         return new CompositeLocation(
                 Arrays.stream(System.getProperty("java.class.path").split(File.pathSeparator))
-                        .map(Path::new).collect(Collectors.toList())
+                        .map(Directory::new).collect(Collectors.toList())
         ).files();
     }
 }

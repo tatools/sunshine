@@ -4,7 +4,7 @@ import org.testng.TestNG;
 
 /**
  * The {@link TestNGConfiguration} interface allows to apply some configurations to TestNG runner
- * before and after tests execution.
+ * before tests execution.
  *
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
  * @see TestNGConfigurationException
@@ -12,8 +12,10 @@ import org.testng.TestNG;
  */
 public interface TestNGConfiguration {
 
-    void applyBeforeRun(TestNG testNG);
-
-    void applyAfterRun(TestNG testNG);
-
+    /**
+     * Apply some modifications to an instance of {@link TestNG} before tests tun.
+     *
+     * @param testNG
+     */
+    void apply(TestNG testNG);
 }

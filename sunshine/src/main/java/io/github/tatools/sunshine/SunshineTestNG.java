@@ -5,16 +5,29 @@ package io.github.tatools.sunshine;
  * <p>If no arguments will be provided, then Sunshine will try to find TestNG tests in the CLASSPATH.</p>
  * <p>If an argument will be provided, then Sunshine will run TestNG with given argument.
  * The argument is a path to TestNG configuration file (XML or YAML).</p>
+ * <p>The default configuration of TestNG engine is following:
+ * <br>- {@link TestNGSkipDefaultListeners}
+ * <br>- {@link TestNGProduceJunitXml}
+ * <br>- {@link TestNGChangeOutputsDirectory} to '{@value SunshineTestNG#TESTS_OUTPUTS}'
+ * </p>
  *
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
  * @since 18.03.2017
  */
 public class SunshineTestNG {
+
+    private static final String TESTS_OUTPUTS = "./tests-outputs";
+
     public static void main(String[] args) {
+        TestNGConfiguration configuration = new TestNGCompositeConfiguration(
+                new TestNGSkipDefaultListeners(),
+                new TestNGProduceJunitXml(),
+                new TestNGChangeOutputsDirectory(TESTS_OUTPUTS)
+        );
         if (args != null && args.length > 0) {
-            new TestNGXmlRunner(args[0]).run();
+            new TestNGXmlRunner(args[0], configuration).run();
         } else {
-            new TestNGLocationRunner(new Classpath()).run();
+            new TestNGLocationRunner(new Classpath(), configuration).run();
         }
     }
 }

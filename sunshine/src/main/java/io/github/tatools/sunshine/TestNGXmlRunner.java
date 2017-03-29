@@ -23,7 +23,7 @@ public final class TestNGXmlRunner implements Engine {
      * @param suitePath - a path to TestNG xml or yaml file
      */
     public TestNGXmlRunner(String suitePath) {
-        this(suitePath, new SkipDefaultListeners());
+        this(suitePath, new TestNGSkipDefaultListeners());
     }
 
     /**
@@ -40,10 +40,9 @@ public final class TestNGXmlRunner implements Engine {
 
     @Override
     public void run() {
-        configuration.applyBeforeRun(engine);
+        configuration.apply(engine);
         engine.setTestSuites(Collections.singletonList(suitePath));
         engine.run();
-        configuration.applyAfterRun(engine);
         System.exit(engine.getStatus());
     }
 }

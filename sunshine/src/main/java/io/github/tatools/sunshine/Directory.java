@@ -10,15 +10,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * The {@link Path} class allows to find {@link Artifact}s by given path.
+ * The {@link Directory} class allows to find {@link Artifact}s by given path.
  *
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
  * @since 16.03.2017
  */
-class Path implements Location {
+class Directory implements Location {
     private final String path;
 
-    Path(String path) {
+    Directory(String path) {
         this.path = path;
     }
 
