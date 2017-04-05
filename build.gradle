@@ -2,7 +2,7 @@
 subprojects {
     apply plugin: 'java'
     group 'io.github.tatools'
-    version '0.1.0'
+    version '0.1.0-SNAPSHOT'
     sourceCompatibility = JavaVersion.VERSION_1_8
 
     repositories {
@@ -23,7 +23,7 @@ project(':sunshine-testng-integration-tests') {
 
 project(':sunshine') {
     dependencies {
-        compile project(':sunshine-tests-deps')
+        compileOnly project(':sunshine-tests-deps')
     }
 }
 

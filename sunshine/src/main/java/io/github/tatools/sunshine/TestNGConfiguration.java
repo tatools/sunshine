@@ -15,7 +15,7 @@ public interface TestNGConfiguration {
     /**
      * Apply some modifications to an instance of {@link TestNG} before tests tun.
      *
-     * @param testNG
+     * @param testNG an instance to be configured
      */
     void apply(TestNG testNG);
 }

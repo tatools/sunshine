@@ -1,4 +1,6 @@
 apply plugin: 'jacoco'
+apply plugin: 'maven'
+apply plugin: 'signing'
 
 jacocoTestReport {
     reports {
@@ -26,10 +28,76 @@ copyJar.dependsOn(':sunshine-tests-deps:ready')
 
 test.dependsOn(copyJar)
 
-task ready(dependsOn: build) {
+task ready(dependsOn: test) {
     doLast {
         println("Sunshine unit testing is completed.")
     }
 }
 
 defaultTasks 'clean', 'ready'
+
+
+task javadocJar(type: Jar) {
+    classifier = 'javadoc'
+    from javadoc
+}
+
+task sourcesJar(type: Jar) {
+    classifier = 'sources'
+    from sourceSets.main.allSource
+}
+
+artifacts {
+    archives jar
+    archives javadocJar
+    archives sourcesJar
+}
+
+signing {
+    sign configurations.archives
+}
+
+uploadArchives {
+    repositories {
+        mavenDeployer {
+            beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
+
+            repository(url: "https://oss.sonatype.org/service/local/staging/deploy/maven2/") {
+                authentication(userName: sonatypeUsername, password: sonatypePassword)
+            }
+
+            snapshotRepository(url: "https://oss.sonatype.org/content/repositories/snapshots/") {
+                authentication(userName: sonatypeUsername, password: sonatypePassword)
+            }
+
+            pom.project {
+                name "${project.name}"
+                packaging 'jar'
+                description "A Java library, with allows you to run your automated tests " +
+                        "without build systems (like maven, gradle)."
+                url 'https://github.com/tatools/sunshine'
+
+                scm {
+                    connection 'scm:git@github.com:tatools/sunshine.git'
+                    developerConnection 'scm:git@github.com:tatools/sunshine.git'
+                    url 'https://github.com/tatools/sunshine/tree/master'
+                }
+
+                licenses {
+                    license {
+                        name 'The Apache License, Version 2.0'
+                        url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+                    }
+                }
+
+                developers {
+                    developer {
+                        id 'extsoft'
+                        name 'Dmytro Serdiuk'
+                        email 'dmytro.serdiuk@gmail.com'
+                    }
+                }
+            }
+        }
+    }
+}
