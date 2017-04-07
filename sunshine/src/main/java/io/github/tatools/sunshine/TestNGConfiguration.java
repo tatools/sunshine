@@ -16,6 +16,9 @@ public interface TestNGConfiguration {
      * Apply some modifications to an instance of {@link TestNG} before tests tun.
      *
      * @param testNG an instance to be configured
+     *
+     * @todo #23 It's a bad idea to allow to modify TestNG instance.
+     *  Need to consider another way to allow set up listeners.
      */
     void apply(TestNG testNG);
 }

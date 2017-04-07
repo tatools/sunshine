@@ -16,6 +16,9 @@ package io.github.tatools.sunshine;
  */
 public class SunshineTestNG {
 
+    /*
+     @todo #23 Move to property file. It allow to reuse this value for all engines.
+     */
     private static final String TESTS_OUTPUTS = "./tests-outputs";
 
     public static void main(String[] args) {
@@ -27,6 +30,7 @@ public class SunshineTestNG {
         if (args != null && args.length > 0) {
             new TestNGXmlRunner(args[0], configuration).run();
         } else {
+
             new TestNGLocationRunner(new Classpath(), configuration).run();
         }
     }
