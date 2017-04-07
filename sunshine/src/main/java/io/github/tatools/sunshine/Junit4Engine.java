@@ -1,6 +1,8 @@
 package io.github.tatools.sunshine;
 
+import org.junit.runner.Computer;
 import org.junit.runner.JUnitCore;
+import org.junit.runner.Result;
 
 /**
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
@@ -17,6 +19,15 @@ public class Junit4Engine implements Engine {
 
     @Override
     public void run() {
-        jUnitCore.run(tests.suite());
+        Result result = jUnitCore.run(new Computer(), tests.suite());
+        System.out.println(
+                String.format(
+                        "Total tests run: %s, Failures: %s, Skips: %s",
+                        result.getRunCount(),
+                        result.getFailureCount(),
+                        result.getIgnoreCount()
+                )
+        );
+        System.exit(result.wasSuccessful() ? 0 : -1);
     }
 }

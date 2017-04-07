@@ -1,0 +1,36 @@
+dependencies {
+    jar {
+        manifest {
+            attributes 'Main-Class': 'io.github.tatools.sunshine.SunshineJunit4'
+            attributes "Class-Path": configurations.runtime.collect {
+                "deps/" + it.getName()
+            }.join(' ')
+        }
+    }
+}
+
+task copyToLib(type: Copy) {
+    into "$buildDir/libs/deps"
+    from configurations.runtime
+}
+
+build.dependsOn(copyToLib)
+
+task runJar { Task task ->
+    doLast {
+        task.project.exec {
+            executable "sh"
+            args "-c", "cd build/libs/ && java -jar ${project.name}-${version}.jar " +
+                    "| grep \"Total tests run: 1, Failures: 0, Skips: 0\""
+        }
+    }
+}
+runJar.dependsOn(build)
+
+task ready(dependsOn: runJar) {
+    doLast {
+        println("Sunshine Junit4 integration testing is completed.")
+    }
+}
+
+defaultTasks 'clean', 'ready'
