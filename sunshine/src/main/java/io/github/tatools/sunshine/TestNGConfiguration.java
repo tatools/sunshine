@@ -17,7 +17,7 @@ public interface TestNGConfiguration {
      *
      * @param testNG an instance to be configured
      *
-     * @todo #23 It's a bad idea to allow to modify TestNG instance.
+     * @todo #23:1h It's a bad idea to allow to modify TestNG instance.
      *  Need to consider another way to allow set up listeners.
      */
     void apply(TestNG testNG);

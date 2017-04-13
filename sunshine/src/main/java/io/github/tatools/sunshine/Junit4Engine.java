@@ -19,9 +19,7 @@ public class Junit4Engine implements Engine {
 
     @Override
     public void run() {
-        /*
-        @todo #23 Add ability to pass some listeners to JUnitCore.
-         */
+        // @todo #23 Add ability to pass some listeners to JUnitCore.
         Result result = jUnitCore.run(new Computer(), tests.suite());
         System.out.println(
                 String.format(
