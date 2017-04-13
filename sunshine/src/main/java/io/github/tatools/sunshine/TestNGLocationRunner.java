@@ -7,7 +7,7 @@ import java.util.Collections;
 /**
  * The {@link TestNGLocationRunner} class allows to run TestNG for given {@link Location}.
  *
- * @todo #23 TestNGLocationRunner.class has to use Tests interface as a constructor arguments.
+ * @todo #23:30m TestNGLocationRunner.class has to use Tests interface as a constructor arguments.
  *
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
  * @since 17.03.2017

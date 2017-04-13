@@ -16,9 +16,7 @@ package io.github.tatools.sunshine;
  */
 public class SunshineTestNG {
 
-    /*
-     @todo #23 Move to property file. It allow to reuse this value for all engines.
-     */
+    // @todo #23:3h Move to property file. It allow to reuse this value for all engines.
     private static final String TESTS_OUTPUTS = "./tests-outputs";
 
     public static void main(String[] args) {
