@@ -28,8 +28,7 @@ public class SunshineTestNG {
         if (args != null && args.length > 0) {
             new TestNGXmlRunner(args[0], configuration).run();
         } else {
-
-            new TestNGLocationRunner(new Classpath(), configuration).run();
+            new TestNGEngine(new TestNGTests(new Classpath()), configuration).run();
         }
     }
 }
