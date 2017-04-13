@@ -7,6 +7,8 @@ import java.util.Collections;
 /**
  * The {@link TestNGXmlRunner} class allows to run TestNG tests based on provided suite file.
  *
+ * @todo #29:2h We have to remove this engine's impl and move logic to an impl of {@link Tests}
+ *
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
  * @since 17.03.2017
  */
