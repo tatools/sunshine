@@ -16,6 +16,7 @@ import java.util.Comparator;
  * <p>Previous testing results will be deleted before next run.</p>
  *
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
+ * @todo #26 Move this logic as a separate part os sunshine, not TestNGEngine configuration.
  * @since 29.03.2017
  */
 public final class TestNGChangeOutputsDirectory implements TestNGConfiguration {
