@@ -11,6 +11,6 @@ package io.github.tatools.sunshine;
 public class SunshineJunit4 {
 
     public static void main(String[] args) {
-        new Junit4Engine(new JunitTests(new Classpath())).run();
+        new Junit4Engine(new JunitSuite(new Classpath())).run();
     }
 }

@@ -2,7 +2,6 @@ package io.github.tatools.sunshine;
 
 import org.testng.ITestNGListener;
 import org.testng.TestNG;
-import org.testng.xml.XmlSuite;
 
 import java.util.Arrays;
 import java.util.Collections;
@@ -17,15 +16,15 @@ public final class TestNGEngine implements Engine<ITestNGListener> {
 
     private final TestNG engine;
     private final TestNGConfiguration configuration;
-    private final Tests<XmlSuite> tests;
+    private final TestNGSuite tests;
 
     /**
      * Initializes a newly created {@link TestNGEngine} object so that it represents
      * an TestNG runner with switched off default listeners.
      *
-     * @param tests - an instance of a {@link Location} where need to find tests
+     * @param tests - an instance of a {@link TestNGSuite} where need to find tests
      */
-    public TestNGEngine(Tests<XmlSuite> tests) {
+    public TestNGEngine(TestNGSuite tests) {
         this(tests, new TestNGConfiguration.Empty());
     }
 
@@ -33,14 +32,14 @@ public final class TestNGEngine implements Engine<ITestNGListener> {
      * Initializes a newly created {@link TestNGEngine} object so that it represents
      * an TestNG runner with will be configured with given configuration.
      *
-     * @param tests         - an instance of a {@link Tests} where need to find tests
+     * @param tests         - an instance of a {@link TestNGSuite} where need to find tests
      * @param configuration - an instance of {@link TestNGConfiguration}
      */
-    public TestNGEngine(Tests<XmlSuite> tests, TestNGConfiguration configuration) {
+    public TestNGEngine(TestNGSuite tests, TestNGConfiguration configuration) {
         this(new TestNG(false), configuration, tests);
     }
 
-    private TestNGEngine(TestNG engine, TestNGConfiguration configuration, Tests<XmlSuite> tests) {
+    private TestNGEngine(TestNG engine, TestNGConfiguration configuration, TestNGSuite tests) {
         this.engine = engine;
         this.configuration = configuration;
         this.tests = tests;
@@ -49,7 +48,7 @@ public final class TestNGEngine implements Engine<ITestNGListener> {
     @Override
     public void run() {
         configuration.apply(engine);
-        engine.setXmlSuites(Collections.singletonList(tests.suite()));
+        engine.setTestSuites(Collections.singletonList(tests.tests().path().toString()));
         engine.run();
         System.exit(engine.getStatus());
     }

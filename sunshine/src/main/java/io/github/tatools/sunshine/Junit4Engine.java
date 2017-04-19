@@ -14,20 +14,20 @@ import java.util.Arrays;
 public class Junit4Engine implements Engine<RunListener> {
 
     private final JUnitCore jUnitCore;
-    private final Tests<Class<?>[]> tests;
+    private final Suite<Class<?>[]> suite;
 
-    public Junit4Engine(Tests<Class<?>[]> tests) {
-        this(new JUnitCore(), tests);
+    public Junit4Engine(Suite<Class<?>[]> suite) {
+        this(new JUnitCore(), suite);
     }
 
-    private Junit4Engine(JUnitCore jUnitCore, Tests<Class<?>[]> tests) {
+    private Junit4Engine(JUnitCore jUnitCore, Suite<Class<?>[]> suite) {
         this.jUnitCore = jUnitCore;
-        this.tests = tests;
+        this.suite = suite;
     }
 
     @Override
     public void run() {
-        Result result = jUnitCore.run(new Computer(), tests.suite());
+        Result result = jUnitCore.run(new Computer(), suite.tests());
         System.out.println(
                 String.format(
                         "Total tests run: %s, Failures: %s, Skips: %s",
@@ -43,6 +43,6 @@ public class Junit4Engine implements Engine<RunListener> {
     public Junit4Engine with(RunListener... listeners) {
         final JUnitCore jUnitCore = new JUnitCore();
         Arrays.stream(listeners).forEach(jUnitCore::addListener);
-        return new Junit4Engine(jUnitCore, tests);
+        return new Junit4Engine(jUnitCore, suite);
     }
 }
