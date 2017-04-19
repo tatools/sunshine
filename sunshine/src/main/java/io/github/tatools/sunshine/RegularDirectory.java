@@ -1,9 +1,11 @@
 package io.github.tatools.sunshine;
 
 import java.io.IOException;
+import java.nio.file.FileVisitOption;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.Comparator;
 
 /**
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
@@ -24,9 +26,7 @@ public class RegularDirectory implements Directory {
     @Override
     public void create() {
         try {
-            if (!Files.exists(path)) {
-                Files.createDirectory(path);
-            }
+            Files.createDirectory(path);
         } catch (IOException e) {
             throw new io.github.tatools.sunshine.IOException(e);
         }
@@ -35,10 +35,18 @@ public class RegularDirectory implements Directory {
     @Override
     public void remove() {
         try {
-            Files.deleteIfExists(path);
+            Files.walk(path, FileVisitOption.FOLLOW_LINKS)
+                    .sorted(Comparator.reverseOrder())
+                    .map(Path::toFile)
+                    .forEach(java.io.File::delete);
         } catch (IOException e) {
             throw new io.github.tatools.sunshine.IOException(e);
         }
+    }
+
+    @Override
+    public boolean exist() {
+        return Files.exists(path);
     }
 
     @Override

@@ -6,6 +6,6 @@ package io.github.tatools.sunshine;
  */
 public interface Directory extends File {
     void create();
-
     void remove();
+    boolean exist();
 }
