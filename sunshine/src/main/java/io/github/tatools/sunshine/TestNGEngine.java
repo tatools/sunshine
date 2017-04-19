@@ -17,19 +17,7 @@ public final class TestNGEngine implements Engine<ITestNGListener> {
 
     private final TestNG engine;
     private final Path reportsFolder;
-    private final TestNGConfiguration configuration;
     private final TestNGSuite tests;
-
-    /**
-     * Initializes a newly created {@link TestNGEngine} object so that it represents
-     * an TestNG runner with switched off default listeners.
-     *
-     * @param reportsFolder a path where TestNG will store the reports
-     * @param tests         an instance of a {@link TestNGSuite} where need to find tests
-     */
-    public TestNGEngine(Path reportsFolder, TestNGSuite tests) {
-        this(reportsFolder, tests, new TestNGConfiguration.Empty());
-    }
 
     /**
      * Initializes a newly created {@link TestNGEngine} object so that it represents
@@ -37,22 +25,19 @@ public final class TestNGEngine implements Engine<ITestNGListener> {
      *
      * @param reportsFolder a path where TestNG will store the reports
      * @param tests         an instance of a {@link TestNGSuite} where need to find tests
-     * @param configuration an instance of {@link TestNGConfiguration}
      */
-    public TestNGEngine(Path reportsFolder, TestNGSuite tests, TestNGConfiguration configuration) {
-        this(new TestNG(false), reportsFolder, configuration, tests);
+    public TestNGEngine(Path reportsFolder, TestNGSuite tests) {
+        this(new TestNG(false), reportsFolder, tests);
     }
 
-    private TestNGEngine(TestNG engine, Path reportsFolder, TestNGConfiguration configuration, TestNGSuite tests) {
+    private TestNGEngine(TestNG engine, Path reportsFolder, TestNGSuite tests) {
         this.engine = engine;
         this.reportsFolder = reportsFolder;
-        this.configuration = configuration;
         this.tests = tests;
     }
 
     @Override
     public void run() {
-        configuration.apply(engine);
         engine.setOutputDirectory(reportsFolder.toString());
         engine.setTestSuites(Collections.singletonList(tests.tests().path().toString()));
         engine.run();
@@ -63,6 +48,6 @@ public final class TestNGEngine implements Engine<ITestNGListener> {
     public TestNGEngine with(ITestNGListener... listeners) {
         final TestNG testNG = new TestNG(false);
         Arrays.stream(listeners).forEach(testNG::addListener);
-        return new TestNGEngine(testNG, reportsFolder, configuration, tests);
+        return new TestNGEngine(testNG, reportsFolder, tests);
     }
 }
