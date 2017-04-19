@@ -27,7 +27,7 @@ copyJar.dependsOn(':sunshine-tests-deps:ready')
 
 test.dependsOn(copyJar)
 
-task ready(dependsOn: test) {
+task ready(dependsOn: check) {
     doLast {
         println("Sunshine unit testing is completed.")
     }
