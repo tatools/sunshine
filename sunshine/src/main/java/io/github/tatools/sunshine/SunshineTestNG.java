@@ -24,9 +24,12 @@ public class SunshineTestNG {
                 new TestNGChangeOutputsDirectory(TESTS_OUTPUTS)
         );
         if (args != null && args.length > 0) {
-            new TestNGXmlRunner(args[0], configuration).run();
+            new TestNGEngine(new PreparedTestNGSuite(args[0]), configuration).run();
         } else {
-            new TestNGEngine(new TestNGTests(new Classpath()), configuration).run();
+            new TestNGEngine(
+                    new CachedTestNGSuite(new LoadableTestNGSuite(new Classpath(), TESTS_OUTPUTS)),
+                    configuration
+            ).run();
         }
     }
 }

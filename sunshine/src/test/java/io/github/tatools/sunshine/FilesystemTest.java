@@ -9,12 +9,12 @@ import org.junit.Test;
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
  * @since 16.03.2017
  */
-public class DirectoryTest {
+public class FilesystemTest {
 
     private static final String RESOURCES = "src/test/resources";
 
     @Test
     public void files() {
-        MatcherAssert.assertThat(new Directory(RESOURCES).files(), Matchers.hasSize(1));
+        MatcherAssert.assertThat(new Filesystem(RESOURCES).files(), Matchers.hasSize(1));
     }
 }
