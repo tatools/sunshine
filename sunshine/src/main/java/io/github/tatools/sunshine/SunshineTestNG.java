@@ -7,7 +7,6 @@ package io.github.tatools.sunshine;
  * The argument is a path to TestNG configuration file (XML or YAML).</p>
  * <p>The default configuration of TestNG engine is following:
  * <br>- {@link TestNGProduceJunitXml}
- * <br>- {@link TestNGChangeOutputsDirectory} to '{@value SunshineTestNG#TESTS_OUTPUTS}'
  * </p>
  *
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
@@ -19,16 +18,15 @@ public class SunshineTestNG {
     private static final String TESTS_OUTPUTS = "./tests-outputs";
 
     public static void main(String[] args) {
-        TestNGConfiguration configuration = new TestNGCompositeConfiguration(
-                new TestNGProduceJunitXml(),
-                new TestNGChangeOutputsDirectory(TESTS_OUTPUTS)
-        );
+        Directory directory = new SmartDirectory(TESTS_OUTPUTS);
+        directory.remove();
         if (args != null && args.length > 0) {
-            new TestNGEngine(new PreparedTestNGSuite(args[0]), configuration).run();
+            new TestNGEngine(directory.path(), new PreparedTestNGSuite(args[0]), new TestNGProduceJunitXml()).run();
         } else {
             new TestNGEngine(
+                    directory.path(),
                     new CachedTestNGSuite(new LoadableTestNGSuite(new Classpath(), TESTS_OUTPUTS)),
-                    configuration
+                    new TestNGProduceJunitXml()
             ).run();
         }
     }
