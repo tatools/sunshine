@@ -17,18 +17,17 @@ import org.testng.reporters.JUnitXMLReporter;
  */
 public class SunshineTestNG {
 
-    // @todo #23:3h Move to property file. It allow to reuse this value for all engines.
-    private static final String TESTS_OUTPUTS = "./tests-outputs";
-
     public static void main(String[] args) {
-        Directory directory = new SmartDirectory(TESTS_OUTPUTS);
+        ReportFolder reportFolder = new ReportFolder(new SunshineConfig());
+        String path = reportFolder.value();
+        Directory directory = new SmartDirectory(path);
         directory.remove();
         if (args != null && args.length > 0) {
             new TestNGEngine(directory.path(), new PreparedTestNGSuite(args[0])).with(new JUnitXMLReporter()).run();
         } else {
             new TestNGEngine(
                     directory.path(),
-                    new CachedTestNGSuite(new LoadableTestNGSuite(new Classpath(), TESTS_OUTPUTS))
+                    new CachedTestNGSuite(new LoadableTestNGSuite(new Classpath(), path))
             ).with(new JUnitXMLReporter()).run();
         }
     }
