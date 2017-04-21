@@ -1,5 +1,6 @@
 package io.github.tatools.sunshine;
 
+import org.hamcrest.CustomTypeSafeMatcher;
 import org.hamcrest.MatcherAssert;
 import org.hamcrest.Matchers;
 import org.junit.Test;
@@ -15,6 +16,12 @@ public class FilesystemTest {
 
     @Test
     public void files() {
-        MatcherAssert.assertThat(new Filesystem(RESOURCES).files(), Matchers.hasSize(1));
+        CustomTypeSafeMatcher<Integer> matcher = new CustomTypeSafeMatcher<Integer>("Has at least one item") {
+            @Override
+            protected boolean matchesSafely(Integer item) {
+                return item > 0;
+            }
+        };
+        MatcherAssert.assertThat(new Filesystem(RESOURCES).files(), Matchers.hasSize(matcher));
     }
 }
