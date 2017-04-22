@@ -6,4 +6,6 @@ package io.github.tatools.sunshine;
  */
 public interface Property<D> {
     D value();
+
+    boolean present();
 }

@@ -6,6 +6,7 @@ package io.github.tatools.sunshine;
  */
 public class ReportFolder implements Property<String> {
 
+    private final String key = "reports-path";
     private final Config config;
 
     public ReportFolder(Config config) {
@@ -14,6 +15,11 @@ public class ReportFolder implements Property<String> {
 
     @Override
     public String value() {
-        return config.property("reports-path");
+        return config.property(key);
+    }
+
+    @Override
+    public boolean present() {
+        return config.has(key);
     }
 }

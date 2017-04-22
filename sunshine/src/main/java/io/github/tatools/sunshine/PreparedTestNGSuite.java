@@ -4,7 +4,7 @@ package io.github.tatools.sunshine;
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
  * @since 19.04.2017
  */
-public class PreparedTestNGSuite implements TestNGSuite {
+public final class PreparedTestNGSuite implements TestNGSuite {
 
     private final File file;
 

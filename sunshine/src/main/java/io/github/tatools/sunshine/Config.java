@@ -7,4 +7,6 @@ package io.github.tatools.sunshine;
  */
 public interface Config {
     String property(String key);
+
+    boolean has(String key);
 }

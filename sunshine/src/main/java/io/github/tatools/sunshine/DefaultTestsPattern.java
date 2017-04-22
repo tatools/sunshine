@@ -4,21 +4,22 @@ package io.github.tatools.sunshine;
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
  * @since 21.04.2017
  */
-public class SunshineConfig implements Config {
+public class DefaultTestsPattern implements Property<String> {
 
+    private final String key = "tests-pattern";
     private final Config config;
 
-    public SunshineConfig() {
-        this.config = new ClasspathConfig("sunshine.properties");
+    public DefaultTestsPattern(Config config) {
+        this.config = config;
     }
 
     @Override
-    public String property(String key) {
+    public String value() {
         return config.property(key);
     }
 
     @Override
-    public boolean has(String key) {
+    public boolean present() {
         return config.has(key);
     }
 }

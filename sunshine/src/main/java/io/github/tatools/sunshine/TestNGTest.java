@@ -10,22 +10,31 @@ import java.util.Collections;
  * @since 18.03.2017
  */
 final class TestNGTest implements Test<XmlTest> {
-    private final TestClass testClass;
+    private final Test<Class> test;
 
-    TestNGTest(TestClass testClass) {
-        this.testClass = testClass;
+    TestNGTest(Test<Class> test) {
+        this.test = test;
     }
 
     TestNGTest(String clazz) {
-        this(new TestClass(clazz));
+        this(new ClassAsTest(clazz));
     }
 
     @Override
     public XmlTest object() {
-        XmlTest test = new XmlTest();
-        System.out.println(testClass.toString());
-        test.setName(testClass.toString());
-        test.setXmlClasses(Collections.singletonList(new XmlClass(testClass.aClass(), false)));
-        return test;
+        XmlTest xmlTest = new XmlTest();
+        System.out.println(test.toString());
+        xmlTest.setName(test.toString());
+        xmlTest.setXmlClasses(Collections.singletonList(new XmlClass(test.object(), false)));
+        return xmlTest;
+    }
+
+    @Override
+    public boolean match(Rule rule) {
+        throw new UnsupportedOperationException(
+                String.format(
+                        "%s is not able to handle %s rule", this.getClass().getName(), rule.getClass().getName()
+                )
+        );
     }
 }
