@@ -17,4 +17,9 @@ public class ClasspathConfig implements Config {
     public String property(String key) {
         return config.property(key);
     }
+
+    @Override
+    public boolean has(String key) {
+        return config.has(key);
+    }
 }

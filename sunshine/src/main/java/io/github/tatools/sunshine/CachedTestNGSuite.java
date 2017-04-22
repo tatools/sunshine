@@ -7,7 +7,7 @@ import java.util.List;
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
  * @since 19.04.2017
  */
-public class CachedTestNGSuite implements TestNGSuite {
+public final class CachedTestNGSuite implements TestNGSuite {
 
     private final List<File> files = new ArrayList<>(1);
     private final TestNGSuite testNGSuite;

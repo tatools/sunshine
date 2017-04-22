@@ -13,10 +13,18 @@ import java.io.ByteArrayInputStream;
 public class FileConfigTest {
 
     @Test
-    public void propertyReturnNotDefinedForUnknownKey() {
+    public void hasUnexpected() {
         MatcherAssert.assertThat(
-                new FileConfig(new ByteArrayInputStream("a =b".getBytes())).property("da"),
-                Matchers.equalTo("not defined")
+                "Unexpected property was loaded",
+                !new FileConfig(new ByteArrayInputStream("a =b".getBytes())).has("d")
+        );
+    }
+
+    @Test
+    public void hasExpected() {
+        MatcherAssert.assertThat(
+                "Unexpected property was loaded",
+                new FileConfig(new ByteArrayInputStream("a =b".getBytes())).has("a")
         );
     }
 

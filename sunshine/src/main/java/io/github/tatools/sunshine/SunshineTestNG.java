@@ -18,7 +18,8 @@ import org.testng.reporters.JUnitXMLReporter;
 public class SunshineTestNG {
 
     public static void main(String[] args) {
-        ReportFolder reportFolder = new ReportFolder(new SunshineConfig());
+        SunshineConfig config = new SunshineConfig();
+        ReportFolder reportFolder = new ReportFolder(config);
         String path = reportFolder.value();
         Directory directory = new SmartDirectory(path);
         directory.remove();
@@ -27,7 +28,9 @@ public class SunshineTestNG {
         } else {
             new TestNGEngine(
                     directory.path(),
-                    new CachedTestNGSuite(new LoadableTestNGSuite(new Classpath(), path))
+                    new CachedTestNGSuite(
+                            new LoadableTestNGSuite(new Classpath(), path, new SunshineTestsFilter(config))
+                    )
             ).with(new JUnitXMLReporter()).run();
         }
     }

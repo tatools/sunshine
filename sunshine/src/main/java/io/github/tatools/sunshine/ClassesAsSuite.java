@@ -7,22 +7,23 @@ import java.util.List;
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
  * @since 20.03.2017
  */
-final class TestClasses {
+final class ClassesAsSuite implements Suite<List<Test<Class>>> {
     private final Location location;
 
-    TestClasses(Location location) {
+    ClassesAsSuite(Location location) {
         this.location = location;
     }
 
-    List<TestClass> classes() {
+    @Override
+    public List<Test<Class>> tests() {
         return classes(location, new ArrayList<>());
     }
 
-    private List<TestClass> classes(Location location, List<TestClass> result) {
+    private List<Test<Class>> classes(Location location, List<Test<Class>> result) {
         for (Artifact file : location.files()) {
             String path = file.asString();
             if (isClass(path)) {
-                result.add(new TestClass(path));
+                result.add(new ClassAsTest(path));
             } else if (isJar(path)) {
                 classes(new JarFile(path), result);
             }

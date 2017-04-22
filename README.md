@@ -23,3 +23,12 @@ Please use gradle wrapper to build this project:
 ./gradlew <task> (on Unix-like platforms such as Linux and Mac OS X)
 gradlew <task> (on Windows using the gradlew.bat batch file)
 ```
+
+Filter tests
+------------
+[Java Pattern matching](https://docs.oracle.com/javase/8/docs/api/java/util/regex/Pattern.html) is used to filter 
+required Java classes. Sunshine uses a string representation of a class to filter files with tests. For instance, 
+you have `LoginTest` class in `com.example.mypackage` package. It will be converted to `com.example.mypackage.LoginTest`
+and then put to the filter. By default filter enables all classes that have `test` word in the class name 
+(`(.+)([Tt]est)([\\w\\d]+)?` is the default regex). If you wish define your own tests filter, you can provide run 
+command with own regex: `java -Dtests="your regex here" -jar my-tests.jar`.

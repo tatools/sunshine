@@ -4,19 +4,25 @@ package io.github.tatools.sunshine;
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
  * @since 18.03.2017
  */
-final class TestClass {
+final class ClassAsTest implements Test<Class> {
     private final String path;
 
-    TestClass(String path) {
+    ClassAsTest(String path) {
         this.path = path;
     }
 
-    Class aClass() {
+    @Override
+    public Class object() {
         try {
             return Class.forName(toString());
         } catch (ClassNotFoundException e) {
             throw new TestClassException(e);
         }
+    }
+
+    @Override
+    public boolean match(Rule rule) {
+        return rule.pass(this.toString());
     }
 
     @Override
