@@ -6,39 +6,44 @@ import java.nio.file.Path;
 
 /**
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
- * @todo #36:20m Extract an interface from this class.
  * @since 19.04.2017
  */
 class WritableFile implements File {
 
-    private final File file;
+    private final FsPath fsPath;
 
     WritableFile(Directory directory, String file) {
-        this(new RegularFile(directory.path(), file));
+        this(new RegularPath(directory, file));
     }
 
-    WritableFile(String path, String file) {
-        this(new RegularFile(path, file));
+    WritableFile(String directory, String file) {
+        this(new RegularPath(directory, file));
     }
 
-    WritableFile(Path path, String file) {
-        this(new RegularFile(path, file));
+    WritableFile(Path directory, String file) {
+        this(new RegularPath(directory, file));
     }
 
-    WritableFile(File file) {
-        this.file = file;
-    }
-
-    void write(String data) {
-        try {
-            Files.write(path(), data.getBytes());
-        } catch (IOException e) {
-            throw new io.github.tatools.sunshine.IOException(e);
-        }
+    WritableFile(FsPath fsPath) {
+        this.fsPath = fsPath;
     }
 
     @Override
     public Path path() {
-        return file.path();
+        return fsPath.path();
+    }
+
+    @Override
+    public boolean exist() {
+        return fsPath.exist();
+    }
+
+    @Override
+    public void write(String data) {
+        try {
+            Files.write(this.path(), data.getBytes());
+        } catch (IOException e) {
+            throw new io.github.tatools.sunshine.IOException(e);
+        }
     }
 }

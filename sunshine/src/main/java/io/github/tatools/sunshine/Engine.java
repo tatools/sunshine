@@ -17,6 +17,7 @@ public interface Engine<Listener> {
      * Allow to get new instance of an engine with provided listeners.
      *
      * @param listeners an instance (or instances) of engine's listeners
+     * @return new instance of an engine
      */
     Engine<Listener> with(Listener... listeners);
 }

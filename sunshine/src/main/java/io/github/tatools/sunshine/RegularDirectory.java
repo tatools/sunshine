@@ -4,7 +4,6 @@ import java.io.IOException;
 import java.nio.file.FileVisitOption;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.Comparator;
 
 /**
@@ -13,20 +12,24 @@ import java.util.Comparator;
  */
 public class RegularDirectory implements Directory {
 
-    private final Path path;
+    private final FsPath fsPath;
 
     public RegularDirectory(String path) {
-        this(Paths.get(path));
+        this(new RegularPath(path));
     }
 
     public RegularDirectory(Path path) {
-        this.path = path;
+        this.fsPath = new RegularPath(path);
+    }
+
+    public RegularDirectory(FsPath fsPath) {
+        this.fsPath = fsPath;
     }
 
     @Override
     public void create() {
         try {
-            Files.createDirectory(path);
+            Files.createDirectory(fsPath.path());
         } catch (IOException e) {
             throw new io.github.tatools.sunshine.IOException(e);
         }
@@ -35,7 +38,7 @@ public class RegularDirectory implements Directory {
     @Override
     public void remove() {
         try {
-            Files.walk(path, FileVisitOption.FOLLOW_LINKS)
+            Files.walk(fsPath.path(), FileVisitOption.FOLLOW_LINKS)
                     .sorted(Comparator.reverseOrder())
                     .map(Path::toFile)
                     .forEach(java.io.File::delete);
@@ -46,11 +49,11 @@ public class RegularDirectory implements Directory {
 
     @Override
     public boolean exist() {
-        return Files.exists(path);
+        return fsPath.exist();
     }
 
     @Override
     public Path path() {
-        return path;
+        return fsPath.path();
     }
 }

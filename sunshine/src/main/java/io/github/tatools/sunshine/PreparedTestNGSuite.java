@@ -6,18 +6,18 @@ package io.github.tatools.sunshine;
  */
 public final class PreparedTestNGSuite implements TestNGSuite {
 
-    private final File file;
+    private final FsPath fsPath;
 
     public PreparedTestNGSuite(String path) {
-        this(new RegularFile(path));
+        this(new RegularPath(path));
     }
 
-    public PreparedTestNGSuite(File file) {
-        this.file = file;
+    public PreparedTestNGSuite(FsPath fsPath) {
+        this.fsPath = fsPath;
     }
 
     @Override
-    public File tests() {
-        return file;
+    public FsPath tests() {
+        return fsPath;
     }
 }

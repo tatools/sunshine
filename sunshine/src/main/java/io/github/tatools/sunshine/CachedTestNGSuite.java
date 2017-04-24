@@ -9,7 +9,7 @@ import java.util.List;
  */
 public final class CachedTestNGSuite implements TestNGSuite {
 
-    private final List<File> files = new ArrayList<>(1);
+    private final List<FsPath> files = new ArrayList<>(1);
     private final TestNGSuite testNGSuite;
 
     public CachedTestNGSuite(TestNGSuite testNGSuite) {
@@ -17,7 +17,7 @@ public final class CachedTestNGSuite implements TestNGSuite {
     }
 
     @Override
-    public File tests() {
+    public FsPath tests() {
         if (files.isEmpty()) {
             files.add(testNGSuite.tests());
         }
