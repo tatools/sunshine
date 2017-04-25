@@ -1,0 +1,13 @@
+architect: extsoft
+merge:
+    fast-forward: only
+    rebase: true
+    script: echo "Try to merge..."
+    commanders:
+    - extsoft
+    - Mras
+
+release: # @todo #49:3h Add ability to release to Sonatype
+    pre: false
+    script: echo "Release ${tag}"
+    commanders: extsoft
