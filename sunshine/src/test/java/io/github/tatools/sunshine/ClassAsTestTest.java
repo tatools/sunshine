@@ -10,7 +10,7 @@ import org.junit.Test;
  */
 public class ClassAsTestTest {
 
-    @org.junit.Test
+    @Test
     public void object() {
         MatcherAssert.assertThat(
                 new ClassAsTest("io/github/tatools/sunshine/ClassAsTest.class").object(),

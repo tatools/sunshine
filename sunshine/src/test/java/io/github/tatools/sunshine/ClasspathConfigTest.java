@@ -2,6 +2,7 @@ package io.github.tatools.sunshine;
 
 import org.hamcrest.MatcherAssert;
 import org.hamcrest.Matchers;
+import org.junit.Test;
 
 /**
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
@@ -9,7 +10,7 @@ import org.hamcrest.Matchers;
  */
 public class ClasspathConfigTest {
 
-    @org.junit.Test
+    @Test
     public void propertyReturnNotDefinedForUnknownKey() {
         MatcherAssert.assertThat(
                 new ClasspathConfig("test.properties").property("a"),
