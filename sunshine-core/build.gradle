@@ -17,13 +17,13 @@ dependencies {
 }
 
 task copyJar(type: Copy) {
-    from "../sunshine-tests-deps/build/libs/sunshine-tests-deps-${version}.jar"
+    from "../sunshine-core-deps/build/libs/sunshine-core-deps-${version}.jar"
     into "src/test/resources"
     rename {
         "sample-tests.jar"
     }
 }
-copyJar.dependsOn(':sunshine-tests-deps:ready')
+copyJar.dependsOn(':sunshine-core-deps:ready')
 
 test.dependsOn(copyJar)
 

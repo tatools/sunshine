@@ -18,7 +18,7 @@ subprojects {
 
 project(':sunshine-core') {
     dependencies {
-        compileOnly project(':sunshine-tests-deps')
+        compileOnly project(':sunshine-core-deps')
     }
 }
 
