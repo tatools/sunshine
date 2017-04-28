@@ -6,7 +6,7 @@ package io.github.tatools.sunshine.core;
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
  * @since 16.03.2017
  */
-interface Test<T> {
+public interface Test<T> {
     T object();
 
     boolean match(Rule rule);

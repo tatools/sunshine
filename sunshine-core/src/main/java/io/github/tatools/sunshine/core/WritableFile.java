@@ -8,23 +8,23 @@ import java.nio.file.Path;
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
  * @since 19.04.2017
  */
-class WritableFile implements File {
+public class WritableFile implements File {
 
     private final FsPath fsPath;
 
-    WritableFile(Directory directory, String file) {
+    public WritableFile(Directory directory, String file) {
         this(new RegularPath(directory, file));
     }
 
-    WritableFile(String directory, String file) {
+    public WritableFile(String directory, String file) {
         this(new RegularPath(directory, file));
     }
 
-    WritableFile(Path directory, String file) {
+    public WritableFile(Path directory, String file) {
         this(new RegularPath(directory, file));
     }
 
-    WritableFile(FsPath fsPath) {
+    public WritableFile(FsPath fsPath) {
         this.fsPath = fsPath;
     }
 

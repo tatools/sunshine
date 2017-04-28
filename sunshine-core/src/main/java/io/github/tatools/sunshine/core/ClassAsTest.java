@@ -4,10 +4,10 @@ package io.github.tatools.sunshine.core;
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
  * @since 18.03.2017
  */
-final class ClassAsTest implements Test<Class> {
+public final class ClassAsTest implements Test<Class> {
     private final String path;
 
-    ClassAsTest(String path) {
+    public ClassAsTest(String path) {
         this.path = path;
     }
 

@@ -4,7 +4,7 @@ package io.github.tatools.sunshine.core;
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
  * @since 22.04.2017
  */
-interface Rule {
+public interface Rule {
     boolean pass(String identity);
 
     class Fake implements Rule {

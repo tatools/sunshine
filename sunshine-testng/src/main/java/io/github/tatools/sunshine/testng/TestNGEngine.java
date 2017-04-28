@@ -1,5 +1,7 @@
-package io.github.tatools.sunshine.core;
+package io.github.tatools.sunshine.testng;
 
+import io.github.tatools.sunshine.core.Engine;
+import io.github.tatools.sunshine.core.Location;
 import org.testng.ITestNGListener;
 import org.testng.TestNG;
 

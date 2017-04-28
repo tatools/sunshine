@@ -1,5 +1,6 @@
-package io.github.tatools.sunshine.core;
+package io.github.tatools.sunshine.testng;
 
+import io.github.tatools.sunshine.core.*;
 import org.testng.reporters.JUnitXMLReporter;
 
 /**
@@ -16,6 +17,7 @@ import org.testng.reporters.JUnitXMLReporter;
  * @since 18.03.2017
  */
 public class SunshineTestNG {
+    // @todo #46 Rename SunshineTestNG to Sunshine.
 
     public static void main(String[] args) {
         SunshineConfig config = new SunshineConfig();

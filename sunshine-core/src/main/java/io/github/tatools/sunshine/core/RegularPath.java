@@ -13,15 +13,15 @@ public class RegularPath implements FsPath {
     private final Path directory;
     private final String file;
 
-    RegularPath(String path) {
+    public RegularPath(String path) {
         this(Paths.get(path));
     }
 
-    RegularPath(String directory, String file) {
+    public RegularPath(String directory, String file) {
         this(Paths.get(directory), file);
     }
 
-    RegularPath(Path path) {
+    public RegularPath(Path path) {
         this(path, "");
     }
 
@@ -29,7 +29,7 @@ public class RegularPath implements FsPath {
         this(directory.path(), fsPath);
     }
 
-    RegularPath(Path directory, String file) {
+    public RegularPath(Path directory, String file) {
         this.directory = directory;
         this.file = file;
     }

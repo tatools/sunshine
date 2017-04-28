@@ -1,5 +1,8 @@
-package io.github.tatools.sunshine.core;
+package io.github.tatools.sunshine.testng;
 
+import io.github.tatools.sunshine.core.ClassAsTest;
+import io.github.tatools.sunshine.core.Rule;
+import io.github.tatools.sunshine.core.Test;
 import org.testng.xml.XmlClass;
 import org.testng.xml.XmlTest;
 
