@@ -1,5 +1,7 @@
 package io.github.tatools.sunshine.core;
 
+import lombok.EqualsAndHashCode;
+
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -8,6 +10,7 @@ import java.nio.file.Path;
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
  * @since 19.04.2017
  */
+@EqualsAndHashCode
 public class WritableFile implements File {
 
     private final FsPath fsPath;

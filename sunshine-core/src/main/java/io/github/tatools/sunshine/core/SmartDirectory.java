@@ -1,11 +1,14 @@
 package io.github.tatools.sunshine.core;
 
+import lombok.EqualsAndHashCode;
+
 import java.nio.file.Path;
 
 /**
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
  * @since 19.04.2017
  */
+@EqualsAndHashCode
 public class SmartDirectory implements Directory {
 
     private final Directory directory;

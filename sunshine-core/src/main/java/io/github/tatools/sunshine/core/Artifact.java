@@ -10,6 +10,7 @@ import lombok.ToString;
 @EqualsAndHashCode
 @ToString(of = {"artifactPath"})
 final class Artifact {
+    // @todo #57:30m This class has to implement FsPath interface. Also it has to be public.
     private final String fromPath;
     private final String artifactPath;
 

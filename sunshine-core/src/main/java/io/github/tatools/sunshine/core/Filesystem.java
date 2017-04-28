@@ -1,5 +1,7 @@
 package io.github.tatools.sunshine.core;
 
+import lombok.EqualsAndHashCode;
+
 import java.io.IOException;
 import java.nio.file.FileVisitResult;
 import java.nio.file.FileVisitor;
@@ -15,6 +17,7 @@ import java.util.List;
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
  * @since 16.03.2017
  */
+@EqualsAndHashCode
 class Filesystem implements Location {
     private final String path;
 

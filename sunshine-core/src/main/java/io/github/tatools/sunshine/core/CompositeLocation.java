@@ -1,5 +1,7 @@
 package io.github.tatools.sunshine.core;
 
+import lombok.EqualsAndHashCode;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,6 +12,7 @@ import java.util.List;
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
  * @since 16.03.2017
  */
+@EqualsAndHashCode
 public class CompositeLocation implements Location {
     private final List<Location> locations;
 

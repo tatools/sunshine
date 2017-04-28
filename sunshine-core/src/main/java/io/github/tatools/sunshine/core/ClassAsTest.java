@@ -1,9 +1,12 @@
 package io.github.tatools.sunshine.core;
 
+import lombok.EqualsAndHashCode;
+
 /**
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
  * @since 18.03.2017
  */
+@EqualsAndHashCode
 public final class ClassAsTest implements Test<Class> {
     private final String path;
 

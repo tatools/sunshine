@@ -1,11 +1,14 @@
 package io.github.tatools.sunshine.core;
 
+import lombok.EqualsAndHashCode;
+
 import java.util.regex.Pattern;
 
 /**
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
  * @since 22.04.2017
  */
+@EqualsAndHashCode
 class PatternRule implements Rule {
 
     private final Pattern regex;

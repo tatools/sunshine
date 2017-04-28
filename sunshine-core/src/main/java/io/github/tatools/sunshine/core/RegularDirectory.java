@@ -1,5 +1,7 @@
 package io.github.tatools.sunshine.core;
 
+import lombok.EqualsAndHashCode;
+
 import java.io.IOException;
 import java.nio.file.FileVisitOption;
 import java.nio.file.Files;
@@ -10,6 +12,7 @@ import java.util.Comparator;
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
  * @since 19.04.2017
  */
+@EqualsAndHashCode
 public class RegularDirectory implements Directory {
 
     private final FsPath fsPath;

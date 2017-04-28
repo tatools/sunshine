@@ -1,9 +1,12 @@
 package io.github.tatools.sunshine.core;
 
+import lombok.EqualsAndHashCode;
+
 /**
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
  * @since 22.04.2017
  */
+@EqualsAndHashCode
 public class SystemTestsPattern implements Property<String> {
 
     private final String key = "tests";

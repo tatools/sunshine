@@ -5,7 +5,13 @@ package io.github.tatools.sunshine.core;
  * @since 21.04.2017
  */
 public interface Property<D> {
-    D value();
+    /*
+    @todo #57:30m Review all implementations:
+     - make them final
+     - make TurnProperty as part of interface
+     - create unit tests
+     */
 
+    D value();
     boolean present();
 }

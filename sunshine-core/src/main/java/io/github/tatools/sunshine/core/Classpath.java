@@ -1,5 +1,7 @@
 package io.github.tatools.sunshine.core;
 
+import lombok.EqualsAndHashCode;
+
 import java.io.File;
 import java.util.Arrays;
 import java.util.List;
@@ -12,6 +14,7 @@ import java.util.stream.Collectors;
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
  * @since 16.03.2017
  */
+@EqualsAndHashCode
 public class Classpath implements Location {
     @Override
     public List<Artifact> files() {
