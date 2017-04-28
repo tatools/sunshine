@@ -1,4 +1,6 @@
-package io.github.tatools.sunshine.core;
+package io.github.tatools.sunshine.junit4;
+
+import io.github.tatools.sunshine.core.*;
 
 import java.util.List;
 

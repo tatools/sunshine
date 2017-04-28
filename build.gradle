@@ -22,9 +22,15 @@ project(':sunshine-core') {
     }
 }
 
-project(':sunshine-junit4-integration-tests') {
+project(':sunshine-junit4') {
     dependencies {
         compile project(':sunshine-core')
+    }
+}
+
+project(':sunshine-junit4-integration-tests') {
+    dependencies {
+        compile project(':sunshine-junit4')
     }
 }
 

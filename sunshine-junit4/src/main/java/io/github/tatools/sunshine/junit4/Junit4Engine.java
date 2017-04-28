@@ -1,5 +1,7 @@
-package io.github.tatools.sunshine.core;
+package io.github.tatools.sunshine.junit4;
 
+import io.github.tatools.sunshine.core.Engine;
+import io.github.tatools.sunshine.core.Suite;
 import org.junit.runner.Computer;
 import org.junit.runner.JUnitCore;
 import org.junit.runner.Result;
