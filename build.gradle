@@ -16,7 +16,7 @@ subprojects {
     }
 }
 
-project(':sunshine') {
+project(':sunshine-core') {
     dependencies {
         compileOnly project(':sunshine-tests-deps')
     }
@@ -24,13 +24,13 @@ project(':sunshine') {
 
 project(':sunshine-testng-integration-tests') {
     dependencies {
-        compile project(':sunshine')
+        compile project(':sunshine-core')
     }
 }
 
 project(':sunshine-junit4-integration-tests') {
     dependencies {
-        compile project(':sunshine')
+        compile project(':sunshine-core')
     }
 }
 
