@@ -1,7 +1,7 @@
 dependencies {
     jar {
         manifest {
-            attributes 'Main-Class': 'io.github.tatools.sunshine.junit4.SunshineJunit4'
+            attributes 'Main-Class': 'io.github.tatools.sunshine.junit4.Sunshine'
             attributes "Class-Path": configurations.runtime.collect {
                 "deps/" + it.getName()
             }.join(' ')
