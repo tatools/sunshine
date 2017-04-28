@@ -9,14 +9,14 @@ dependencies {
     }
 }
 
-task copyToLib(type: Copy) {
+task storeDependencies(type: Copy) {
     into "$buildDir/libs/deps"
     from configurations.runtime
 }
 
-build.dependsOn(copyToLib)
+build.dependsOn(storeDependencies)
 
-task runJar { Task task ->
+task runIntegrationTests { Task task ->
     doLast {
         task.project.exec {
             executable "sh"
@@ -25,12 +25,10 @@ task runJar { Task task ->
         }
     }
 }
-runJar.dependsOn(build)
+runIntegrationTests.dependsOn(build)
 
-task ready(dependsOn: runJar) {
+task ready(dependsOn: runIntegrationTests) {
     doLast {
         println("Sunshine Junit4 integration testing is completed.")
     }
 }
-
-defaultTasks 'clean', 'ready'

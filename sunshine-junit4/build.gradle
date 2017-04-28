@@ -13,11 +13,11 @@ check.dependsOn(jacocoTestReport)
 
 dependencies {
     compileOnly 'org.projectlombok:lombok:1.16.14'
+    compile 'junit:junit:4.11'
     testCompile 'org.hamcrest:hamcrest-all:1.3'
-    testCompile 'junit:junit:4.11'
 }
 
-task copyUnitTestsDependencies(type: Copy) {
+task copyJar(type: Copy) {
     from "../sunshine-core-deps/build/libs/sunshine-core-deps-${version}.jar"
     into "src/test/resources"
     rename {
@@ -25,11 +25,13 @@ task copyUnitTestsDependencies(type: Copy) {
     }
 }
 
-test.dependsOn(copyUnitTestsDependencies)
+copyJar.dependsOn(':sunshine-core-deps:ready')
+
+test.dependsOn(copyJar)
 
 task ready(dependsOn: check) {
     doLast {
-        println("Unit testing of Sunshine core is completed.")
+        println("Unit testing of Sunshine Junit4 is completed.")
     }
 }
 
@@ -67,9 +69,9 @@ uploadArchives {
             }
 
             pom.project {
-                name "${project.name} core"
+                name "${project.name} Junit4"
                 packaging 'jar'
-                description "Unified ${project.name} core"
+                description "${project.name} Junit4"
                 url 'https://github.com/tatools/sunshine'
 
                 scm {

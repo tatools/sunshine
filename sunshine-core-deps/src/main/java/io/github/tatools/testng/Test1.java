@@ -7,5 +7,4 @@ package io.github.tatools.testng;
  * @since 16.03.2017
  */
 public class Test1 {
-
 }

@@ -1,5 +1,4 @@
 rootProject.name = 'sunshine'
-include 'sunshine-core-deps', 'sunshine-core',
-        'sunshine-testng', 'sunshine-testng-integration-tests',
-        'sunshine-junit4', 'sunshine-junit4-integration-tests'
-
+include 'sunshine-core-deps', 'sunshine-core'
+include 'sunshine-testng', 'sunshine-testng-integration-tests'
+include 'sunshine-junit4', 'sunshine-junit4-integration-tests'

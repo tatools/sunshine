@@ -3,5 +3,3 @@ task ready(dependsOn: build) {
         println("A JAR file for Sunshine unit testing is ready.")
     }
 }
-
-defaultTasks 'clean', 'ready'
