@@ -13,7 +13,7 @@ public class JarFileTest {
     public void files() {
         MatcherAssert.assertThat(
                 new JarFile("src/test/resources/sample-tests.jar").files(),
-                Matchers.hasItem(new Artifact("io/github/tatools/testng/Test1.class"))
+                Matchers.hasItem(new RegularPath("io/github/tatools/testng/Test1.class"))
         );
     }
 

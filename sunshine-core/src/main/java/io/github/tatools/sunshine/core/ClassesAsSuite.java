@@ -21,8 +21,8 @@ public final class ClassesAsSuite implements Suite<List<Test<Class>>> {
     }
 
     private List<Test<Class>> classes(Location location, List<Test<Class>> result) {
-        for (Artifact file : location.files()) {
-            String path = file.asString();
+        for (FsPath file : location.files()) {
+            String path = file.path().toString();
             if (isClass(path)) {
                 result.add(new ClassAsTest(path));
             } else if (isJar(path)) {

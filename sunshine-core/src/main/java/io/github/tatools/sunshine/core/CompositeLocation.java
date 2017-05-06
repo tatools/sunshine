@@ -21,8 +21,8 @@ public class CompositeLocation implements Location {
     }
 
     @Override
-    public List<Artifact> files() {
-        List<Artifact> files = new ArrayList<>();
+    public List<FsPath> files() {
+        List<FsPath> files = new ArrayList<>();
         for (Location location : locations) {
             files.addAll(location.files());
         }

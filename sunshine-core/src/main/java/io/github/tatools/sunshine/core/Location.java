@@ -16,18 +16,18 @@ public interface Location {
      *
      * @return a list of paths
      */
-    List<Artifact> files();
+    List<FsPath> files();
 
 
     class Fake implements Location {
-        private final List<Artifact> files;
+        private final List<FsPath> files;
 
-        Fake(List<Artifact> files) {
+        Fake(List<FsPath> files) {
             this.files = files;
         }
 
         @Override
-        public List<Artifact> files() {
+        public List<FsPath> files() {
             return files;
         }
     }

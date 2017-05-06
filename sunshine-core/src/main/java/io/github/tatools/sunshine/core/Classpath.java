@@ -9,7 +9,7 @@ import java.util.stream.Collectors;
 
 /**
  * The {@link Classpath} class provides an implementation of {@link Location} interface
- * which allows to find {@link Artifact}s in current Java CLASSPATH.
+ * which allows to search files in current Java CLASSPATH.
  *
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
  * @since 16.03.2017
@@ -17,7 +17,7 @@ import java.util.stream.Collectors;
 @EqualsAndHashCode
 public class Classpath implements Location {
     @Override
-    public List<Artifact> files() {
+    public List<FsPath> files() {
         return new CompositeLocation(
                 Arrays.stream(System.getProperty("java.class.path").split(File.pathSeparator))
                         .map(Filesystem::new).collect(Collectors.toList())

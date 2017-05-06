@@ -16,8 +16,8 @@ public class CompositeLocationTest {
     @Test
     public void files() {
         List<Location> locations = Arrays.asList(
-                new Location.Fake(Collections.singletonList(new Artifact("ss"))),
-                new Location.Fake(Collections.singletonList(new Artifact("dd")))
+                new Location.Fake(Collections.singletonList(new FsPath.Fake())),
+                new Location.Fake(Collections.singletonList(new FsPath.Fake()))
         );
         MatcherAssert.assertThat(
                 new CompositeLocation(locations).files(),

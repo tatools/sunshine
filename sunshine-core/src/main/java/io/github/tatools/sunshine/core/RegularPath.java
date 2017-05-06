@@ -11,7 +11,7 @@ import java.nio.file.Paths;
  * @since 19.04.2017
  */
 @EqualsAndHashCode
-public class RegularPath implements FsPath {
+public final class RegularPath implements FsPath {
 
     private final Path directory;
     private final String file;
