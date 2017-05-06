@@ -9,7 +9,7 @@ public class SunshineTestsFilter implements Rule {
     private final Rule rule;
 
     public SunshineTestsFilter(Config config) {
-        this(new PatternRule(new TurnProperty<>(new SystemTestsPattern(), new DefaultTestsPattern(config))));
+        this(new PatternRule(new EitherProperty<>(new SystemTestsPattern(), new DefaultTestsPattern(config))));
     }
 
     private SunshineTestsFilter(Rule rule) {

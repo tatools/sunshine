@@ -7,7 +7,7 @@ import lombok.EqualsAndHashCode;
  * @since 21.04.2017
  */
 @EqualsAndHashCode
-public class DefaultTestsPattern implements Property<String> {
+public final class DefaultTestsPattern implements Property<String> {
 
     private final String key = "tests-pattern";
     private final Config config;

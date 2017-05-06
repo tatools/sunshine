@@ -7,7 +7,7 @@ import lombok.EqualsAndHashCode;
  * @since 21.04.2017
  */
 @EqualsAndHashCode
-public class ReportFolder implements Property<String> {
+public final class ReportFolder implements Property<String> {
 
     private final String key = "reports-path";
     private final Config config;
