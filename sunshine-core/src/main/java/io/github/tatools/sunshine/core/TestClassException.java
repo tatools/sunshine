@@ -7,7 +7,12 @@ package io.github.tatools.sunshine.core;
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
  * @since 18.03.2017
  */
-public class TestClassException extends RuntimeException {
+public final class TestClassException extends RuntimeException {
+    /*
+    @todo #82:30m Review a usage of TestClassException exception. According to Fail Fast strategy it needs to be checked.
+     And need to decide where it can be handled. Also, it will be great to have a common parent for all Sunshine's
+     exceptions.
+     */
     public TestClassException(String message) {
         super(message);
     }

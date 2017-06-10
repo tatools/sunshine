@@ -13,7 +13,7 @@ import java.util.Arrays;
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
  * @since 06.04.2017
  */
-public class Junit4Engine implements Engine<RunListener> {
+public final class Junit4Engine implements Engine<RunListener> {
 
     private final JUnitCore jUnitCore;
     private final Suite<Class<?>[]> suite;

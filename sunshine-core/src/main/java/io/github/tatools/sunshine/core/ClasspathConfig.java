@@ -8,7 +8,7 @@ import lombok.EqualsAndHashCode;
  * @since 21.04.2017
  */
 @EqualsAndHashCode
-public class ClasspathConfig implements Config {
+public final class ClasspathConfig implements Config {
 
     private final Config config;
 

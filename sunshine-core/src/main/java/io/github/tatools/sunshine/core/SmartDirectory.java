@@ -9,7 +9,7 @@ import java.nio.file.Path;
  * @since 19.04.2017
  */
 @EqualsAndHashCode
-public class SmartDirectory implements Directory {
+public final class SmartDirectory implements Directory {
 
     private final Directory directory;
 

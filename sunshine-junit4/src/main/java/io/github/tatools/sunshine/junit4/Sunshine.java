@@ -10,7 +10,7 @@ import io.github.tatools.sunshine.core.SunshineTestsFilter;
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
  * @since 18.03.2017
  */
-public class Sunshine {
+public final class Sunshine {
 
     public static void main(String[] args) {
         new Junit4Engine(new JunitSuite(new Classpath(), new SunshineTestsFilter(new SunshineConfig()))).run();

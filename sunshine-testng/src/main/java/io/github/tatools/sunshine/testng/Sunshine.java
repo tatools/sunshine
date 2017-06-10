@@ -11,7 +11,7 @@ import io.github.tatools.sunshine.core.*;
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
  * @since 18.03.2017
  */
-public class Sunshine {
+public final class Sunshine {
 
     public static void main(String[] args) {
         /*

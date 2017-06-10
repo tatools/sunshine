@@ -7,7 +7,8 @@ package io.github.tatools.sunshine.core;
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
  * @since 16.03.2017
  */
-public class LocationException extends RuntimeException {
+public final class LocationException extends RuntimeException {
+//  @todo #82:30m Review a usage of LocationException exception. According to Fail Fast strategy it needs to be checked.
 
     public LocationException(String message) {
         super(message);

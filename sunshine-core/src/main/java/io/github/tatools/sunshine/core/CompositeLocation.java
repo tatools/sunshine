@@ -13,7 +13,7 @@ import java.util.List;
  * @since 16.03.2017
  */
 @EqualsAndHashCode
-public class CompositeLocation implements Location {
+public final class CompositeLocation implements Location {
     private final List<Location> locations;
 
     public CompositeLocation(List<Location> locations) {

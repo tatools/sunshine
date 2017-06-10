@@ -7,7 +7,7 @@ import lombok.EqualsAndHashCode;
  * @since 21.04.2017
  */
 @EqualsAndHashCode
-public class SunshineConfig implements Config {
+public final class SunshineConfig implements Config {
 
     private final Config config;
 

@@ -9,7 +9,7 @@ import java.util.Properties;
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
  * @since 21.04.2017
  */
-public class FileConfig implements Config {
+public final class FileConfig implements Config {
 
     private final Wrapper wrapper;
 

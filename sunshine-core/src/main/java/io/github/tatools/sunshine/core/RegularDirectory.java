@@ -13,7 +13,7 @@ import java.util.Comparator;
  * @since 19.04.2017
  */
 @EqualsAndHashCode
-public class RegularDirectory implements Directory {
+public final class RegularDirectory implements Directory {
 
     private final FsPath fsPath;
 

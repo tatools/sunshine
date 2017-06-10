@@ -6,7 +6,7 @@ import io.github.tatools.sunshine.core.*;
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
  * @since 06.04.2017
  */
-public class JunitSuite implements Suite<Class<?>[]> {
+public final class JunitSuite implements Suite<Class<?>[]> {
 
     private final SunshineSuite classesAsSuite;
 

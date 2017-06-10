@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
  * @since 16.03.2017
  */
 @EqualsAndHashCode
-public class Classpath implements Location {
+public final class Classpath implements Location {
     @Override
     public List<FsPath> files() {
         return new CompositeLocation(

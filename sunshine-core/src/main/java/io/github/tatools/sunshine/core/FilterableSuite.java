@@ -7,7 +7,7 @@ import java.util.stream.Collectors;
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
  * @since 21.04.2017
  */
-public class FilterableSuite implements SunshineSuite {
+public final class FilterableSuite implements SunshineSuite {
 
     private final SunshineSuite suite;
     private final Rule filter;

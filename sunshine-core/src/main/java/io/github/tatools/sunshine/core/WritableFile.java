@@ -11,7 +11,7 @@ import java.nio.file.Path;
  * @since 19.04.2017
  */
 @EqualsAndHashCode
-public class WritableFile implements File {
+public final class WritableFile implements File {
 
     private final FsPath fsPath;
 
