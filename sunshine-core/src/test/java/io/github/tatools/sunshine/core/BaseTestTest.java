@@ -8,21 +8,21 @@ import org.junit.Test;
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
  * @since 22.04.2017
  */
-public class ClassAsTestTest {
+public class BaseTestTest {
 
     @Test
     public void object() {
         MatcherAssert.assertThat(
-                new ClassAsTest("io/github/tatools/sunshine/core/ClassAsTest.class").object(),
-                Matchers.equalTo(ClassAsTest.class)
+                new BaseTest("io/github/tatools/sunshine/core/BaseTest.class").object(),
+                Matchers.equalTo(BaseTest.class)
         );
     }
 
     @Test
     public void toStringImpl() {
         MatcherAssert.assertThat(
-                new ClassAsTest("io/github/tatools/sunshine/core/ClassAsTest.class").toString(),
-                Matchers.equalTo("io.github.tatools.sunshine.core.ClassAsTest")
+                new BaseTest("io/github/tatools/sunshine/core/BaseTest.class").toString(),
+                Matchers.equalTo("io.github.tatools.sunshine.core.BaseTest")
         );
     }
 }

@@ -2,7 +2,7 @@ package io.github.tatools.sunshine.core;
 
 /**
  * The {@link TestClassException} class represents an unchecked exception to handle errors
- * in the {@link ClassAsTest} implementation.
+ * in the {@link BaseTest} implementation.
  *
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
  * @since 18.03.2017

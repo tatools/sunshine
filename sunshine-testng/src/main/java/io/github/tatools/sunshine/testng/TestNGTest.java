@@ -1,6 +1,6 @@
 package io.github.tatools.sunshine.testng;
 
-import io.github.tatools.sunshine.core.ClassAsTest;
+import io.github.tatools.sunshine.core.BaseTest;
 import io.github.tatools.sunshine.core.Rule;
 import io.github.tatools.sunshine.core.SunshineTest;
 import io.github.tatools.sunshine.core.Test;
@@ -21,7 +21,7 @@ final class TestNGTest implements Test<XmlTest> {
     }
 
     TestNGTest(String clazz) {
-        this(new ClassAsTest(clazz));
+        this(new BaseTest(clazz));
     }
 
     @Override
