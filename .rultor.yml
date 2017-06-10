@@ -6,12 +6,14 @@ install: |-
   export LC_ALL=en_US.UTF-8
   export LANG=en_US.UTF-8
   export LANGUAGE=en_US.UTF-8
+  sudo gem install pdd
 merge:
     fast-forward: only
     rebase: true
     script: |-
         ./gradlew 
         ./gradlew clean
+        pdd --source=$(pwd) --verbose --file=/dev/null
     commanders:
     - extsoft
     - Mras
