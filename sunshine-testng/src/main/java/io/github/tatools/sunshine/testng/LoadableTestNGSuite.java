@@ -30,8 +30,8 @@ public final class LoadableTestNGSuite implements TestNGSuite {
     public File tests() {
         XmlSuite xmlSuite = new XmlSuite();
         xmlSuite.setName("Sunshine suite");
-        for (Test<Class> classAsTest : artifacts.tests()) {
-            XmlTest test = new TestNGTest(classAsTest).object();
+        for (SunshineTest sunshineTest : artifacts.tests()) {
+            XmlTest test = new TestNGTest(sunshineTest).object();
             test.setSuite(xmlSuite);
             xmlSuite.addTest(test);
         }

@@ -18,7 +18,7 @@ public class FilteredSuite implements SunshineSuite {
     }
 
     @Override
-    public List<Test<Class>> tests() {
+    public List<SunshineTest> tests() {
         return suite.tests().stream().filter(classTest -> classTest.match(filter)).collect(Collectors.toList());
     }
 }

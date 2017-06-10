@@ -7,8 +7,7 @@ import lombok.EqualsAndHashCode;
  * @since 18.03.2017
  */
 @EqualsAndHashCode
-public final class ClassAsTest implements Test<Class> {
-    // @todo #71:15m Extract SunshineTest interface from this class.
+public final class ClassAsTest implements SunshineTest {
     private final String path;
 
     public ClassAsTest(String path) {

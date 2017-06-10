@@ -2,6 +2,7 @@ package io.github.tatools.sunshine.testng;
 
 import io.github.tatools.sunshine.core.ClassAsTest;
 import io.github.tatools.sunshine.core.Rule;
+import io.github.tatools.sunshine.core.SunshineTest;
 import io.github.tatools.sunshine.core.Test;
 import org.testng.xml.XmlClass;
 import org.testng.xml.XmlTest;
@@ -13,9 +14,9 @@ import java.util.Collections;
  * @since 18.03.2017
  */
 final class TestNGTest implements Test<XmlTest> {
-    private final Test<Class> test;
+    private final SunshineTest test;
 
-    TestNGTest(Test<Class> test) {
+    TestNGTest(SunshineTest test) {
         this.test = test;
     }
 

@@ -16,11 +16,11 @@ public final class ClassesAsSuite implements SunshineSuite {
     }
 
     @Override
-    public List<Test<Class>> tests() {
+    public List<SunshineTest> tests() {
         return classes(location, new ArrayList<>());
     }
 
-    private List<Test<Class>> classes(Location location, List<Test<Class>> result) {
+    private List<SunshineTest> classes(Location location, List<SunshineTest> result) {
         for (FsPath file : location.files()) {
             String path = file.path().toString();
             if (isClass(path)) {
