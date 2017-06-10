@@ -13,7 +13,6 @@ import io.github.tatools.sunshine.core.SunshineTestsFilter;
 public class Sunshine {
 
     public static void main(String[] args) {
-         // @todo #23:2h Add ability to generate junit xmls by default. Update javadoc in the class.
         new Junit4Engine(new JunitSuite(new Classpath(), new SunshineTestsFilter(new SunshineConfig()))).run();
     }
 }
