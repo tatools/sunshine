@@ -2,7 +2,9 @@ architect: extsoft
 merge:
     fast-forward: only
     rebase: true
-    script: echo "Try to merge..."
+    script: |-
+        ./gradlew 
+        ./gradlew clean
     commanders:
     - extsoft
     - Mras
