@@ -11,7 +11,7 @@ public class JunitSuite implements Suite<Class<?>[]> {
     private final SunshineSuite classesAsSuite;
 
     public JunitSuite(Location location, Rule filter) {
-        this(new FilterableSuite(new BaseSuite(location), filter));
+        this(new PrintableSuite(new FilterableSuite(new BaseSuite(location), filter)));
     }
 
     public JunitSuite(SunshineSuite classesAsSuite) {

@@ -10,4 +10,27 @@ public interface SunshineTest extends Test<Class> {
 
     @Override
     boolean match(Rule rule);
+
+    final class Fake implements SunshineTest {
+
+        private final boolean matchRule;
+
+        public Fake() {
+            this(false);
+        }
+
+        public Fake(boolean matchRule) {
+            this.matchRule = matchRule;
+        }
+
+        @Override
+        public Class object() {
+            return null;
+        }
+
+        @Override
+        public boolean match(Rule rule) {
+            return matchRule;
+        }
+    }
 }

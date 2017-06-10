@@ -1,5 +1,6 @@
 package io.github.tatools.sunshine.core;
 
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -9,4 +10,17 @@ import java.util.List;
 public interface SunshineSuite extends Suite<List<SunshineTest>> {
     @Override
     List<SunshineTest> tests();
+
+    final class Fake implements SunshineSuite {
+        private final List<SunshineTest> tests;
+
+        public Fake(SunshineTest... tests) {
+            this.tests = Arrays.asList(tests);
+        }
+
+        @Override
+        public List<SunshineTest> tests() {
+            return tests;
+        }
+    }
 }

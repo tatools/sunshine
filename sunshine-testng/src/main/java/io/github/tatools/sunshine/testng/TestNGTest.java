@@ -27,7 +27,6 @@ final class TestNGTest implements Test<XmlTest> {
     @Override
     public XmlTest object() {
         XmlTest xmlTest = new XmlTest();
-        System.out.println(test.toString());
         xmlTest.setName(test.toString());
         xmlTest.setXmlClasses(Collections.singletonList(new XmlClass(test.object(), false)));
         return xmlTest;
