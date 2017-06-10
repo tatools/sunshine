@@ -8,6 +8,7 @@ import lombok.EqualsAndHashCode;
  */
 @EqualsAndHashCode
 public final class ClassAsTest implements Test<Class> {
+    // @todo #71:15m Extract SunshineTest interface from this class.
     private final String path;
 
     public ClassAsTest(String path) {

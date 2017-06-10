@@ -4,15 +4,13 @@ import io.github.tatools.sunshine.core.*;
 import org.testng.xml.XmlSuite;
 import org.testng.xml.XmlTest;
 
-import java.util.List;
-
 /**
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
  * @since 16.03.2017
  */
 public final class LoadableTestNGSuite implements TestNGSuite {
 
-    private final Suite<List<Test<Class>>> artifacts;
+    private final SunshineSuite artifacts;
     private final Directory suitePath;
 
     public LoadableTestNGSuite(Location location, String suitePath, Rule filter) {
@@ -23,7 +21,7 @@ public final class LoadableTestNGSuite implements TestNGSuite {
         this(new FilteredSuite(new ClassesAsSuite(location), filter), suitePath);
     }
 
-    public LoadableTestNGSuite(Suite<List<Test<Class>>> artifacts, Directory suitePath) {
+    public LoadableTestNGSuite(SunshineSuite artifacts, Directory suitePath) {
         this.artifacts = artifacts;
         this.suitePath = suitePath;
     }

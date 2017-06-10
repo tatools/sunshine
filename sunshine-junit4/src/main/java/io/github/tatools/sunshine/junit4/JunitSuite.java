@@ -2,21 +2,19 @@ package io.github.tatools.sunshine.junit4;
 
 import io.github.tatools.sunshine.core.*;
 
-import java.util.List;
-
 /**
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
  * @since 06.04.2017
  */
 public class JunitSuite implements Suite<Class<?>[]> {
 
-    private final Suite<List<Test<Class>>> classesAsSuite;
+    private final SunshineSuite classesAsSuite;
 
     public JunitSuite(Location location, Rule filter) {
         this(new FilteredSuite(new ClassesAsSuite(location), filter));
     }
 
-    public JunitSuite(Suite<List<Test<Class>>> classesAsSuite) {
+    public JunitSuite(SunshineSuite classesAsSuite) {
         this.classesAsSuite = classesAsSuite;
     }
 

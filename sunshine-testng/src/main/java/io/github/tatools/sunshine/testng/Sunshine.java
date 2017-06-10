@@ -15,7 +15,7 @@ public class Sunshine {
 
     public static void main(String[] args) {
         /*
-        @todo 70:2h Use some temporary directory instead of pre-configured for storing TestNG XML suite file.
+        @todo #70:2h Use some temporary directory instead of pre-configured for storing TestNG XML suite file.
          Our goal is to run tests and not provide some XML suite file for a user.
          */
 

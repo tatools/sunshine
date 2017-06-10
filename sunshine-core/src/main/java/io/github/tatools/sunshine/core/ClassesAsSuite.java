@@ -8,7 +8,7 @@ import java.util.List;
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
  * @since 20.03.2017
  */
-public final class ClassesAsSuite implements Suite<List<Test<Class>>> {
+public final class ClassesAsSuite implements SunshineSuite {
     private final Location location;
 
     public ClassesAsSuite(Location location) {
