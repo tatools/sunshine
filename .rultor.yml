@@ -1,4 +1,6 @@
 architect: extsoft
+docker:
+  image: yegor256/java8
 install: |-
   java -version
   export LC_ALL=en_US.UTF-8
