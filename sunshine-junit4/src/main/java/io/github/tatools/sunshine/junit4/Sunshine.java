@@ -1,8 +1,6 @@
 package io.github.tatools.sunshine.junit4;
 
-import io.github.tatools.sunshine.core.Classpath;
-import io.github.tatools.sunshine.core.SunshineConfig;
-import io.github.tatools.sunshine.core.SunshineTestsFilter;
+import io.github.tatools.sunshine.core.*;
 
 /**
  * The {@link Sunshine} class is a main class to run Junit4 tests.
@@ -13,6 +11,16 @@ import io.github.tatools.sunshine.core.SunshineTestsFilter;
 public final class Sunshine {
 
     public static void main(String[] args) {
-        new Junit4Engine(new JunitSuite(new Classpath(), new SunshineTestsFilter(new SunshineConfig()))).run();
+        new Junit4Engine(
+                new JunitSuite(
+                        new Classpath(),
+                        new RegexCondition(
+                                new EitherProperty<>(
+                                        new SystemTestsPattern(),
+                                        new DefaultTestsPattern(new SunshineConfig())
+                                )
+                        )
+                )
+        ).run();
     }
 }

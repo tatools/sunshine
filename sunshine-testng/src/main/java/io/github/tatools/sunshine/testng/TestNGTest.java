@@ -1,7 +1,7 @@
 package io.github.tatools.sunshine.testng;
 
 import io.github.tatools.sunshine.core.BaseTest;
-import io.github.tatools.sunshine.core.Rule;
+import io.github.tatools.sunshine.core.Condition;
 import io.github.tatools.sunshine.core.SunshineTest;
 import io.github.tatools.sunshine.core.Test;
 import org.testng.xml.XmlClass;
@@ -33,10 +33,10 @@ final class TestNGTest implements Test<XmlTest> {
     }
 
     @Override
-    public boolean match(Rule rule) {
+    public boolean match(Condition condition) {
         throw new UnsupportedOperationException(
                 String.format(
-                        "%s is not able to handle %s rule", this.getClass().getName(), rule.getClass().getName()
+                        "%s is not able to handle %s condition", this.getClass().getName(), condition.getClass().getName()
                 )
         );
     }

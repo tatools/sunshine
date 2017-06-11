@@ -9,7 +9,7 @@ package io.github.tatools.sunshine.core;
 public interface Test<T> {
     T object();
 
-    boolean match(Rule rule);
+    boolean match(Condition condition);
 
     class Fake<D> implements Test<D> {
         private final D d;
@@ -26,7 +26,7 @@ public interface Test<T> {
         }
 
         @Override
-        public boolean match(Rule rule) {
+        public boolean match(Condition condition) {
             return ruleAnswer;
         }
     }

@@ -10,9 +10,9 @@ import java.util.stream.Collectors;
 public final class FilterableSuite implements SunshineSuite {
 
     private final SunshineSuite suite;
-    private final Rule filter;
+    private final Condition filter;
 
-    public FilterableSuite(SunshineSuite suite, Rule filter) {
+    public FilterableSuite(SunshineSuite suite, Condition filter) {
         this.suite = suite;
         this.filter = filter;
     }

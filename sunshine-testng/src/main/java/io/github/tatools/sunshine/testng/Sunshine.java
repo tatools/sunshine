@@ -29,7 +29,12 @@ public final class Sunshine {
                                                     )
                                             )
                                     ),
-                                    new SunshineTestsFilter(config)
+                                    new RegexCondition(
+                                            new EitherProperty<>(
+                                                    new SystemTestsPattern(),
+                                                    new DefaultTestsPattern(new SunshineConfig())
+                                            )
+                                    )
                             )
                     )
             ).run();

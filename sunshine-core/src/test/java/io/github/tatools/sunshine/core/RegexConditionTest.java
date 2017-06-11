@@ -7,13 +7,13 @@ import org.junit.Test;
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
  * @since 21.04.2017
  */
-public class PatternRuleTest {
+public class RegexConditionTest {
 
     @Test
-    public void relevant() {
+    public void applicable() {
         MatcherAssert.assertThat(
                 "Regex doesn't work",
-                new PatternRule("(.+)([Tt]est)([\\w\\d]+)?").pass("io.github.my.FirstTest")
+                new RegexCondition("(.+)([Tt]est)([\\w\\d]+)?").applicable("io.github.my.FirstTest")
         );
     }
 }

@@ -10,7 +10,7 @@ public final class JunitSuite implements Suite<Class<?>[]> {
 
     private final SunshineSuite classesAsSuite;
 
-    public JunitSuite(Location location, Rule filter) {
+    public JunitSuite(Location location, Condition filter) {
         this(new PrintableSuite(new FilterableSuite(new BaseSuite(location), filter)));
     }
 

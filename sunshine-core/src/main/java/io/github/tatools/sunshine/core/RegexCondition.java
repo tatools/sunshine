@@ -9,25 +9,24 @@ import java.util.regex.Pattern;
  * @since 22.04.2017
  */
 @EqualsAndHashCode
-class PatternRule implements Rule {
+public final class RegexCondition implements Condition {
 
     private final Pattern regex;
 
-    PatternRule(Property<String> property) {
+    public RegexCondition(Property<String> property) {
         this(property.value());
     }
 
-    PatternRule(String regex) {
+    public RegexCondition(String regex) {
         this(Pattern.compile(regex));
     }
 
-    PatternRule(Pattern regex) {
+    public RegexCondition(Pattern regex) {
         this.regex = regex;
     }
 
-
     @Override
-    public boolean pass(String identity) {
+    public boolean applicable(String identity) {
         return regex.matcher(identity).matches();
     }
 }

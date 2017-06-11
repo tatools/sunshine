@@ -24,8 +24,8 @@ public final class BaseTest implements SunshineTest {
     }
 
     @Override
-    public boolean match(Rule rule) {
-        return rule.pass(this.toString());
+    public boolean match(Condition condition) {
+        return condition.applicable(this.toString());
     }
 
     @Override
