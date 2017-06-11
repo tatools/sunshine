@@ -14,22 +14,23 @@ import io.github.tatools.sunshine.core.*;
 public final class Sunshine {
 
     public static void main(String[] args) {
-        /*
-        @todo #70:2h Use some temporary directory instead of pre-configured for storing TestNG XML suite file.
-         Our goal is to run tests and not provide some XML suite file for a user.
-         */
-
-        SunshineConfig config = new SunshineConfig();
-        ReportFolder reportFolder = new ReportFolder(config);
-        String path = reportFolder.value();
-        Directory directory = new SmartDirectory(path);
-        directory.remove();
         if (args != null && args.length > 0) {
             new TestNGEngine(new PreparedTestNGSuite(args[0])).run();
         } else {
+            final SunshineConfig config = new SunshineConfig();
             new TestNGEngine(
                     new CachedTestNGSuite(
-                            new LoadableTestNGSuite(new Classpath(), path, new SunshineTestsFilter(config))
+                            new LoadableTestNGSuite(
+                                    new Classpath(),
+                                    new AutoCreatedDirectory(
+                                            new AutoRemovableDirectory(
+                                                    new SmartDirectory(
+                                                            new ReportFolder(config)
+                                                    )
+                                            )
+                                    ),
+                                    new SunshineTestsFilter(config)
+                            )
                     )
             ).run();
         }

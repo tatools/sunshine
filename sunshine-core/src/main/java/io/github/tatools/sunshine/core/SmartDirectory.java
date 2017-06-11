@@ -21,6 +21,15 @@ public final class SmartDirectory implements Directory {
         this(new RegularDirectory(path));
     }
 
+    public SmartDirectory(Property<String> property) {
+        this(property.value());
+    }
+
+
+    public SmartDirectory(FsPath path) {
+        this(new RegularDirectory(path));
+    }
+
     public SmartDirectory(Directory directory) {
         this.directory = directory;
     }

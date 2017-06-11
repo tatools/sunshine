@@ -35,7 +35,6 @@ public final class LoadableTestNGSuite implements TestNGSuite {
             test.setSuite(xmlSuite);
             xmlSuite.addTest(test);
         }
-        suitePath.create();
         WritableFile writableFile = new WritableFile(suitePath, "sunshine-suite.xml");
         writableFile.write(xmlSuite.toXml());
         return writableFile;
