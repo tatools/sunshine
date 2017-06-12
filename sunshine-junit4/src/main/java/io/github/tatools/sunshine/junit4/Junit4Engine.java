@@ -7,6 +7,7 @@ import org.junit.runner.JUnitCore;
 import org.junit.runner.Result;
 import org.junit.runner.notification.RunListener;
 
+import java.io.IOException;
 import java.util.Arrays;
 
 /**
@@ -28,7 +29,7 @@ public final class Junit4Engine implements Engine<RunListener> {
     }
 
     @Override
-    public void run() {
+    public void run() throws IOException {
         Result result = jUnitCore.run(new Computer(), suite.tests());
         System.out.println(
                 String.format(

@@ -1,5 +1,7 @@
 package io.github.tatools.sunshine.core;
 
+import java.io.IOException;
+
 /**
  * The interface represents some tests.
  *
@@ -7,5 +9,12 @@ package io.github.tatools.sunshine.core;
  * @since 16.03.2017
  */
 public interface Suite<D> {
-    D tests();
+
+    /**
+     * Returns tests from the suite.
+     *
+     * @return a test or tests
+     * @throws IOException if some errors occur
+     */
+    D tests() throws IOException;
 }

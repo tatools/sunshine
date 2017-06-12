@@ -3,6 +3,7 @@ package io.github.tatools.sunshine.core;
 import lombok.EqualsAndHashCode;
 
 import java.io.File;
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -17,7 +18,7 @@ import java.util.stream.Collectors;
 @EqualsAndHashCode
 public final class Classpath implements Location {
     @Override
-    public List<FsPath> files() {
+    public List<FsPath> files() throws IOException {
         return new CompositeLocation(
                 Arrays.stream(System.getProperty("java.class.path").split(File.pathSeparator))
                         .map(Filesystem::new).collect(Collectors.toList())

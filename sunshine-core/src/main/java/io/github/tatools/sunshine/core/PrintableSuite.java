@@ -1,5 +1,6 @@
 package io.github.tatools.sunshine.core;
 
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -15,7 +16,7 @@ public final class PrintableSuite implements SunshineSuite {
     }
 
     @Override
-    public List<SunshineTest> tests() {
+    public List<SunshineTest> tests() throws IOException {
         System.out.println("Sunshine suite contains the following tests:");
         this.sunshineSuite.tests().forEach(System.out::println);
         return this.sunshineSuite.tests();

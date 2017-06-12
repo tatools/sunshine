@@ -4,6 +4,8 @@ import org.hamcrest.MatcherAssert;
 import org.hamcrest.Matchers;
 import org.junit.Test;
 
+import java.io.IOException;
+
 /**
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
  * @since 16.03.2017
@@ -11,7 +13,7 @@ import org.junit.Test;
 public class ClasspathTest {
 
     @Test
-    public void files() {
+    public void files() throws IOException {
         MatcherAssert.assertThat(new Classpath().files(), Matchers.not(Matchers.empty()));
     }
 }

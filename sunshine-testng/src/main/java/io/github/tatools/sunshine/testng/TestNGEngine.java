@@ -5,6 +5,7 @@ import io.github.tatools.sunshine.core.Location;
 import org.testng.ITestNGListener;
 import org.testng.TestNG;
 
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.Collections;
 
@@ -35,7 +36,7 @@ public final class TestNGEngine implements Engine<ITestNGListener> {
     }
 
     @Override
-    public void run() {
+    public void run() throws IOException {
         engine.setTestSuites(Collections.singletonList(tests.tests().path().toString()));
         engine.run();
         System.exit(engine.getStatus());

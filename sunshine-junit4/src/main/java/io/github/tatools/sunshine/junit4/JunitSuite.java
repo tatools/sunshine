@@ -2,6 +2,8 @@ package io.github.tatools.sunshine.junit4;
 
 import io.github.tatools.sunshine.core.*;
 
+import java.io.IOException;
+
 /**
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
  * @since 06.04.2017
@@ -19,7 +21,7 @@ public final class JunitSuite implements Suite<Class<?>[]> {
     }
 
     @Override
-    public Class<?>[] tests() {
+    public Class<?>[] tests() throws IOException {
         return classesAsSuite.tests().stream().map(Test::object).toArray(size -> new Class[size]);
     }
 }

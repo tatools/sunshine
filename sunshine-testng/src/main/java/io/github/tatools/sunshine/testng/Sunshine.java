@@ -2,6 +2,8 @@ package io.github.tatools.sunshine.testng;
 
 import io.github.tatools.sunshine.core.*;
 
+import java.io.IOException;
+
 /**
  * The {@link Sunshine} class is a main class to run TestNG tests.
  * <p>If no arguments will be provided, then Sunshine will try to find TestNG tests in the CLASSPATH.</p>
@@ -13,7 +15,7 @@ import io.github.tatools.sunshine.core.*;
  */
 public final class Sunshine {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         if (args != null && args.length > 0) {
             new TestNGEngine(new PreparedTestNGSuite(args[0])).run();
         } else {

@@ -1,6 +1,7 @@
 package io.github.tatools.sunshine.core;
 
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -16,11 +17,11 @@ public final class BaseSuite implements SunshineSuite {
     }
 
     @Override
-    public List<SunshineTest> tests() {
+    public List<SunshineTest> tests() throws IOException {
         return classes(location, new ArrayList<>());
     }
 
-    private List<SunshineTest> classes(Location location, List<SunshineTest> result) {
+    private List<SunshineTest> classes(Location location, List<SunshineTest> result) throws IOException {
         for (FsPath file : location.files()) {
             String path = file.path().toString();
             if (isClass(path)) {

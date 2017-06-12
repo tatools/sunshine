@@ -24,15 +24,12 @@ class JarFile implements Location {
     }
 
     @Override
-    public List<FsPath> files() {
-        try (ZipInputStream zip = new ZipInputStream(new FileInputStream(jarPath))) {
-            List<FsPath> data = new ArrayList<>();
-            for (ZipEntry entry = zip.getNextEntry(); entry != null; entry = zip.getNextEntry()) {
-                data.add(new RegularPath(entry.getName()));
-            }
-            return data;
-        } catch (IOException e) {
-            throw new LocationException(e);
+    public List<FsPath> files() throws IOException {
+        ZipInputStream zip = new ZipInputStream(new FileInputStream(jarPath));
+        List<FsPath> data = new ArrayList<>();
+        for (ZipEntry entry = zip.getNextEntry(); entry != null; entry = zip.getNextEntry()) {
+            data.add(new RegularPath(entry.getName()));
         }
+        return data;
     }
 }

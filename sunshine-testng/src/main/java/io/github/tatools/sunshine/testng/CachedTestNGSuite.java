@@ -2,6 +2,7 @@ package io.github.tatools.sunshine.testng;
 
 import io.github.tatools.sunshine.core.FsPath;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -19,7 +20,7 @@ public final class CachedTestNGSuite implements TestNGSuite {
     }
 
     @Override
-    public FsPath tests() {
+    public FsPath tests() throws IOException {
         if (files.isEmpty()) {
             files.add(testNGSuite.tests());
         }

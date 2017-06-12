@@ -4,6 +4,8 @@ import io.github.tatools.sunshine.core.*;
 import org.testng.xml.XmlSuite;
 import org.testng.xml.XmlTest;
 
+import java.io.IOException;
+
 /**
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
  * @since 16.03.2017
@@ -27,7 +29,7 @@ public final class LoadableTestNGSuite implements TestNGSuite {
     }
 
     @Override
-    public File tests() {
+    public File tests() throws IOException {
         XmlSuite xmlSuite = new XmlSuite();
         xmlSuite.setName("Sunshine suite");
         for (SunshineTest sunshineTest : artifacts.tests()) {
