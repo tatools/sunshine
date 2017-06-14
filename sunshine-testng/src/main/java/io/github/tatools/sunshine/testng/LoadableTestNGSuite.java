@@ -4,6 +4,8 @@ import io.github.tatools.sunshine.core.*;
 import org.testng.xml.XmlSuite;
 import org.testng.xml.XmlTest;
 
+import java.io.IOException;
+
 /**
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
  * @since 16.03.2017
@@ -30,17 +32,17 @@ public final class LoadableTestNGSuite implements TestNGSuite {
     public File tests() throws SuiteException {
         XmlSuite xmlSuite = new XmlSuite();
         xmlSuite.setName("Sunshine suite");
-        for (SunshineTest sunshineTest : artifacts.tests()) {
-            try {
+        try {
+            for (SunshineTest sunshineTest : artifacts.tests()) {
                 XmlTest test = new TestNGTest(sunshineTest).object();
                 test.setSuite(xmlSuite);
                 xmlSuite.addTest(test);
-            } catch (TestException e) {
-                throw new SuiteException(e);
             }
+            WritableFile writableFile = new WritableFile(suitePath, "sunshine-suite.xml");
+            writableFile.write(xmlSuite.toXml());
+            return writableFile;
+        } catch (TestException | IOException e) {
+            throw new SuiteException(e);
         }
-        WritableFile writableFile = new WritableFile(suitePath, "sunshine-suite.xml");
-        writableFile.write(xmlSuite.toXml());
-        return writableFile;
     }
 }

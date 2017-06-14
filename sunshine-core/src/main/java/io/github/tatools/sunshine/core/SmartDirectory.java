@@ -2,6 +2,7 @@ package io.github.tatools.sunshine.core;
 
 import lombok.EqualsAndHashCode;
 
+import java.io.IOException;
 import java.nio.file.Path;
 
 /**
@@ -35,14 +36,14 @@ public final class SmartDirectory implements Directory {
     }
 
     @Override
-    public void create() {
+    public void create() throws IOException {
         if (!directory.exist()) {
             directory.create();
         }
     }
 
     @Override
-    public void remove() {
+    public void remove() throws IOException {
         if (directory.exist()) {
             directory.remove();
         }

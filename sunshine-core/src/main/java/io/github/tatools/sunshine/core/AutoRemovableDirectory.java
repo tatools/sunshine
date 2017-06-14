@@ -1,6 +1,7 @@
 package io.github.tatools.sunshine.core;
 
 
+import java.io.IOException;
 import java.nio.file.Path;
 
 /**
@@ -16,18 +17,22 @@ public final class AutoRemovableDirectory implements Directory {
     }
 
     @Override
-    public void create() {
+    public void create() throws IOException {
         Runtime.getRuntime().addShutdownHook(new Thread("ds") {
             @Override
             public void run() {
-                directory.remove();
+                try {
+                    directory.remove();
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
             }
         });
         directory.create();
     }
 
     @Override
-    public void remove() {
+    public void remove() throws IOException {
         directory.remove();
     }
 

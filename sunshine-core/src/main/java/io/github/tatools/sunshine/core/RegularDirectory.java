@@ -30,24 +30,16 @@ public final class RegularDirectory implements Directory {
     }
 
     @Override
-    public void create() {
-        try {
-            Files.createDirectory(fsPath.path());
-        } catch (IOException e) {
-            throw new io.github.tatools.sunshine.core.IOException(e);
-        }
+    public void create() throws IOException {
+        Files.createDirectory(fsPath.path());
     }
 
     @Override
-    public void remove() {
-        try {
-            Files.walk(fsPath.path(), FileVisitOption.FOLLOW_LINKS)
-                    .sorted(Comparator.reverseOrder())
-                    .map(Path::toFile)
-                    .forEach(java.io.File::delete);
-        } catch (IOException e) {
-            throw new io.github.tatools.sunshine.core.IOException(e);
-        }
+    public void remove() throws IOException {
+        Files.walk(fsPath.path(), FileVisitOption.FOLLOW_LINKS)
+                .sorted(Comparator.reverseOrder())
+                .map(Path::toFile)
+                .forEach(java.io.File::delete);
     }
 
     @Override

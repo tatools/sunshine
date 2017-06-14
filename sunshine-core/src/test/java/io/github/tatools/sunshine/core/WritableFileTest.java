@@ -7,6 +7,7 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TemporaryFolder;
 
+import java.io.IOException;
 import java.nio.file.Files;
 
 /**
@@ -18,7 +19,7 @@ public class WritableFileTest {
     public TemporaryFolder testFolder = new TemporaryFolder();
 
     @Test
-    public void write() {
+    public void write() throws IOException {
         final WritableFile file = new WritableFile(testFolder.getRoot().getAbsolutePath(), "ccc");
         file.write("dasd");
         MatcherAssert.assertThat(Files.exists(file.path()), Matchers.is(true));

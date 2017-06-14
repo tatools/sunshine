@@ -1,5 +1,6 @@
 package io.github.tatools.sunshine.core;
 
+import java.io.IOException;
 import java.nio.file.Path;
 
 /**
@@ -7,8 +8,9 @@ import java.nio.file.Path;
  * @since 19.04.2017
  */
 public interface Directory extends FsPath {
-    void create();
-    void remove();
+    void create() throws IOException;
+
+    void remove() throws IOException;
 
     final class Fake implements Directory {
         private final Path path;

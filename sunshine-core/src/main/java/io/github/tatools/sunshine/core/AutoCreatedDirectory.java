@@ -1,5 +1,6 @@
 package io.github.tatools.sunshine.core;
 
+import java.io.IOException;
 import java.nio.file.Path;
 
 /**
@@ -15,24 +16,32 @@ public final class AutoCreatedDirectory implements Directory {
     }
 
     @Override
-    public void create() {
+    public void create() throws IOException {
         this.directory.create();
     }
 
     @Override
-    public void remove() {
+    public void remove() throws IOException {
         this.directory.remove();
     }
 
     @Override
     public Path path() {
-        this.create();
-        return this.directory.path();
+        try {
+            this.create();
+            return this.directory.path();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     @Override
     public boolean exist() {
-        this.create();
-        return true;
+        try {
+            this.create();
+            return true;
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
     }
 }

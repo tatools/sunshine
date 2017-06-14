@@ -1,5 +1,6 @@
 package io.github.tatools.sunshine.core;
 
+import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
@@ -41,8 +42,8 @@ public final class FileConfig implements Config {
                     Properties property = new Properties();
                     property.load(from);
                     props.add(property);
-                } catch (java.io.IOException e) {
-                    throw new IOException(e);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
                 }
             }
             return props.get(0);

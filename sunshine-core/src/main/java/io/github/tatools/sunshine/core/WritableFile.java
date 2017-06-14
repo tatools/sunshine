@@ -42,11 +42,7 @@ public final class WritableFile implements File {
     }
 
     @Override
-    public void write(String data) {
-        try {
-            Files.write(this.path(), data.getBytes());
-        } catch (IOException e) {
-            throw new io.github.tatools.sunshine.core.IOException(e);
-        }
+    public void write(String data) throws IOException {
+        Files.write(this.path(), data.getBytes());
     }
 }

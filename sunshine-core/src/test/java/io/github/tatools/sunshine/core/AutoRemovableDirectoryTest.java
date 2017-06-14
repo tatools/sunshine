@@ -7,6 +7,7 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TemporaryFolder;
 
+import java.io.IOException;
 import java.nio.file.Path;
 
 /**
@@ -18,14 +19,14 @@ public class AutoRemovableDirectoryTest {
     public TemporaryFolder testFolder = new TemporaryFolder();
 
     @Test
-    public void create() {
+    public void create() throws IOException {
         final java.io.File file = testFolder.getRoot();
         new AutoRemovableDirectory(new Directory.Fake(file.toPath())).create();
         MatcherAssert.assertThat("The directory wasn't created", file.exists());
     }
 
     @Test
-    public void remove() {
+    public void remove() throws IOException {
         final java.io.File file = testFolder.getRoot();
         new AutoRemovableDirectory(new Directory.Fake(file.toPath())).remove();
         MatcherAssert.assertThat("The directory exists", file.exists());
