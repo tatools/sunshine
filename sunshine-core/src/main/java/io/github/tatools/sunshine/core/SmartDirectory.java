@@ -22,7 +22,7 @@ public final class SmartDirectory implements Directory {
         this(new RegularDirectory(path));
     }
 
-    public SmartDirectory(Property<String> property) {
+    public SmartDirectory(Property property) {
         this(property.value());
     }
 

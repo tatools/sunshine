@@ -13,7 +13,7 @@ public final class RegexCondition implements Condition {
 
     private final Pattern regex;
 
-    public RegexCondition(Property<String> property) {
+    public RegexCondition(Property property) {
         this(property.value());
     }
 

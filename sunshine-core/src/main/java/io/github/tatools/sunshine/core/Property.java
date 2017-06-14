@@ -6,13 +6,13 @@ package io.github.tatools.sunshine.core;
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
  * @since 21.04.2017
  */
-public interface Property<D> {
+public interface Property {
     /**
      * Allows to get a value of current property if it exists.
      *
-     * @return the value of this property
+     * @return a value of this property
      */
-    D value();
+    String value();
 
     /**
      * Allows to check is this property set or not.

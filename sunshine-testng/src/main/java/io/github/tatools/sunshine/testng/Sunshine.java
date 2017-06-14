@@ -30,7 +30,7 @@ public final class Sunshine {
                                             )
                                     ),
                                     new RegexCondition(
-                                            new EitherProperty<>(
+                                            new EitherProperty(
                                                     new SystemTestsPattern(),
                                                     new DefaultTestsPattern(new SunshineConfig())
                                             )
