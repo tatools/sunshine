@@ -16,7 +16,7 @@ import java.util.zip.ZipInputStream;
  * @since 16.03.2017
  */
 @EqualsAndHashCode
-class JarFile implements Location {
+class JarFile implements Filesystem {
     private final String jarPath;
 
     public JarFile(String jarPath) {

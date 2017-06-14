@@ -1,56 +1,34 @@
 package io.github.tatools.sunshine.core;
 
-import lombok.EqualsAndHashCode;
-
-import java.io.IOException;
-import java.nio.file.*;
-import java.nio.file.attribute.BasicFileAttributes;
-import java.util.ArrayList;
 import java.util.List;
 
 /**
- * The {@link Filesystem} class allows to search files by given path.
+ * The interface declares a place to search tests classes.
  *
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
  * @since 16.03.2017
  */
-@EqualsAndHashCode
-class Filesystem implements Location {
-    private final String path;
+public interface Filesystem {
+    // @todo #90:2h Remove this interface and replace with Suite's implementations.
+    /**
+     * Returns a list of files paths. Any implementation has to support recursive search by defined place.
+     *
+     * @return a list of paths
+     * @throws SuiteException if some error occurs
+     */
+    List<FsPath> files() throws SuiteException;
 
-    Filesystem(String path) {
-        this.path = path;
-    }
 
-    @Override
-    public List<FsPath> files() throws SuiteException {
-        List<FsPath> files = new ArrayList<>();
-        try {
-            Files.walkFileTree(Paths.get(path), new FileVisitor<Path>() {
-                @Override
-                public FileVisitResult preVisitDirectory(Path dir, BasicFileAttributes attrs) throws IOException {
-                    return FileVisitResult.CONTINUE;
-                }
+    class Fake implements Filesystem {
+        private final List<FsPath> files;
 
-                @Override
-                public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
-                    files.add(new RelativePath(path, file.toString()));
-                    return FileVisitResult.CONTINUE;
-                }
-
-                @Override
-                public FileVisitResult visitFileFailed(Path file, IOException exc) throws IOException {
-                    return FileVisitResult.CONTINUE;
-                }
-
-                @Override
-                public FileVisitResult postVisitDirectory(Path dir, IOException exc) throws IOException {
-                    return FileVisitResult.CONTINUE;
-                }
-            });
-        } catch (IOException e) {
-            throw new SuiteException(e);
+        Fake(List<FsPath> files) {
+            this.files = files;
         }
-        return files;
+
+        @Override
+        public List<FsPath> files() {
+            return files;
+        }
     }
 }

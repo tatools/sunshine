@@ -10,7 +10,7 @@ import org.junit.Test;
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
  * @since 16.03.2017
  */
-public class FilesystemTest {
+public class FilesystemFromPathTest {
 
     private static final String RESOURCES = "src/test/resources";
 
@@ -22,6 +22,6 @@ public class FilesystemTest {
                 return item > 0;
             }
         };
-        MatcherAssert.assertThat(new Filesystem(RESOURCES).files(), Matchers.hasSize(matcher));
+        MatcherAssert.assertThat(new FilesystemFromPath(RESOURCES).files(), Matchers.hasSize(matcher));
     }
 }

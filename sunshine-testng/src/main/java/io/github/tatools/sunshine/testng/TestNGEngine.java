@@ -1,7 +1,7 @@
 package io.github.tatools.sunshine.testng;
 
 import io.github.tatools.sunshine.core.Engine;
-import io.github.tatools.sunshine.core.Location;
+import io.github.tatools.sunshine.core.Filesystem;
 import io.github.tatools.sunshine.core.SuiteException;
 import org.testng.ITestNGListener;
 import org.testng.TestNG;
@@ -10,7 +10,7 @@ import java.util.Arrays;
 import java.util.Collections;
 
 /**
- * The {@link TestNGEngine} class allows to run TestNG for given {@link Location}.
+ * The {@link TestNGEngine} class allows to run TestNG for given {@link Filesystem}.
  *
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
  * @since 17.03.2017

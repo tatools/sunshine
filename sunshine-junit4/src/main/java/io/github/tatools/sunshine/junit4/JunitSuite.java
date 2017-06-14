@@ -13,8 +13,8 @@ public final class JunitSuite implements Suite<Class<?>[]> {
 
     private final SunshineSuite classesAsSuite;
 
-    public JunitSuite(Location location, Condition filter) {
-        this(new PrintableSuite(new FilterableSuite(new BaseSuite(location), filter)));
+    public JunitSuite(Filesystem filesystem, Condition filter) {
+        this(new PrintableSuite(new FilterableSuite(new BaseSuite(filesystem), filter)));
     }
 
     public JunitSuite(SunshineSuite classesAsSuite) {

@@ -15,12 +15,12 @@ public final class LoadableTestNGSuite implements TestNGSuite {
     private final SunshineSuite artifacts;
     private final Directory suitePath;
 
-    public LoadableTestNGSuite(Location location, String suitePath, Condition filter) {
-        this(location, new RegularDirectory(suitePath), filter);
+    public LoadableTestNGSuite(Filesystem filesystem, String suitePath, Condition filter) {
+        this(filesystem, new RegularDirectory(suitePath), filter);
     }
 
-    public LoadableTestNGSuite(Location location, Directory suitePath, Condition filter) {
-        this(new PrintableSuite(new FilterableSuite(new BaseSuite(location), filter)), suitePath);
+    public LoadableTestNGSuite(Filesystem filesystem, Directory suitePath, Condition filter) {
+        this(new PrintableSuite(new FilterableSuite(new BaseSuite(filesystem), filter)), suitePath);
     }
 
     public LoadableTestNGSuite(SunshineSuite artifacts, Directory suitePath) {

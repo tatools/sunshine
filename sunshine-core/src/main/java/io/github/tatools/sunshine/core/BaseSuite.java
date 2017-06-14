@@ -9,19 +9,19 @@ import java.util.List;
  * @since 20.03.2017
  */
 public final class BaseSuite implements SunshineSuite {
-    private final Location location;
+    private final Filesystem filesystem;
 
-    public BaseSuite(Location location) {
-        this.location = location;
+    public BaseSuite(Filesystem filesystem) {
+        this.filesystem = filesystem;
     }
 
     @Override
     public List<SunshineTest> tests() throws SuiteException {
-        return classes(location, new ArrayList<>());
+        return classes(filesystem, new ArrayList<>());
     }
 
-    private List<SunshineTest> classes(Location location, List<SunshineTest> result) throws SuiteException {
-        for (FsPath file : location.files()) {
+    private List<SunshineTest> classes(Filesystem filesystem, List<SunshineTest> result) throws SuiteException {
+        for (FsPath file : filesystem.files()) {
             String path = file.path().toString();
             if (isClass(path)) {
                 result.add(new BaseTest(path));

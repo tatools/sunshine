@@ -15,6 +15,10 @@ public final class RelativePath implements FsPath {
     private final FsPath fromPath;
     private final FsPath artifactPath;
 
+    public RelativePath(Path fromPath, String artifactPath) {
+        this(new RegularPath(fromPath), new RegularPath(artifactPath));
+    }
+
     public RelativePath(String fromPath, String artifactPath) {
         this(new RegularPath(fromPath), new RegularPath(artifactPath));
     }

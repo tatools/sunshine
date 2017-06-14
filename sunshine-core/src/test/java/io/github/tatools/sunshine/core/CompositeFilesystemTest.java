@@ -12,15 +12,15 @@ import java.util.List;
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
  * @since 16.03.2017
  */
-public class CompositeLocationTest {
+public class CompositeFilesystemTest {
     @Test
     public void files() throws SuiteException {
-        List<Location> locations = Arrays.asList(
-                new Location.Fake(Collections.singletonList(new FsPath.Fake())),
-                new Location.Fake(Collections.singletonList(new FsPath.Fake()))
+        List<Filesystem> filesystems = Arrays.asList(
+                new Filesystem.Fake(Collections.singletonList(new FsPath.Fake())),
+                new Filesystem.Fake(Collections.singletonList(new FsPath.Fake()))
         );
         MatcherAssert.assertThat(
-                new CompositeLocation(locations).files(),
+                new CompositeFilesystem(filesystems).files(),
                 Matchers.hasSize(2)
         );
     }
