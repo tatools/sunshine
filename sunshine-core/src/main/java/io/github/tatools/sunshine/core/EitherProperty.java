@@ -7,18 +7,18 @@ import lombok.EqualsAndHashCode;
  * @since 22.04.2017
  */
 @EqualsAndHashCode
-public final class EitherProperty<D> implements Property<D> {
+public final class EitherProperty implements Property {
 
-    private final Property<D> first;
-    private final Property<D> second;
+    private final Property first;
+    private final Property second;
 
-    public EitherProperty(Property<D> first, Property<D> second) {
+    public EitherProperty(Property first, Property second) {
         this.first = first;
         this.second = second;
     }
 
     @Override
-    public D value() {
+    public String value() {
         if (first.present()) {
             return first.value();
         }

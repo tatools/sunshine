@@ -18,7 +18,7 @@ public final class Sunshine {
                 new JunitSuite(
                         new Classpath(),
                         new RegexCondition(
-                                new EitherProperty<>(
+                                new EitherProperty(
                                         new SystemTestsPattern(),
                                         new DefaultTestsPattern(new SunshineConfig())
                                 )
