@@ -35,7 +35,7 @@ How to start using?
 1. Make sure you have the following project structure:
     ```
     src/main   <- your code here, including automated tests
-    src/test   <- yuor unit tests here
+    src/test   <- your unit tests here
     ```
 2. Add Sunshine dependency based on your tests runner:
     - use `sunshine-testng` for TestNG
