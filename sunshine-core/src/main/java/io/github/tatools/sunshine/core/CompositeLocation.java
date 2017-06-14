@@ -2,7 +2,6 @@ package io.github.tatools.sunshine.core;
 
 import lombok.EqualsAndHashCode;
 
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -22,7 +21,7 @@ public final class CompositeLocation implements Location {
     }
 
     @Override
-    public List<FsPath> files() throws IOException {
+    public List<FsPath> files() throws SuiteException {
         List<FsPath> files = new ArrayList<>();
         for (Location location : locations) {
             files.addAll(location.files());

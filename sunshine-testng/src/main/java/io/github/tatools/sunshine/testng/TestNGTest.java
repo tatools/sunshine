@@ -1,9 +1,6 @@
 package io.github.tatools.sunshine.testng;
 
-import io.github.tatools.sunshine.core.BaseTest;
-import io.github.tatools.sunshine.core.Condition;
-import io.github.tatools.sunshine.core.SunshineTest;
-import io.github.tatools.sunshine.core.Test;
+import io.github.tatools.sunshine.core.*;
 import org.testng.xml.XmlClass;
 import org.testng.xml.XmlTest;
 
@@ -25,7 +22,7 @@ final class TestNGTest implements Test<XmlTest> {
     }
 
     @Override
-    public XmlTest object() {
+    public XmlTest object() throws TestException {
         XmlTest xmlTest = new XmlTest();
         xmlTest.setName(test.toString());
         xmlTest.setXmlClasses(Collections.singletonList(new XmlClass(test.object(), false)));

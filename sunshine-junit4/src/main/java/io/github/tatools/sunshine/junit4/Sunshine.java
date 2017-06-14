@@ -2,8 +2,6 @@ package io.github.tatools.sunshine.junit4;
 
 import io.github.tatools.sunshine.core.*;
 
-import java.io.IOException;
-
 
 /**
  * The {@link Sunshine} class is a main class to run Junit4 tests.
@@ -13,7 +11,7 @@ import java.io.IOException;
  */
 public final class Sunshine {
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws SuiteException {
         new Junit4Engine(
                 new JunitSuite(
                         new Classpath(),

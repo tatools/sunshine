@@ -2,6 +2,7 @@ package io.github.tatools.sunshine.testng;
 
 import io.github.tatools.sunshine.core.FsPath;
 import io.github.tatools.sunshine.core.RegularPath;
+import io.github.tatools.sunshine.core.SuiteException;
 
 /**
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
@@ -20,7 +21,7 @@ public final class PreparedTestNGSuite implements TestNGSuite {
     }
 
     @Override
-    public FsPath tests() {
+    public FsPath tests() throws SuiteException {
         return fsPath;
     }
 }

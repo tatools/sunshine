@@ -4,7 +4,6 @@ import org.hamcrest.MatcherAssert;
 import org.hamcrest.Matchers;
 import org.junit.Test;
 
-import java.io.IOException;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
@@ -15,7 +14,7 @@ import java.util.List;
  */
 public class CompositeLocationTest {
     @Test
-    public void files() throws IOException {
+    public void files() throws SuiteException {
         List<Location> locations = Arrays.asList(
                 new Location.Fake(Collections.singletonList(new FsPath.Fake())),
                 new Location.Fake(Collections.singletonList(new FsPath.Fake()))

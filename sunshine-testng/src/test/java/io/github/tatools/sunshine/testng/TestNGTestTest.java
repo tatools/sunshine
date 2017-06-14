@@ -1,6 +1,6 @@
 package io.github.tatools.sunshine.testng;
 
-import io.github.tatools.sunshine.core.TestClassException;
+import io.github.tatools.sunshine.core.TestException;
 import org.junit.Test;
 
 /**
@@ -9,13 +9,13 @@ import org.junit.Test;
  */
 public class TestNGTestTest {
 
-    @Test(expected = TestClassException.class)
-    public void asClassWithGhostClass() {
+    @Test(expected = TestException.class)
+    public void asClassWithGhostClass() throws TestException {
         new TestNGTest("io/github/tatools/testng/Test11.class").object();
     }
 
     @Test
-    public void withRealClass() {
+    public void withRealClass() throws TestException {
         new TestNGTest("io/github/tatools/sunshine/core/Engine.class").object();
     }
 }

@@ -2,10 +2,10 @@ package io.github.tatools.sunshine.testng;
 
 import io.github.tatools.sunshine.core.Engine;
 import io.github.tatools.sunshine.core.Location;
+import io.github.tatools.sunshine.core.SuiteException;
 import org.testng.ITestNGListener;
 import org.testng.TestNG;
 
-import java.io.IOException;
 import java.util.Arrays;
 import java.util.Collections;
 
@@ -36,7 +36,7 @@ public final class TestNGEngine implements Engine<ITestNGListener> {
     }
 
     @Override
-    public void run() throws IOException {
+    public void run() throws SuiteException {
         engine.setTestSuites(Collections.singletonList(tests.tests().path().toString()));
         engine.run();
         System.exit(engine.getStatus());

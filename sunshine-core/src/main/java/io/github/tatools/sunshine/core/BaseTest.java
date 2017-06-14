@@ -15,11 +15,11 @@ public final class BaseTest implements SunshineTest {
     }
 
     @Override
-    public Class object() {
+    public Class object() throws TestException {
         try {
             return Class.forName(toString());
         } catch (ClassNotFoundException e) {
-            throw new TestClassException(e);
+            throw new TestException(e);
         }
     }
 

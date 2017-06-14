@@ -5,8 +5,6 @@ import org.hamcrest.MatcherAssert;
 import org.hamcrest.Matchers;
 import org.junit.Test;
 
-import java.io.IOException;
-
 
 /**
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
@@ -17,7 +15,7 @@ public class FilesystemTest {
     private static final String RESOURCES = "src/test/resources";
 
     @Test
-    public void files() throws IOException {
+    public void files() throws SuiteException {
         CustomTypeSafeMatcher<Integer> matcher = new CustomTypeSafeMatcher<Integer>("Has at least one item") {
             @Override
             protected boolean matchesSafely(Integer item) {

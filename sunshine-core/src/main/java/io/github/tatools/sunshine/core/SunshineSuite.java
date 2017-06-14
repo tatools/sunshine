@@ -1,6 +1,5 @@
 package io.github.tatools.sunshine.core;
 
-import java.io.IOException;
 import java.util.Arrays;
 import java.util.List;
 
@@ -10,7 +9,7 @@ import java.util.List;
  */
 public interface SunshineSuite extends Suite<List<SunshineTest>> {
     @Override
-    List<SunshineTest> tests() throws IOException;
+    List<SunshineTest> tests() throws SuiteException;
 
     final class Fake implements SunshineSuite {
         private final List<SunshineTest> tests;

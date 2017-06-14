@@ -2,12 +2,12 @@ package io.github.tatools.sunshine.junit4;
 
 import io.github.tatools.sunshine.core.Engine;
 import io.github.tatools.sunshine.core.Suite;
+import io.github.tatools.sunshine.core.SuiteException;
 import org.junit.runner.Computer;
 import org.junit.runner.JUnitCore;
 import org.junit.runner.Result;
 import org.junit.runner.notification.RunListener;
 
-import java.io.IOException;
 import java.util.Arrays;
 
 /**
@@ -29,7 +29,7 @@ public final class Junit4Engine implements Engine<RunListener> {
     }
 
     @Override
-    public void run() throws IOException {
+    public void run() throws SuiteException {
         Result result = jUnitCore.run(new Computer(), suite.tests());
         System.out.println(
                 String.format(

@@ -11,7 +11,7 @@ import org.junit.Test;
 public class BaseTestTest {
 
     @Test
-    public void object() {
+    public void object() throws TestException {
         MatcherAssert.assertThat(
                 new BaseTest("io/github/tatools/sunshine/core/BaseTest.class").object(),
                 Matchers.equalTo(BaseTest.class)

@@ -1,7 +1,5 @@
 package io.github.tatools.sunshine.core;
 
-import java.io.IOException;
-
 /**
  * The {@link Engine} interface declares a way to implement different unit test engines.
  *
@@ -13,9 +11,10 @@ public interface Engine<Listener> {
     /**
      * Runs tests in an engine.
      *
-     * @throws IOException if some errors occur
+     * @throws SuiteException if some error occurs
      */
-    void run() throws IOException;
+//    @todo #90:30m Create separate exception for Engine errors.
+    void run() throws SuiteException;
 
     /**
      * Allow to get new instance of an engine with provided listeners.

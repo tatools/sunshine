@@ -1,13 +1,13 @@
 package io.github.tatools.sunshine.core;
 
 /**
- * The interface represents a class with a test (tests).
+ * The interface represents a class with a test.
  *
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
  * @since 16.03.2017
  */
 public interface Test<T> {
-    T object();
+    T object() throws TestException;
 
     boolean match(Condition condition);
 

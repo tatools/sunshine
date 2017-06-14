@@ -6,7 +6,7 @@ package io.github.tatools.sunshine.core;
  */
 public interface SunshineTest extends Test<Class> {
     @Override
-    Class object();
+    Class object() throws TestException;
 
     @Override
     boolean match(Condition condition);

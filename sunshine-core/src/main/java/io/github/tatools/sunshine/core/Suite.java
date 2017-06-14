@@ -1,6 +1,5 @@
 package io.github.tatools.sunshine.core;
 
-import java.io.IOException;
 
 /**
  * The interface represents some tests.
@@ -14,7 +13,7 @@ public interface Suite<D> {
      * Returns tests from the suite.
      *
      * @return a test or tests
-     * @throws IOException if some errors occur
+     * @throws SuiteException if some error occurs
      */
-    D tests() throws IOException;
+    D tests() throws SuiteException;
 }

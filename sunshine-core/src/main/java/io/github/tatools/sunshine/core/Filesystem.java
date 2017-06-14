@@ -23,30 +23,34 @@ class Filesystem implements Location {
     }
 
     @Override
-    public List<FsPath> files() throws IOException {
+    public List<FsPath> files() throws SuiteException {
         List<FsPath> files = new ArrayList<>();
-        Files.walkFileTree(Paths.get(path), new FileVisitor<Path>() {
-            @Override
-            public FileVisitResult preVisitDirectory(Path dir, BasicFileAttributes attrs) throws IOException {
-                return FileVisitResult.CONTINUE;
-            }
+        try {
+            Files.walkFileTree(Paths.get(path), new FileVisitor<Path>() {
+                @Override
+                public FileVisitResult preVisitDirectory(Path dir, BasicFileAttributes attrs) throws IOException {
+                    return FileVisitResult.CONTINUE;
+                }
 
-            @Override
-            public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
-                files.add(new RelativePath(path, file.toString()));
-                return FileVisitResult.CONTINUE;
-            }
+                @Override
+                public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
+                    files.add(new RelativePath(path, file.toString()));
+                    return FileVisitResult.CONTINUE;
+                }
 
-            @Override
-            public FileVisitResult visitFileFailed(Path file, IOException exc) throws IOException {
-                return FileVisitResult.CONTINUE;
-            }
+                @Override
+                public FileVisitResult visitFileFailed(Path file, IOException exc) throws IOException {
+                    return FileVisitResult.CONTINUE;
+                }
 
-            @Override
-            public FileVisitResult postVisitDirectory(Path dir, IOException exc) throws IOException {
-                return FileVisitResult.CONTINUE;
-            }
-        });
+                @Override
+                public FileVisitResult postVisitDirectory(Path dir, IOException exc) throws IOException {
+                    return FileVisitResult.CONTINUE;
+                }
+            });
+        } catch (IOException e) {
+            throw new SuiteException(e);
+        }
         return files;
     }
 }

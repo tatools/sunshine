@@ -1,6 +1,5 @@
 package io.github.tatools.sunshine.core;
 
-import java.io.IOException;
 import java.util.List;
 
 /**
@@ -10,14 +9,14 @@ import java.util.List;
  * @since 16.03.2017
  */
 public interface Location {
-
+    // @todo #90:2h Remove this interface and replace with Suite's implementations.
     /**
      * Returns a list of files paths. Any implementation has to support recursive search by defined place.
      *
      * @return a list of paths
-     * @throws IOException if some errors occur
+     * @throws SuiteException if some error occurs
      */
-    List<FsPath> files() throws IOException;
+    List<FsPath> files() throws SuiteException;
 
 
     class Fake implements Location {

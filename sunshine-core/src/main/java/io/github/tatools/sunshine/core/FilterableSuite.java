@@ -1,6 +1,5 @@
 package io.github.tatools.sunshine.core;
 
-import java.io.IOException;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -19,7 +18,7 @@ public final class FilterableSuite implements SunshineSuite {
     }
 
     @Override
-    public List<SunshineTest> tests() throws IOException {
+    public List<SunshineTest> tests() throws SuiteException {
         return suite.tests().stream().filter(classTest -> classTest.match(filter)).collect(Collectors.toList());
     }
 }
