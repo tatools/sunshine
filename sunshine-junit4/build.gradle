@@ -17,18 +17,6 @@ dependencies {
     testCompile 'org.hamcrest:hamcrest-all:1.3'
 }
 
-task copyJar(type: Copy) {
-    from "../sunshine-core-deps/build/libs/sunshine-core-deps-${version}.jar"
-    into "src/test/resources"
-    rename {
-        "sample-tests.jar"
-    }
-}
-
-copyJar.dependsOn(':sunshine-core-deps:ready')
-
-test.dependsOn(copyJar)
-
 task ready(dependsOn: check) {
     doLast {
         println("Unit testing of Sunshine Junit4 is completed.")
