@@ -8,6 +8,7 @@ import java.nio.file.Paths;
  * @since 24.04.2017
  */
 public interface FsPath {
+    // @todo #91:1h Rename to FileSystemPath. Make sure all implementaions have self-explained names.
     Path path();
 
     boolean exist();
@@ -18,14 +19,21 @@ public interface FsPath {
         private final boolean exist;
 
         public Fake() {
-            this(Paths.get("."), true);
+            this(Paths.get("."), false);
+        }
+
+        public Fake(String path) {
+            this(Paths.get(path), false);
+        }
+
+        public Fake(String path, boolean exist) {
+            this(Paths.get(path), exist);
         }
 
         public Fake(Path path, boolean exist) {
             this.path = path;
             this.exist = exist;
         }
-
 
         @Override
         public Path path() {

@@ -12,30 +12,31 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * The {@link FilesystemFromPath} class allows to search files by given path.
+ * The {@link FileSystemOfPath} class allows to search files by given path.
  *
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
  * @since 16.03.2017
  */
 @EqualsAndHashCode
-class FilesystemFromPath implements Filesystem {
+final class FileSystemOfPath implements FileSystem {
     private final Path path;
 
-    FilesystemFromPath(String path) {
+    FileSystemOfPath(String path) {
         this(new RegularPath(path).path());
     }
 
-    FilesystemFromPath(Path path) {
+    FileSystemOfPath(Path path) {
         this.path = path;
     }
 
     @Override
-    public List<FsPath> files() throws SuiteException {
-        List<FsPath> files = new ArrayList<>();
+    public List<FsPath> files() throws FileSystemException {
         try {
+            List<FsPath> files = new ArrayList<>();
             Files.walkFileTree(path, new FileVisitor<Path>() {
                 @Override
                 public FileVisitResult preVisitDirectory(Path dir, BasicFileAttributes attrs) throws IOException {
+                    files.add(new RelativePath(path, dir.toString()));
                     return FileVisitResult.CONTINUE;
                 }
 
@@ -55,9 +56,9 @@ class FilesystemFromPath implements Filesystem {
                     return FileVisitResult.CONTINUE;
                 }
             });
+            return files;
         } catch (IOException e) {
-            throw new SuiteException(e);
+            throw new FileSystemException(e);
         }
-        return files;
     }
 }

@@ -8,17 +8,17 @@ import org.junit.Test;
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
  * @since 16.03.2017
  */
-public class JarFileTest {
+public class FileSystemOfJarFileTest {
     @Test
-    public void files() throws SuiteException {
+    public void files() throws FileSystemException {
         MatcherAssert.assertThat(
-                new JarFile("src/test/resources/sample-tests.jar").files(),
+                new FileSystemOfJarFile("build/sample-tests.jar").files(),
                 Matchers.hasItem(new RegularPath("io/github/tatools/testng/Test1.class"))
         );
     }
 
-    @Test(expected = SuiteException.class)
-    public void incorrectPath() throws SuiteException {
-        new JarFile("faffasfas").files();
+    @Test(expected = FileSystemException.class)
+    public void incorrectPath() throws FileSystemException {
+        new FileSystemOfJarFile("faffasfas").files();
     }
 }

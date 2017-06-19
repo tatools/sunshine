@@ -14,7 +14,7 @@ public final class Sunshine {
     public static void main(String[] args) throws SuiteException {
         new Junit4Engine(
                 new JunitSuite(
-                        new Classpath(),
+                        new FileSystemOfClasspathClasses(),
                         new RegexCondition(
                                 new EitherProperty(
                                         new SystemTestsPattern(),

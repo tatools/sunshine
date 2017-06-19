@@ -1,42 +1,27 @@
 package io.github.tatools.sunshine.core;
 
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
  * @since 20.03.2017
  */
 public final class BaseSuite implements SunshineSuite {
-    private final Filesystem filesystem;
+    // @todo #99:1h Make names self-explained for SunshineSuite implementaions.
+    private final FileSystem fileSystem;
 
-    public BaseSuite(Filesystem filesystem) {
-        this.filesystem = filesystem;
+    public BaseSuite(FileSystem fileSystem) {
+        this.fileSystem = fileSystem;
     }
 
     @Override
     public List<SunshineTest> tests() throws SuiteException {
-        return classes(filesystem, new ArrayList<>());
-    }
-
-    private List<SunshineTest> classes(Filesystem filesystem, List<SunshineTest> result) throws SuiteException {
-        for (FsPath file : filesystem.files()) {
-            String path = file.path().toString();
-            if (isClass(path)) {
-                result.add(new BaseTest(path));
-            } else if (isJar(path)) {
-                classes(new JarFile(path), result);
-            }
+        try {
+            return fileSystem.files().stream().map(f -> new BaseTest(f.path().toString())).collect(Collectors.toList());
+        } catch (FileSystemException e) {
+            throw new SuiteException(e);
         }
-        return result;
-    }
-
-    private boolean isClass(String path) {
-        return path.matches(".+\\.class$") && !path.contains("$");
-    }
-
-    private boolean isJar(String path) {
-        return path.endsWith(".jar");
     }
 }

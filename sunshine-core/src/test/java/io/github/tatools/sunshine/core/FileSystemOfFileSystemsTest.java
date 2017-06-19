@@ -12,15 +12,15 @@ import java.util.List;
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
  * @since 16.03.2017
  */
-public class CompositeFilesystemTest {
+public class FileSystemOfFileSystemsTest {
     @Test
-    public void files() throws SuiteException {
-        List<Filesystem> filesystems = Arrays.asList(
-                new Filesystem.Fake(Collections.singletonList(new FsPath.Fake())),
-                new Filesystem.Fake(Collections.singletonList(new FsPath.Fake()))
+    public void files() throws FileSystemException {
+        List<FileSystem> fileSystems = Arrays.asList(
+                new FileSystem.Fake(Collections.singletonList(new FsPath.Fake())),
+                new FileSystem.Fake(Collections.singletonList(new FsPath.Fake()))
         );
         MatcherAssert.assertThat(
-                new CompositeFilesystem(filesystems).files(),
+                new FileSystemOfFileSystems(fileSystems).files(),
                 Matchers.hasSize(2)
         );
     }

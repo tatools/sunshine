@@ -8,10 +8,10 @@ import org.junit.Test;
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
  * @since 16.03.2017
  */
-public class ClasspathTest {
+public class FileSystemOfClasspathClassesTest {
 
     @Test
-    public void files() throws SuiteException {
-        MatcherAssert.assertThat(new Classpath().files(), Matchers.not(Matchers.empty()));
+    public void files() throws FileSystemException {
+        MatcherAssert.assertThat(new FileSystemOfClasspathClasses().files(), Matchers.not(Matchers.empty()));
     }
 }

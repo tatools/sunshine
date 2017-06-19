@@ -10,21 +10,26 @@ import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
 /**
- * The {@link JarFile} class allows to search files in given <b>jar</b> file.
+ * The {@link FileSystemOfJarFile} class allows to search files in given <b>jar</b> file.
  *
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
  * @since 16.03.2017
  */
 @EqualsAndHashCode
-class JarFile implements Filesystem {
+final class FileSystemOfJarFile implements FileSystem {
+
     private final String jarPath;
 
-    public JarFile(String jarPath) {
+    FileSystemOfJarFile(FsPath jarPath) {
+        this(jarPath.path().toString());
+    }
+
+    FileSystemOfJarFile(String jarPath) {
         this.jarPath = jarPath;
     }
 
     @Override
-    public List<FsPath> files() throws SuiteException {
+    public List<FsPath> files() throws FileSystemException {
         try {
             List<FsPath> data = new ArrayList<>();
             ZipInputStream zip = new ZipInputStream(new FileInputStream(jarPath));
@@ -33,7 +38,7 @@ class JarFile implements Filesystem {
             }
             return data;
         } catch (IOException e) {
-            throw new SuiteException(e);
+            throw new FileSystemException(e);
         }
     }
 }

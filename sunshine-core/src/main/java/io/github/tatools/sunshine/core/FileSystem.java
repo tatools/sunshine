@@ -1,5 +1,6 @@
 package io.github.tatools.sunshine.core;
 
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -8,19 +9,21 @@ import java.util.List;
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
  * @since 16.03.2017
  */
-public interface Filesystem {
-    // @todo #90:2h Remove this interface and replace with Suite's implementations.
+public interface FileSystem {
     /**
-     * Returns a list of files paths. Any implementation has to support recursive search by defined place.
+     * Returns a list of files within given file system. An implementation may support recursive search or not.
      *
-     * @return a list of paths
-     * @throws SuiteException if some error occurs
+     * @return a list of files
+     * @throws FileSystemException if some error occurs
      */
-    List<FsPath> files() throws SuiteException;
+    List<FsPath> files() throws FileSystemException;
 
-
-    class Fake implements Filesystem {
+    class Fake implements FileSystem {
         private final List<FsPath> files;
+
+        Fake(FsPath... files) {
+            this(Arrays.asList(files));
+        }
 
         Fake(List<FsPath> files) {
             this.files = files;

@@ -1,6 +1,7 @@
 package io.github.tatools.sunshine.core;
 
 import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -11,6 +12,7 @@ import java.nio.file.Paths;
  * @since 19.04.2017
  */
 @EqualsAndHashCode
+@ToString
 public final class RegularPath implements FsPath {
 
     private final Path directory;

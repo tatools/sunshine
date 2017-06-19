@@ -19,7 +19,7 @@ dependencies {
 
 task copyUnitTestsDependencies(type: Copy) {
     from "../sunshine-core-deps/build/libs/sunshine-core-deps-${version}.jar"
-    into "src/test/resources"
+    into "build"
     rename {
         "sample-tests.jar"
     }

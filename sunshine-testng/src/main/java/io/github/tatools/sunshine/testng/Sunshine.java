@@ -21,7 +21,7 @@ public final class Sunshine {
             new TestNGEngine(
                     new CachedTestNGSuite(
                             new LoadableTestNGSuite(
-                                    new Classpath(),
+                                    new FileSystemOfClasspathClasses(),
                                     new AutoCreatedDirectory(
                                             new AutoRemovableDirectory(
                                                     new SmartDirectory(
