@@ -11,10 +11,9 @@ public interface Engine<Listener> {
     /**
      * Runs tests in an engine.
      *
-     * @throws SuiteException if some error occurs
+     * @throws EngineException if some error occurs
      */
-//    @todo #90:30m Create separate exception for Engine errors.
-    void run() throws SuiteException;
+    void run() throws EngineException;
 
     /**
      * Allow to get new instance of an engine with provided listeners.

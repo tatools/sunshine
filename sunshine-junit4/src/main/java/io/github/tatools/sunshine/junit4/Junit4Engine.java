@@ -1,6 +1,7 @@
 package io.github.tatools.sunshine.junit4;
 
 import io.github.tatools.sunshine.core.Engine;
+import io.github.tatools.sunshine.core.EngineException;
 import io.github.tatools.sunshine.core.Suite;
 import io.github.tatools.sunshine.core.SuiteException;
 import org.junit.runner.Computer;
@@ -29,17 +30,21 @@ public final class Junit4Engine implements Engine<RunListener> {
     }
 
     @Override
-    public void run() throws SuiteException {
-        Result result = jUnitCore.run(new Computer(), suite.tests());
-        System.out.println(
-                String.format(
-                        "Total tests run: %s, Failures: %s, Skips: %s",
-                        result.getRunCount(),
-                        result.getFailureCount(),
-                        result.getIgnoreCount()
-                )
-        );
-        System.exit(result.wasSuccessful() ? 0 : -1);
+    public void run() throws EngineException {
+        try {
+            Result result = jUnitCore.run(new Computer(), suite.tests());
+            System.out.println(
+                    String.format(
+                            "Total tests run: %s, Failures: %s, Skips: %s",
+                            result.getRunCount(),
+                            result.getFailureCount(),
+                            result.getIgnoreCount()
+                    )
+            );
+            System.exit(result.wasSuccessful() ? 0 : -1);
+        } catch (SuiteException e) {
+            throw new EngineException("Some problem occurs in the Junit4 engine", e);
+        }
     }
 
     @Override

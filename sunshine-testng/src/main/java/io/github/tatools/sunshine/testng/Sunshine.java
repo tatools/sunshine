@@ -13,7 +13,7 @@ import io.github.tatools.sunshine.core.*;
  */
 public final class Sunshine {
 
-    public static void main(String[] args) throws SuiteException {
+    public static void main(String[] args) throws EngineException {
         if (args != null && args.length > 0) {
             new TestNGEngine(new PreparedTestNGSuite(args[0])).run();
         } else {

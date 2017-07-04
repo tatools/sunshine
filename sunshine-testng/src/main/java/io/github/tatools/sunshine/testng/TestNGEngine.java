@@ -1,6 +1,7 @@
 package io.github.tatools.sunshine.testng;
 
 import io.github.tatools.sunshine.core.Engine;
+import io.github.tatools.sunshine.core.EngineException;
 import io.github.tatools.sunshine.core.FileSystem;
 import io.github.tatools.sunshine.core.SuiteException;
 import org.testng.ITestNGListener;
@@ -36,10 +37,14 @@ public final class TestNGEngine implements Engine<ITestNGListener> {
     }
 
     @Override
-    public void run() throws SuiteException {
-        engine.setTestSuites(Collections.singletonList(tests.tests().path().toString()));
-        engine.run();
-        System.exit(engine.getStatus());
+    public void run() throws EngineException {
+        try {
+            engine.setTestSuites(Collections.singletonList(tests.tests().path().toString()));
+            engine.run();
+            System.exit(engine.getStatus());
+        } catch (SuiteException e) {
+            throw new EngineException("Some problem occurs in the TestNG engine", e);
+        }
     }
 
     /**

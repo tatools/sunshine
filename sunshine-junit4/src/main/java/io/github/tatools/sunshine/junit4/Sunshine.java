@@ -11,7 +11,7 @@ import io.github.tatools.sunshine.core.*;
  */
 public final class Sunshine {
 
-    public static void main(String[] args) throws SuiteException {
+    public static void main(String[] args) throws EngineException {
         new Junit4Engine(
                 new JunitSuite(
                         new FileSystemOfClasspathClasses(),
