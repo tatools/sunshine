@@ -10,11 +10,11 @@ import java.util.Properties;
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
  * @since 21.04.2017
  */
-public final class FileConfig implements Config {
+public final class ConfigFromFile implements Config {
 
     private final Wrapper wrapper;
 
-    public FileConfig(InputStream file) {
+    public ConfigFromFile(InputStream file) {
         this.wrapper = new Wrapper(file);
     }
 

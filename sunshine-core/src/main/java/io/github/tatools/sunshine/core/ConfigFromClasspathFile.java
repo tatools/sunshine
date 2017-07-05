@@ -8,12 +8,12 @@ import lombok.EqualsAndHashCode;
  * @since 21.04.2017
  */
 @EqualsAndHashCode
-public final class ClasspathConfig implements Config {
+public final class ConfigFromClasspathFile implements Config {
 
     private final Config config;
 
-    public ClasspathConfig(String file) {
-        config = new FileConfig(ClassLoader.getSystemResourceAsStream(file));
+    public ConfigFromClasspathFile(String file) {
+        config = new ConfigFromFile(ClassLoader.getSystemResourceAsStream(file));
     }
 
     @Override

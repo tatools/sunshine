@@ -17,7 +17,7 @@ public final class Sunshine {
         if (args != null && args.length > 0) {
             new TestNGEngine(new PreparedTestNGSuite(args[0])).run();
         } else {
-            final SunshineConfig config = new SunshineConfig();
+            final Config config = new ConfigFromSunshine();
             new TestNGEngine(
                     new CachedTestNGSuite(
                             new LoadableTestNGSuite(
@@ -32,7 +32,7 @@ public final class Sunshine {
                                     new RegexCondition(
                                             new AttributeFromSequence(
                                                     new AttributeOfTestPatternFromCli(),
-                                                    new AttributeOfTestPatternFromConfig(new SunshineConfig())
+                                                    new AttributeOfTestPatternFromConfig(config)
                                             )
                                     )
                             )

@@ -18,7 +18,7 @@ public final class Sunshine {
                         new RegexCondition(
                                 new AttributeFromSequence(
                                         new AttributeOfTestPatternFromCli(),
-                                        new AttributeOfTestPatternFromConfig(new SunshineConfig())
+                                        new AttributeOfTestPatternFromConfig(new ConfigFromSunshine())
                                 )
                         )
                 )

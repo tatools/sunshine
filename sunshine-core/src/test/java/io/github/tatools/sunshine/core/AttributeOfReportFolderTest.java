@@ -13,7 +13,7 @@ public class AttributeOfReportFolderTest {
     @Test
     public void value() {
         MatcherAssert.assertThat(
-                new AttributeOfReportFolder(new ClasspathConfig("test.properties")).value(),
+                new AttributeOfReportFolder(new ConfigFromClasspathFile("test.properties")).value(),
                 Matchers.equalTo("aa")
         );
     }

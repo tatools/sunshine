@@ -7,12 +7,12 @@ import lombok.EqualsAndHashCode;
  * @since 21.04.2017
  */
 @EqualsAndHashCode
-public final class SunshineConfig implements Config {
+public final class ConfigFromSunshine implements Config {
 
     private final Config config;
 
-    public SunshineConfig() {
-        this.config = new ClasspathConfig("sunshine.properties");
+    public ConfigFromSunshine() {
+        this.config = new ConfigFromClasspathFile("sunshine.properties");
     }
 
     @Override
