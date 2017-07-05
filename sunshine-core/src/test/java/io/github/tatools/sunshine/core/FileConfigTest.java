@@ -15,7 +15,7 @@ public class FileConfigTest {
     @Test
     public void hasUnexpected() {
         MatcherAssert.assertThat(
-                "Unexpected property was loaded",
+                "Unexpected attribute was loaded",
                 !new FileConfig(new ByteArrayInputStream("a =b".getBytes())).has("d")
         );
     }
@@ -23,7 +23,7 @@ public class FileConfigTest {
     @Test
     public void hasExpected() {
         MatcherAssert.assertThat(
-                "Unexpected property was loaded",
+                "Unexpected attribute was loaded",
                 new FileConfig(new ByteArrayInputStream("a =b".getBytes())).has("a")
         );
     }
@@ -31,7 +31,7 @@ public class FileConfigTest {
     @Test
     public void property() {
         MatcherAssert.assertThat(
-                new FileConfig(new ByteArrayInputStream("a = b".getBytes())).property("a"),
+                new FileConfig(new ByteArrayInputStream("a = b".getBytes())).attribute("a"),
                 Matchers.equalTo("b")
         );
     }

@@ -25,14 +25,14 @@ public final class Sunshine {
                                     new DirectoryWithAutomaticCreation(
                                             new DirectoryWithAutomaticDeletion(
                                                     new DirectorySafe(
-                                                            new ReportFolder(config)
+                                                            new AttributeOfReportFolder(config)
                                                     )
                                             )
                                     ),
                                     new RegexCondition(
-                                            new EitherProperty(
-                                                    new SystemTestsPattern(),
-                                                    new DefaultTestsPattern(new SunshineConfig())
+                                            new AttributeFromSequence(
+                                                    new AttributeOfTestPatternFromCli(),
+                                                    new AttributeOfTestPatternFromConfig(new SunshineConfig())
                                             )
                                     )
                             )

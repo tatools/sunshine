@@ -13,7 +13,7 @@ public class ClasspathConfigTest {
     @Test
     public void propertyReturnNotDefinedForUnknownKey() {
         MatcherAssert.assertThat(
-                new ClasspathConfig("test.properties").property("a"),
+                new ClasspathConfig("test.properties").attribute("a"),
                 Matchers.equalTo("a")
         );
     }

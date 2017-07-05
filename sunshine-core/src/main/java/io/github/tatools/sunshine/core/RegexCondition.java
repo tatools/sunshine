@@ -13,8 +13,8 @@ public final class RegexCondition implements Condition {
 
     private final Pattern regex;
 
-    public RegexCondition(Property property) {
-        this(property.value());
+    public RegexCondition(Attribute attribute) {
+        this(attribute.value());
     }
 
     public RegexCondition(String regex) {

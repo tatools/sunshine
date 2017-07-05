@@ -5,6 +5,7 @@ package io.github.tatools.sunshine.core;
  * @since 21.04.2017
  */
 public interface Config {
-    String property(String key);
+    String attribute(String key);
+
     boolean has(String key);
 }

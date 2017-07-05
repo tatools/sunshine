@@ -19,7 +19,7 @@ public final class FileConfig implements Config {
     }
 
     @Override
-    public String property(String key) {
+    public String attribute(String key) {
         return wrapper.get().getProperty(key);
     }
 

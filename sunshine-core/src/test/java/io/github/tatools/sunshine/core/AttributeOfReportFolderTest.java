@@ -8,12 +8,12 @@ import org.junit.Test;
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
  * @since 21.04.2017
  */
-public class ReportFolderTest {
+public class AttributeOfReportFolderTest {
 
     @Test
     public void value() {
         MatcherAssert.assertThat(
-                new ReportFolder(new ClasspathConfig("test.properties")).value(),
+                new AttributeOfReportFolder(new ClasspathConfig("test.properties")).value(),
                 Matchers.equalTo("aa")
         );
     }

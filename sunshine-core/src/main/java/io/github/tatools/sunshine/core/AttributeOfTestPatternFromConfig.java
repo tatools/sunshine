@@ -7,18 +7,18 @@ import lombok.EqualsAndHashCode;
  * @since 21.04.2017
  */
 @EqualsAndHashCode
-public final class DefaultTestsPattern implements Property {
+public final class AttributeOfTestPatternFromConfig implements Attribute {
 
     private final String key = "tests-pattern";
     private final Config config;
 
-    public DefaultTestsPattern(Config config) {
+    public AttributeOfTestPatternFromConfig(Config config) {
         this.config = config;
     }
 
     @Override
     public String value() {
-        return config.property(key);
+        return config.attribute(key);
     }
 
     @Override

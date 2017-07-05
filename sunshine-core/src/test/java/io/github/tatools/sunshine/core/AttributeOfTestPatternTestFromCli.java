@@ -8,12 +8,12 @@ import org.junit.Test;
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
  * @since 22.04.2017
  */
-public class SystemTestsPatternTest {
+public class AttributeOfTestPatternTestFromCli {
     @Test
     public void value() {
         System.setProperty("tests", "a");
         MatcherAssert.assertThat(
-                new SystemTestsPattern().value(),
+                new AttributeOfTestPatternFromCli().value(),
                 Matchers.equalTo("a")
         );
     }
@@ -21,8 +21,8 @@ public class SystemTestsPatternTest {
     @Test
     public void present() {
         MatcherAssert.assertThat(
-                "Property is set",
-                !new SystemTestsPattern().present()
+                "Attribute is set",
+                !new AttributeOfTestPatternFromCli().present()
         );
     }
 

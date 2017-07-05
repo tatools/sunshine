@@ -7,12 +7,12 @@ import lombok.EqualsAndHashCode;
  * @since 22.04.2017
  */
 @EqualsAndHashCode
-public final class EitherProperty implements Property {
+public final class AttributeFromSequence implements Attribute {
 
-    private final Property first;
-    private final Property second;
+    private final Attribute first;
+    private final Attribute second;
 
-    public EitherProperty(Property first, Property second) {
+    public AttributeFromSequence(Attribute first, Attribute second) {
         this.first = first;
         this.second = second;
     }

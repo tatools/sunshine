@@ -10,6 +10,6 @@ public class SunshineConfigTest {
 
     @Test
     public void property() {
-        new SunshineConfig().property("dad");
+        new SunshineConfig().attribute("dad");
     }
 }

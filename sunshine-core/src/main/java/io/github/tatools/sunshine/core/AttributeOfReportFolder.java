@@ -7,18 +7,18 @@ import lombok.EqualsAndHashCode;
  * @since 21.04.2017
  */
 @EqualsAndHashCode
-public final class ReportFolder implements Property {
+public final class AttributeOfReportFolder implements Attribute {
 
     private final String key = "reports-path";
     private final Config config;
 
-    public ReportFolder(Config config) {
+    public AttributeOfReportFolder(Config config) {
         this.config = config;
     }
 
     @Override
     public String value() {
-        return config.property(key);
+        return config.attribute(key);
     }
 
     @Override

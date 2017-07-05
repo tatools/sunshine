@@ -25,8 +25,8 @@ public final class DirectorySafe implements Directory {
         this(new DirectoryBase(path));
     }
 
-    public DirectorySafe(Property property) {
-        this(property.value());
+    public DirectorySafe(Attribute attribute) {
+        this(attribute.value());
     }
 
 

@@ -17,8 +17,8 @@ public final class ClasspathConfig implements Config {
     }
 
     @Override
-    public String property(String key) {
-        return config.property(key);
+    public String attribute(String key) {
+        return config.attribute(key);
     }
 
     @Override
