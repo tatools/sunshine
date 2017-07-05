@@ -16,21 +16,21 @@ public interface FileSystem {
      * @return a list of files
      * @throws FileSystemException if some error occurs
      */
-    List<FsPath> files() throws FileSystemException;
+    List<FileSystemPath> files() throws FileSystemException;
 
     class Fake implements FileSystem {
-        private final List<FsPath> files;
+        private final List<FileSystemPath> files;
 
-        Fake(FsPath... files) {
+        Fake(FileSystemPath... files) {
             this(Arrays.asList(files));
         }
 
-        Fake(List<FsPath> files) {
+        Fake(List<FileSystemPath> files) {
             this.files = files;
         }
 
         @Override
-        public List<FsPath> files() {
+        public List<FileSystemPath> files() {
             return files;
         }
     }

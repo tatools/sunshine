@@ -7,13 +7,12 @@ import java.nio.file.Paths;
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
  * @since 24.04.2017
  */
-public interface FsPath {
-    // @todo #91:1h Rename to FileSystemPath. Make sure all implementaions have self-explained names.
+public interface FileSystemPath {
     Path path();
 
     boolean exist();
 
-    final class Fake implements FsPath {
+    final class Fake implements FileSystemPath {
 
         private final Path path;
         private final boolean exist;

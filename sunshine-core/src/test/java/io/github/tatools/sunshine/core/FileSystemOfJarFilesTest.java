@@ -14,8 +14,8 @@ public class FileSystemOfJarFilesTest {
         MatcherAssert.assertThat(
                 new FileSystemOfJarFiles(
                         new FileSystem.Fake(
-                                new FsPath.Fake("build/sample-tests.jar"),
-                                new FsPath.Fake("build/sample-tests.jar")
+                                new FileSystemPath.Fake("build/sample-tests.jar"),
+                                new FileSystemPath.Fake("build/sample-tests.jar")
                         )
                 ).files(),
                 Matchers.hasSize(22)

@@ -13,30 +13,30 @@ import java.util.Comparator;
  * @since 19.04.2017
  */
 @EqualsAndHashCode
-public final class RegularDirectory implements Directory {
+public final class DirectoryBase implements Directory {
 
-    private final FsPath fsPath;
+    private final FileSystemPath fileSystemPath;
 
-    public RegularDirectory(String path) {
-        this(new RegularPath(path));
+    public DirectoryBase(String path) {
+        this(new FileSystemPathBase(path));
     }
 
-    public RegularDirectory(Path path) {
-        this.fsPath = new RegularPath(path);
+    public DirectoryBase(Path path) {
+        this.fileSystemPath = new FileSystemPathBase(path);
     }
 
-    public RegularDirectory(FsPath fsPath) {
-        this.fsPath = fsPath;
+    public DirectoryBase(FileSystemPath fileSystemPath) {
+        this.fileSystemPath = fileSystemPath;
     }
 
     @Override
     public void create() throws IOException {
-        Files.createDirectory(fsPath.path());
+        Files.createDirectory(fileSystemPath.path());
     }
 
     @Override
     public void remove() throws IOException {
-        Files.walk(fsPath.path(), FileVisitOption.FOLLOW_LINKS)
+        Files.walk(fileSystemPath.path(), FileVisitOption.FOLLOW_LINKS)
                 .sorted(Comparator.reverseOrder())
                 .map(Path::toFile)
                 .forEach(java.io.File::delete);
@@ -44,11 +44,11 @@ public final class RegularDirectory implements Directory {
 
     @Override
     public boolean exist() {
-        return fsPath.exist();
+        return fileSystemPath.exist();
     }
 
     @Override
     public Path path() {
-        return fsPath.path();
+        return fileSystemPath.path();
     }
 }

@@ -16,8 +16,8 @@ public class FileSystemOfFileSystemsTest {
     @Test
     public void files() throws FileSystemException {
         List<FileSystem> fileSystems = Arrays.asList(
-                new FileSystem.Fake(Collections.singletonList(new FsPath.Fake())),
-                new FileSystem.Fake(Collections.singletonList(new FsPath.Fake()))
+                new FileSystem.Fake(Collections.singletonList(new FileSystemPath.Fake())),
+                new FileSystem.Fake(Collections.singletonList(new FileSystemPath.Fake()))
         );
         MatcherAssert.assertThat(
                 new FileSystemOfFileSystems(fileSystems).files(),

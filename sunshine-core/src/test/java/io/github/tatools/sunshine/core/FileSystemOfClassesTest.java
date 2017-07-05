@@ -16,8 +16,8 @@ public class FileSystemOfClassesTest {
         MatcherAssert.assertThat(
                 new FileSystemOfClasses(new FileSystem.Fake(
                         Arrays.asList(
-                                new FsPath.Fake("SomeTest.class"),
-                                new FsPath.Fake("some-file.txt")
+                                new FileSystemPath.Fake("SomeTest.class"),
+                                new FileSystemPath.Fake("some-file.txt")
                         )
                 )).files(),
                 Matchers.hasSize(1)

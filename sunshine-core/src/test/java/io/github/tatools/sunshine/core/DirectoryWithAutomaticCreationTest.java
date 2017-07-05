@@ -12,35 +12,35 @@ import java.io.IOException;
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
  * @since 11.06.2017
  */
-public class AutoCreatedDirectoryTest {
+public class DirectoryWithAutomaticCreationTest {
     @Rule
     public TemporaryFolder testFolder = new TemporaryFolder();
 
     @Test
     public void create() throws IOException {
-        final RegularPath path = new RegularPath(testFolder.newFolder().toString(), "a");
-        new AutoCreatedDirectory(new RegularDirectory(path)).create();
+        final FileSystemPathBase path = new FileSystemPathBase(testFolder.newFolder().toString(), "a");
+        new DirectoryWithAutomaticCreation(new DirectoryBase(path)).create();
         MatcherAssert.assertThat("The directory wasn't created", path.exist());
     }
 
     @Test
     public void remove() throws IOException {
-        final RegularPath path = new RegularPath(testFolder.newFolder().toString());
-        new AutoCreatedDirectory(new RegularDirectory(path)).remove();
+        final FileSystemPathBase path = new FileSystemPathBase(testFolder.newFolder().toString());
+        new DirectoryWithAutomaticCreation(new DirectoryBase(path)).remove();
         MatcherAssert.assertThat("The directory wasn't removed", !path.exist());
     }
 
     @Test
     public void exist() throws IOException {
-        final RegularPath path = new RegularPath(testFolder.newFolder().toString(), "a");
-        new AutoCreatedDirectory(new RegularDirectory(path)).exist();
+        final FileSystemPathBase path = new FileSystemPathBase(testFolder.newFolder().toString(), "a");
+        new DirectoryWithAutomaticCreation(new DirectoryBase(path)).exist();
         MatcherAssert.assertThat("The directory wasn't created", path.exist());
     }
 
     @Test
     public void path() throws IOException {
-        final RegularPath path = new RegularPath(testFolder.newFolder().toString(), "a");
-        new AutoCreatedDirectory(new RegularDirectory(path)).path();
+        final FileSystemPathBase path = new FileSystemPathBase(testFolder.newFolder().toString(), "a");
+        new DirectoryWithAutomaticCreation(new DirectoryBase(path)).path();
         MatcherAssert.assertThat("The directory wasn't created", path.exist());
     }
 }

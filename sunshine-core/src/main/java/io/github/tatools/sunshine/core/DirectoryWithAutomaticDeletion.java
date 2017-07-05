@@ -8,11 +8,11 @@ import java.nio.file.Path;
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
  * @since 11.06.2017
  */
-public final class AutoRemovableDirectory implements Directory {
+public final class DirectoryWithAutomaticDeletion implements Directory {
 
     private final Directory directory;
 
-    public AutoRemovableDirectory(Directory directory) {
+    public DirectoryWithAutomaticDeletion(Directory directory) {
         this.directory = directory;
     }
 

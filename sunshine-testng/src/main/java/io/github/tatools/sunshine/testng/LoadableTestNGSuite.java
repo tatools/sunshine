@@ -16,7 +16,7 @@ public final class LoadableTestNGSuite implements TestNGSuite {
     private final Directory suitePath;
 
     public LoadableTestNGSuite(FileSystem fileSystem, String suitePath, Condition filter) {
-        this(fileSystem, new RegularDirectory(suitePath), filter);
+        this(fileSystem, new DirectoryBase(suitePath), filter);
     }
 
     public LoadableTestNGSuite(FileSystem fileSystem, Directory suitePath, Condition filter) {
@@ -38,9 +38,9 @@ public final class LoadableTestNGSuite implements TestNGSuite {
                 test.setSuite(xmlSuite);
                 xmlSuite.addTest(test);
             }
-            WritableFile writableFile = new WritableFile(suitePath, "sunshine-suite.xml");
-            writableFile.write(xmlSuite.toXml());
-            return writableFile;
+            FileBase fileBase = new FileBase(suitePath, "sunshine-suite.xml");
+            fileBase.write(xmlSuite.toXml());
+            return fileBase;
         } catch (TestException | IOException e) {
             throw new SuiteException(e);
         }

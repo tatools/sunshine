@@ -20,7 +20,7 @@ final class FileSystemOfJarFile implements FileSystem {
 
     private final String jarPath;
 
-    FileSystemOfJarFile(FsPath jarPath) {
+    FileSystemOfJarFile(FileSystemPath jarPath) {
         this(jarPath.path().toString());
     }
 
@@ -29,12 +29,12 @@ final class FileSystemOfJarFile implements FileSystem {
     }
 
     @Override
-    public List<FsPath> files() throws FileSystemException {
+    public List<FileSystemPath> files() throws FileSystemException {
         try {
-            List<FsPath> data = new ArrayList<>();
+            List<FileSystemPath> data = new ArrayList<>();
             ZipInputStream zip = new ZipInputStream(new FileInputStream(jarPath));
             for (ZipEntry entry = zip.getNextEntry(); entry != null; entry = zip.getNextEntry()) {
-                data.add(new RegularPath(entry.getName()));
+                data.add(new FileSystemPathBase(entry.getName()));
             }
             return data;
         } catch (IOException e) {

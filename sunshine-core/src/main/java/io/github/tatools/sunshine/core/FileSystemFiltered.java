@@ -23,7 +23,7 @@ final class FileSystemFiltered implements FileSystem {
     }
 
     @Override
-    public List<FsPath> files() throws FileSystemException {
+    public List<FileSystemPath> files() throws FileSystemException {
         return fileSystem.files().stream()
                 .filter(f -> condition.applicable(f.path().toString()))
                 .collect(Collectors.toList());

@@ -1,6 +1,6 @@
 package io.github.tatools.sunshine.testng;
 
-import io.github.tatools.sunshine.core.FsPath;
+import io.github.tatools.sunshine.core.FileSystemPath;
 import io.github.tatools.sunshine.core.SuiteException;
 
 import java.util.ArrayList;
@@ -12,7 +12,7 @@ import java.util.List;
  */
 public final class CachedTestNGSuite implements TestNGSuite {
 
-    private final List<FsPath> files = new ArrayList<>(1);
+    private final List<FileSystemPath> files = new ArrayList<>(1);
     private final TestNGSuite testNGSuite;
 
     public CachedTestNGSuite(TestNGSuite testNGSuite) {
@@ -20,7 +20,7 @@ public final class CachedTestNGSuite implements TestNGSuite {
     }
 
     @Override
-    public FsPath tests() throws SuiteException {
+    public FileSystemPath tests() throws SuiteException {
         if (files.isEmpty()) {
             files.add(testNGSuite.tests());
         }

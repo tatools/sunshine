@@ -11,19 +11,19 @@ import java.nio.file.Path;
  */
 @EqualsAndHashCode
 @ToString(of = {"artifactPath"})
-public final class RelativePath implements FsPath {
-    private final FsPath fromPath;
-    private final FsPath artifactPath;
+public final class FileSystemPathRelative implements FileSystemPath {
+    private final FileSystemPath fromPath;
+    private final FileSystemPath artifactPath;
 
-    public RelativePath(Path fromPath, String artifactPath) {
-        this(new RegularPath(fromPath), new RegularPath(artifactPath));
+    public FileSystemPathRelative(Path fromPath, String artifactPath) {
+        this(new FileSystemPathBase(fromPath), new FileSystemPathBase(artifactPath));
     }
 
-    public RelativePath(String fromPath, String artifactPath) {
-        this(new RegularPath(fromPath), new RegularPath(artifactPath));
+    public FileSystemPathRelative(String fromPath, String artifactPath) {
+        this(new FileSystemPathBase(fromPath), new FileSystemPathBase(artifactPath));
     }
 
-    public RelativePath(FsPath fromPath, FsPath artifactPath) {
+    public FileSystemPathRelative(FileSystemPath fromPath, FileSystemPath artifactPath) {
         this.fromPath = fromPath;
         this.artifactPath = artifactPath;
     }

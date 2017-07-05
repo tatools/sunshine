@@ -7,7 +7,7 @@ import java.nio.file.Path;
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
  * @since 19.04.2017
  */
-public interface Directory extends FsPath {
+public interface Directory extends FileSystemPath {
     void create() throws IOException;
 
     void remove() throws IOException;

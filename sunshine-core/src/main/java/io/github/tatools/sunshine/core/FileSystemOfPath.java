@@ -22,7 +22,7 @@ final class FileSystemOfPath implements FileSystem {
     private final Path path;
 
     FileSystemOfPath(String path) {
-        this(new RegularPath(path).path());
+        this(new FileSystemPathBase(path).path());
     }
 
     FileSystemOfPath(Path path) {
@@ -30,19 +30,19 @@ final class FileSystemOfPath implements FileSystem {
     }
 
     @Override
-    public List<FsPath> files() throws FileSystemException {
+    public List<FileSystemPath> files() throws FileSystemException {
         try {
-            List<FsPath> files = new ArrayList<>();
+            List<FileSystemPath> files = new ArrayList<>();
             Files.walkFileTree(path, new FileVisitor<Path>() {
                 @Override
                 public FileVisitResult preVisitDirectory(Path dir, BasicFileAttributes attrs) throws IOException {
-                    files.add(new RelativePath(path, dir.toString()));
+                    files.add(new FileSystemPathRelative(path, dir.toString()));
                     return FileVisitResult.CONTINUE;
                 }
 
                 @Override
                 public FileVisitResult visitFile(Path file, BasicFileAttributes attrs) throws IOException {
-                    files.add(new RelativePath(path, file.toString()));
+                    files.add(new FileSystemPathRelative(path, file.toString()));
                     return FileVisitResult.CONTINUE;
                 }
 

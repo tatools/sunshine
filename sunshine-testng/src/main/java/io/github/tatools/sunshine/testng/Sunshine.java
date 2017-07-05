@@ -22,9 +22,9 @@ public final class Sunshine {
                     new CachedTestNGSuite(
                             new LoadableTestNGSuite(
                                     new FileSystemOfClasspathClasses(),
-                                    new AutoCreatedDirectory(
-                                            new AutoRemovableDirectory(
-                                                    new SmartDirectory(
+                                    new DirectoryWithAutomaticCreation(
+                                            new DirectoryWithAutomaticDeletion(
+                                                    new DirectorySafe(
                                                             new ReportFolder(config)
                                                     )
                                             )

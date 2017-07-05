@@ -26,8 +26,8 @@ final class FileSystemOfFileSystems implements FileSystem {
     }
 
     @Override
-    public List<FsPath> files() throws FileSystemException {
-        List<FsPath> files = new ArrayList<>();
+    public List<FileSystemPath> files() throws FileSystemException {
+        List<FileSystemPath> files = new ArrayList<>();
         for (FileSystem fileSystem : fileSystems) {
             files.addAll(fileSystem.files());
         }

@@ -7,11 +7,11 @@ import java.nio.file.Path;
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
  * @since 11.06.2017
  */
-public final class AutoCreatedDirectory implements Directory {
+public final class DirectoryWithAutomaticCreation implements Directory {
 
     private final Directory directory;
 
-    public AutoCreatedDirectory(Directory directory) {
+    public DirectoryWithAutomaticCreation(Directory directory) {
         this.directory = directory;
     }
 

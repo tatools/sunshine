@@ -1,7 +1,7 @@
 package io.github.tatools.sunshine.testng;
 
-import io.github.tatools.sunshine.core.FsPath;
-import io.github.tatools.sunshine.core.RegularPath;
+import io.github.tatools.sunshine.core.FileSystemPath;
+import io.github.tatools.sunshine.core.FileSystemPathBase;
 import io.github.tatools.sunshine.core.SuiteException;
 
 /**
@@ -10,18 +10,18 @@ import io.github.tatools.sunshine.core.SuiteException;
  */
 public final class PreparedTestNGSuite implements TestNGSuite {
 
-    private final FsPath fsPath;
+    private final FileSystemPath fileSystemPath;
 
     public PreparedTestNGSuite(String path) {
-        this(new RegularPath(path));
+        this(new FileSystemPathBase(path));
     }
 
-    public PreparedTestNGSuite(FsPath fsPath) {
-        this.fsPath = fsPath;
+    public PreparedTestNGSuite(FileSystemPath fileSystemPath) {
+        this.fileSystemPath = fileSystemPath;
     }
 
     @Override
-    public FsPath tests() throws SuiteException {
-        return fsPath;
+    public FileSystemPath tests() throws SuiteException {
+        return fileSystemPath;
     }
 }

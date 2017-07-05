@@ -13,28 +13,28 @@ import java.nio.file.Paths;
  */
 @EqualsAndHashCode
 @ToString
-public final class RegularPath implements FsPath {
+public final class FileSystemPathBase implements FileSystemPath {
 
     private final Path directory;
     private final String file;
 
-    public RegularPath(String path) {
+    public FileSystemPathBase(String path) {
         this(Paths.get(path));
     }
 
-    public RegularPath(String directory, String file) {
+    public FileSystemPathBase(String directory, String file) {
         this(Paths.get(directory), file);
     }
 
-    public RegularPath(Path path) {
+    public FileSystemPathBase(Path path) {
         this(path, "");
     }
 
-    public RegularPath(Directory directory, String fsPath) {
+    public FileSystemPathBase(Directory directory, String fsPath) {
         this(directory.path(), fsPath);
     }
 
-    public RegularPath(Path directory, String file) {
+    public FileSystemPathBase(Path directory, String file) {
         this.directory = directory;
         this.file = file;
     }

@@ -15,7 +15,7 @@ public class FileSystemFilteredTest {
     public void files() throws FileSystemException {
         MatcherAssert.assertThat(
                 new FileSystemFiltered(
-                        new FileSystem.Fake(Collections.singletonList(new FsPath.Fake())),
+                        new FileSystem.Fake(Collections.singletonList(new FileSystemPath.Fake())),
                         new Condition.Fake(false)
                 ).files(),
                 Matchers.hasSize(0)

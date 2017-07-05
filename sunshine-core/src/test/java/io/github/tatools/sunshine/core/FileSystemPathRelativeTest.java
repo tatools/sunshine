@@ -12,12 +12,12 @@ import java.nio.file.Paths;
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
  * @since 16.03.2017
  */
-public class RelativePathTest {
+public class FileSystemPathRelativeTest {
 
     @Test
     public void asStringForParentWithSlashInTheEnd() {
         MatcherAssert.assertThat(
-                new RelativePath("/a/b/", "/a/b/c").path(),
+                new FileSystemPathRelative("/a/b/", "/a/b/c").path(),
                 Matchers.is(new PathMatcher("c"))
         );
     }
@@ -25,7 +25,7 @@ public class RelativePathTest {
     @Test
     public void asStringForParentWithoutSlashInTheEnd() {
         MatcherAssert.assertThat(
-                new RelativePath("/a/b", "/a/b/c").path(),
+                new FileSystemPathRelative("/a/b", "/a/b/c").path(),
                 Matchers.is(new PathMatcher("c"))
         );
     }
@@ -33,7 +33,7 @@ public class RelativePathTest {
     @Test
     public void asStringWhenParentIsEqualsToFull() {
         MatcherAssert.assertThat(
-                new RelativePath("/a/b/c", "/a/b/c").path(),
+                new FileSystemPathRelative("/a/b/c", "/a/b/c").path(),
                 Matchers.is(new PathMatcher("/a/b/c"))
         );
     }
@@ -41,7 +41,7 @@ public class RelativePathTest {
     @Test
     public void asStringForRelativeParentWithSlashInTheEnd() {
         MatcherAssert.assertThat(
-                new RelativePath("a/b/", "a/b/c").path(),
+                new FileSystemPathRelative("a/b/", "a/b/c").path(),
                 Matchers.is(new PathMatcher("c"))
         );
     }
@@ -49,7 +49,7 @@ public class RelativePathTest {
     @Test
     public void asStringForRelativeParentWithoutSlashInTheEnd() {
         MatcherAssert.assertThat(
-                new RelativePath("a/b", "a/b/c").path(),
+                new FileSystemPathRelative("a/b", "a/b/c").path(),
                 Matchers.is(new PathMatcher("c"))
         );
     }

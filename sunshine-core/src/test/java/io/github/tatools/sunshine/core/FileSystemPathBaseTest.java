@@ -10,13 +10,13 @@ import java.nio.file.Paths;
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
  * @since 24.04.2017
  */
-public class RegularPathTest {
+public class FileSystemPathBaseTest {
 
     @Test
     public void path() {
         final String path = "aa";
         MatcherAssert.assertThat(
-                new RegularPath(path).path(),
+                new FileSystemPathBase(path).path(),
                 Matchers.equalTo(Paths.get(path))
         );
     }
@@ -26,7 +26,7 @@ public class RegularPathTest {
         final String directory = "aa";
         final String file = "file";
         MatcherAssert.assertThat(
-                new RegularPath(directory, file).path(),
+                new FileSystemPathBase(directory, file).path(),
                 Matchers.equalTo(Paths.get(directory + "/" + file))
         );
     }
@@ -35,7 +35,7 @@ public class RegularPathTest {
     public void exist() {
         MatcherAssert.assertThat(
                 "File is absent",
-                new RegularPath("src/test/resources/test.properties").exist()
+                new FileSystemPathBase("src/test/resources/test.properties").exist()
         );
     }
 }

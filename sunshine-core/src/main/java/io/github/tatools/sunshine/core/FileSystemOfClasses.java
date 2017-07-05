@@ -25,7 +25,7 @@ final class FileSystemOfClasses implements FileSystem {
     }
 
     @Override
-    public List<FsPath> files() throws FileSystemException {
+    public List<FileSystemPath> files() throws FileSystemException {
         return fileSystem.files();
     }
 

@@ -13,7 +13,7 @@ public class FileSystemOfJarFileTest {
     public void files() throws FileSystemException {
         MatcherAssert.assertThat(
                 new FileSystemOfJarFile("build/sample-tests.jar").files(),
-                Matchers.hasItem(new RegularPath("io/github/tatools/testng/Test1.class"))
+                Matchers.hasItem(new FileSystemPathBase("io/github/tatools/testng/Test1.class"))
         );
     }
 

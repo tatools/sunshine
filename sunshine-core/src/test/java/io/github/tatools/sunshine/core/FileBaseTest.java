@@ -14,13 +14,13 @@ import java.nio.file.Files;
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
  * @since 19.04.2017
  */
-public class WritableFileTest {
+public class FileBaseTest {
     @Rule
     public TemporaryFolder testFolder = new TemporaryFolder();
 
     @Test
     public void write() throws IOException {
-        final WritableFile file = new WritableFile(testFolder.getRoot().getAbsolutePath(), "ccc");
+        final FileBase file = new FileBase(testFolder.getRoot().getAbsolutePath(), "ccc");
         file.write("dasd");
         MatcherAssert.assertThat(Files.exists(file.path()), Matchers.is(true));
     }

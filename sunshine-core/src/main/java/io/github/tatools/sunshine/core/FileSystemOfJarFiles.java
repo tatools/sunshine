@@ -28,7 +28,7 @@ final class FileSystemOfJarFiles implements FileSystem {
     }
 
     @Override
-    public List<FsPath> files() throws FileSystemException {
+    public List<FileSystemPath> files() throws FileSystemException {
         return new FileSystemOfFileSystems(mapping.objects(fileSystem)).files();
     }
 
