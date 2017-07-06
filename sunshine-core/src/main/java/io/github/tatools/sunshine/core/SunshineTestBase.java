@@ -7,10 +7,10 @@ import lombok.EqualsAndHashCode;
  * @since 18.03.2017
  */
 @EqualsAndHashCode
-public final class BaseTest implements SunshineTest {
+public final class SunshineTestBase implements SunshineTest {
     private final String path;
 
-    public BaseTest(String path) {
+    public SunshineTestBase(String path) {
         this.path = path;
     }
 

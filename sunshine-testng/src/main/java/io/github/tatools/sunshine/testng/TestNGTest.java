@@ -18,7 +18,7 @@ final class TestNGTest implements Test<XmlTest> {
     }
 
     TestNGTest(String clazz) {
-        this(new BaseTest(clazz));
+        this(new SunshineTestBase(clazz));
     }
 
     @Override

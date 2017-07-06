@@ -9,13 +9,13 @@ import org.junit.Test;
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
  * @since 10.06.2017
  */
-public class PrintableSuiteTest {
+public class SunshineSuitePrintableTest {
 
     @Test
     public void tests() throws TestException, SuiteException {
         final SunshineTest.Fake test = new SunshineTest.Fake();
         MatcherAssert.assertThat(
-                new PrintableSuite(new SunshineSuite.Fake(test)).tests(),
+                new SunshineSuitePrintable(new SunshineSuite.Fake(test)).tests(),
                 Matchers.contains(test)
         );
     }

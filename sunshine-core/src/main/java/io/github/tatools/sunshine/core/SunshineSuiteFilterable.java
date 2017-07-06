@@ -7,12 +7,12 @@ import java.util.stream.Collectors;
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
  * @since 21.04.2017
  */
-public final class FilterableSuite implements SunshineSuite {
+public final class SunshineSuiteFilterable implements SunshineSuite {
 
     private final SunshineSuite suite;
     private final Condition filter;
 
-    public FilterableSuite(SunshineSuite suite, Condition filter) {
+    public SunshineSuiteFilterable(SunshineSuite suite, Condition filter) {
         this.suite = suite;
         this.filter = filter;
     }

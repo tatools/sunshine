@@ -6,11 +6,11 @@ import java.util.List;
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
  * @since 10.06.2017
  */
-public final class PrintableSuite implements SunshineSuite {
+public final class SunshineSuitePrintable implements SunshineSuite {
 
     private final SunshineSuite sunshineSuite;
 
-    public PrintableSuite(SunshineSuite sunshineSuite) {
+    public SunshineSuitePrintable(SunshineSuite sunshineSuite) {
         this.sunshineSuite = sunshineSuite;
     }
 

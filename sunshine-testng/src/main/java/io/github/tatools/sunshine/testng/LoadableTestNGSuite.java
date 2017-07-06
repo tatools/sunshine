@@ -20,7 +20,10 @@ public final class LoadableTestNGSuite implements TestNGSuite {
     }
 
     public LoadableTestNGSuite(FileSystem fileSystem, Directory suitePath, Condition filter) {
-        this(new PrintableSuite(new FilterableSuite(new BaseSuite(fileSystem), filter)), suitePath);
+        this(
+                new SunshineSuitePrintable(new SunshineSuiteFilterable(new SunshineSuiteBase(fileSystem), filter)),
+                suitePath
+        );
     }
 
     public LoadableTestNGSuite(SunshineSuite artifacts, Directory suitePath) {

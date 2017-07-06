@@ -14,7 +14,7 @@ public final class JunitSuite implements Suite<Class<?>[]> {
     private final SunshineSuite classesAsSuite;
 
     public JunitSuite(FileSystem fileSystem, Condition filter) {
-        this(new PrintableSuite(new FilterableSuite(new BaseSuite(fileSystem), filter)));
+        this(new SunshineSuitePrintable(new SunshineSuiteFilterable(new SunshineSuiteBase(fileSystem), filter)));
     }
 
     public JunitSuite(SunshineSuite classesAsSuite) {
