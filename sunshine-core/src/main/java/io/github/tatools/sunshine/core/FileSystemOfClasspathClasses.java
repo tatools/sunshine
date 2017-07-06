@@ -12,7 +12,8 @@ import java.util.stream.Collectors;
  * which allows to find all Java classes in current Java CLASSPATH.
  *
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
- * @since 16.03.2017
+ * @version $Id$
+ * @since 0.1
  */
 @EqualsAndHashCode
 public final class FileSystemOfClasspathClasses implements FileSystem {

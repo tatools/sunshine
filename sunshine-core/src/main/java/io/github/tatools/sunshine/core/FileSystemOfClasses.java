@@ -8,7 +8,8 @@ import java.util.List;
  * The {@link FileSystemOfClasses} class allows to select only Java classes.
  *
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
- * @since 19.06.2017
+ * @version $Id$
+ * @since 0.1
  */
 @EqualsAndHashCode
 final class FileSystemOfClasses implements FileSystem {

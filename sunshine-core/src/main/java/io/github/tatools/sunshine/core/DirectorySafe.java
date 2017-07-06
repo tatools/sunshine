@@ -10,7 +10,8 @@ import java.nio.file.Path;
  * until it's really needed.
  *
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
- * @since 19.04.2017
+ * @version $Id$
+ * @since 0.1
  */
 @EqualsAndHashCode
 public final class DirectorySafe implements Directory {

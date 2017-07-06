@@ -14,7 +14,8 @@ import java.util.Collections;
  * The {@link TestNGEngine} class allows to run TestNG for given {@link FileSystem}.
  *
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
- * @since 17.03.2017
+ * @version $Id$
+ * @since 0.1
  */
 public final class TestNGEngine implements Engine<ITestNGListener> {
 

@@ -4,7 +4,8 @@ package io.github.tatools.sunshine.core;
  * The {@link Attribute} interface declares a contract to work with an attribute.
  *
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
- * @since 21.04.2017
+ * @version $Id$
+ * @since 0.1
  */
 public interface Attribute {
     /**

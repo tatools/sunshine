@@ -10,7 +10,8 @@ import java.util.stream.Collectors;
  * Basically, it unzips files from the JARs and represents them as a separate file system.
  *
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
- * @since 19.06.2017
+ * @version $Id$
+ * @since 0.1
  */
 @EqualsAndHashCode
 final class FileSystemOfJarFiles implements FileSystem {

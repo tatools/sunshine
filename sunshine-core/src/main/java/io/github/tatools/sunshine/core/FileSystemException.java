@@ -5,7 +5,8 @@ package io.github.tatools.sunshine.core;
  * a {@link FileSystem} interface.
  *
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
- * @since 18.03.2017
+ * @version $Id$
+ * @since 0.1
  */
 public class FileSystemException extends SunshineException {
     public FileSystemException(String message) {

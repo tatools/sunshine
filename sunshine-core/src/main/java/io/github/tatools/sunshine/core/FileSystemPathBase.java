@@ -9,7 +9,8 @@ import java.nio.file.Paths;
 
 /**
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
- * @since 19.04.2017
+ * @version $Id$
+ * @since 0.1
  */
 @EqualsAndHashCode
 @ToString

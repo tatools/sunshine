@@ -12,7 +12,8 @@ import java.nio.file.Path;
 
 /**
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
- * @since 11.06.2017
+ * @version $Id$
+ * @since 0.1
  */
 public class DirectoryWithAutomaticDeletionTest {
     @Rule

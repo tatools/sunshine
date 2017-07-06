@@ -5,7 +5,8 @@ import org.junit.Test;
 
 /**
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
- * @since 18.03.2017
+ * @version $Id$
+ * @since 0.1
  */
 public class PassedTest {
     @Test

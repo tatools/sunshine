@@ -7,7 +7,8 @@ import io.github.tatools.sunshine.core.*;
  * The {@link Sunshine} class is a main class to run Junit4 tests.
  *
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
- * @since 18.03.2017
+ * @version $Id$
+ * @since 0.1
  */
 public final class Sunshine {
 

@@ -8,7 +8,8 @@ import java.util.Arrays;
 
 /**
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
- * @since 16.03.2017
+ * @version $Id$
+ * @since 0.1
  */
 public class FileSystemOfClassesTest {
     @Test

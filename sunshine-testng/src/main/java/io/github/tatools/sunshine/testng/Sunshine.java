@@ -9,7 +9,8 @@ import io.github.tatools.sunshine.core.*;
  * The argument is a path to TestNG configuration file (XML or YAML).</p>
  *
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
- * @since 18.03.2017
+ * @version $Id$
+ * @since 0.1
  */
 public final class Sunshine {
 

@@ -10,7 +10,8 @@ import java.util.List;
  * {@link FileSystem} interface.
  *
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
- * @since 16.03.2017
+ * @version $Id$
+ * @since 0.1
  */
 @EqualsAndHashCode
 final class FileSystemOfFileSystems implements FileSystem {

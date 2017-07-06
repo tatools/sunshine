@@ -13,7 +13,8 @@ import java.util.zip.ZipInputStream;
  * The {@link FileSystemOfJarFile} class allows to search files in given <b>jar</b> file.
  *
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
- * @since 16.03.2017
+ * @version $Id$
+ * @since 0.1
  */
 @EqualsAndHashCode
 final class FileSystemOfJarFile implements FileSystem {

@@ -4,7 +4,8 @@ package io.github.tatools.sunshine.core;
  * The {@link Engine} interface declares a way to implement different unit test engines.
  *
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
- * @since 17.03.2017
+ * @version $Id$
+ * @since 0.1
  */
 public interface Engine<Listener> {
 

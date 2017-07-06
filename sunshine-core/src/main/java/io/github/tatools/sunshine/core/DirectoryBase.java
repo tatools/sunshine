@@ -10,7 +10,8 @@ import java.util.Comparator;
 
 /**
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
- * @since 19.04.2017
+ * @version $Id$
+ * @since 0.1
  */
 @EqualsAndHashCode
 public final class DirectoryBase implements Directory {

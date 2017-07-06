@@ -7,7 +7,8 @@ import java.util.List;
  * The interface declares a place to search tests classes.
  *
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
- * @since 16.03.2017
+ * @version $Id$
+ * @since 0.1
  */
 public interface FileSystem {
     /**

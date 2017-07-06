@@ -4,7 +4,8 @@ import java.util.List;
 
 /**
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
- * @since 10.06.2017
+ * @version $Id$
+ * @since 0.1
  */
 public final class SunshineSuitePrintable implements SunshineSuite {
 

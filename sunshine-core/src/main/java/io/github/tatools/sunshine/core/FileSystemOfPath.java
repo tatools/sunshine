@@ -15,7 +15,8 @@ import java.util.List;
  * The {@link FileSystemOfPath} class allows to search files by given path.
  *
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
- * @since 16.03.2017
+ * @version $Id$
+ * @since 0.1
  */
 @EqualsAndHashCode
 final class FileSystemOfPath implements FileSystem {

@@ -2,7 +2,8 @@ package io.github.tatools.sunshine.core;
 
 /**
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
- * @since 21.04.2017
+ * @version $Id$
+ * @since 0.1
  */
 public interface Config {
     String attribute(String key);
