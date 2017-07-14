@@ -20,7 +20,7 @@ merge:
 decrypt:
   gradle.properties: "repo/scrt/gradle.properties.asc"
   secring.gpg: "repo/scrt/secring.gpg.asc"
-release: # @todo #49:3h Add ability to release to Sonatype
+release:
   commanders: extsoft
   script: |-
     cp ../gradle.properties .
