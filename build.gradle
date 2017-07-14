@@ -1,7 +1,9 @@
+import groovy.io.FileType
+
 subprojects {
     apply plugin: 'java'
     group 'io.github.tatools'
-    version '0.1.0-SNAPSHOT'
+    version "${version}"
     sourceCompatibility = JavaVersion.VERSION_1_8
 
     repositories {
@@ -41,3 +43,29 @@ project(':sunshine-testng-integration-tests') {
 }
 
 defaultTasks 'clean', 'ready'
+
+//task to write the version parameter given via command line into the "gradle.properties" files.
+// Call with: gradle updateVersion -PnewVersion=1.0.1-SNAPSHOT
+task('updateVersion') << {
+    if (project.hasProperty('newVersion')) {
+        //set version in gradle settings
+        project.version = project.newVersion
+        project.subprojects?.each { it.version = project.version }
+
+        //set version in all the gradle.properties files
+        def file = new File('gradle.properties')
+        if (file.getText().contains('version')) {
+            new File(".").traverse(type: FileType.FILES, nameFilter: 'gradle.properties') {
+                project.ant.replaceregexp(file: it, byline: true) {
+                    key = 'version'
+                    version = project.version
+                    regexp(pattern: "^(\\s*)$key((\\s*[=|:]\\s*)|(\\s+)).+\$")
+                    substitution(expression: "\\1$key\\2$version")
+                }
+            }
+        } else {
+            file.append('\nversion=' + project.version + '\n')
+        }
+        println 'Successfully changed project version in gradle.properties to \'' + project.version + '\''
+    }
+}
