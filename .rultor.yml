@@ -17,8 +17,15 @@ merge:
     commanders:
     - extsoft
     - Mras
-
+decrypt:
+  gradle.properties: "repo/scrt/gradle.properties.asc"
+  pubring.kbx: "repo/scrt/pubring.kbx.asc"
+  secring.gpg: "repo/scrt/secring.gpg.asc"
 release: # @todo #49:3h Add ability to release to Sonatype
-    pre: false
-    script: echo "Release ${tag}"
-    commanders: extsoft
+  commanders: extsoft
+  script: |-
+    cp ../gradle.properties ../pubring.kbx ../secring.gpg .
+    ls -lh
+    ./gradlew updateVersion -PnewVersion=${tag}
+    git commit -am "${tag}"
+    ./gradlew -i clean uploadArchives
