@@ -49,19 +49,21 @@ How to start using?
 4. Create JAR file with `mvn clean build` or `gradle clean build`
 5. Run tests with `java -jar my-automated-tests.jar`
 
-How to configure build system?
-==============================
-Gradle
-------
 Check out [TestNG + Gradle](sunshine-testng-integration-tests/build.gradle) or 
-[JUnit + Gradle](sunshine-junit4-integration-tests/build.gradle) integration examples.
+[JUnit + Gradle](sunshine-junit4-integration-tests/build.gradle)(fat jar example with 
+[Shadow plugin](https://github.com/johnrengelman/shadow)) integration examples.
 
-Maven
------
-@todo #18 Add an example of Sunshine and Maven integration.
+How to customize Sunshine?
+==========================
+Filter tests to be run
+----------------------
+[Java Pattern matching](https://docs.oracle.com/javase/8/docs/api/java/util/regex/Pattern.html) is used to filter 
+required Java classes. Sunshine uses a string representation of a class to filter files with tests. For instance, 
+you have `LoginTest` class in `com.example.mypackage` package. It will be converted to `com.example.mypackage.LoginTest`
+and then put to the filter. By default, filter enables all classes that have `test` word in the class name 
+(`(.+)([Tt]est)([\\w\\d]+)?` is the default regex). If you wish to define your own tests filter, you can provide the run 
+command with own regex: `java -Dtests="your regex here" -jar my-tests.jar`.
 
-How to configure Java tests runner
-==================================
 TestNG configuration
 --------------------
 @todo #18:2h Describe how to configure custom TestNG run.
@@ -69,15 +71,6 @@ TestNG configuration
 Junit 4 configuration
 ---------------------
 @todo #18:2h Describe how to configure custom Junit 4 run.
-
-How do tests filtering work?
-------------------------------
-[Java Pattern matching](https://docs.oracle.com/javase/8/docs/api/java/util/regex/Pattern.html) is used to filter 
-required Java classes. Sunshine uses a string representation of a class to filter files with tests. For instance, 
-you have `LoginTest` class in `com.example.mypackage` package. It will be converted to `com.example.mypackage.LoginTest`
-and then put to the filter. By default, filter enables all classes that have `test` word in the class name 
-(`(.+)([Tt]est)([\\w\\d]+)?` is the default regex). If you wish to define your own tests filter, you can provide the run 
-command with own regex: `java -Dtests="your regex here" -jar my-tests.jar`.
 
 How to contribute?
 ==================
