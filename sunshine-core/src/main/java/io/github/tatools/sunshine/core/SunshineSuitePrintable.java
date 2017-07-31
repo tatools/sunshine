@@ -17,8 +17,14 @@ public final class SunshineSuitePrintable implements SunshineSuite {
 
     @Override
     public List<SunshineTest> tests() throws SuiteException {
-        System.out.println("Sunshine suite contains the following tests:");
-        this.sunshineSuite.tests().forEach(System.out::println);
-        return this.sunshineSuite.tests();
+        final List<SunshineTest> tests = this.sunshineSuite.tests();
+        final StringBuilder message = new StringBuilder();
+        message.append("Sunshine found ")
+                .append(tests.size())
+                .append(" classes by the specified pattern. They all will be passed to appropriate xUnit engine.")
+                .append("\nClasses:");
+        tests.forEach(c -> message.append("\n- ").append(c));
+        System.out.println(message);
+        return tests;
     }
 }
