@@ -17,9 +17,12 @@ public final class Sunshine {
                 new JunitSuite(
                         new FileSystemOfClasspathClasses(),
                         new RegexCondition(
-                                new AttributeFromSequence(
-                                        new AttributeOfTestPatternFromCli(),
-                                        new AttributeOfTestPatternFromConfig(new ConfigFromSunshine())
+                                new AttributeWithPrintableValue(
+                                        "The following pattern will be used for classes filtering:",
+                                        new AttributeFromSequence(
+                                                new AttributeOfTestPatternFromCli(),
+                                                new AttributeOfTestPatternFromConfig(new ConfigFromSunshine())
+                                        )
                                 )
                         )
                 )

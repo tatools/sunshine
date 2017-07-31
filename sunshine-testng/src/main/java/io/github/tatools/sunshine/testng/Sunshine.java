@@ -25,15 +25,16 @@ public final class Sunshine {
                                     new FileSystemOfClasspathClasses(),
                                     new DirectoryWithAutomaticCreation(
                                             new DirectoryWithAutomaticDeletion(
-                                                    new DirectorySafe(
-                                                            new AttributeOfReportFolder(config)
-                                                    )
+                                                    new DirectorySafe(new AttributeOfReportFolder(config))
                                             )
                                     ),
                                     new RegexCondition(
-                                            new AttributeFromSequence(
-                                                    new AttributeOfTestPatternFromCli(),
-                                                    new AttributeOfTestPatternFromConfig(config)
+                                            new AttributeWithPrintableValue(
+                                                    "The following pattern will be used for classes filtering:",
+                                                    new AttributeFromSequence(
+                                                            new AttributeOfTestPatternFromCli(),
+                                                            new AttributeOfTestPatternFromConfig(config)
+                                                    )
                                             )
                                     )
                             )

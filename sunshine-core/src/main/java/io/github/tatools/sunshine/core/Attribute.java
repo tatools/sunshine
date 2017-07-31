@@ -21,4 +21,37 @@ public interface Attribute {
      * @return <i>true</i> if this attribute exists otherwise <i>false</i>.
      */
     boolean present();
+
+    final class Fake implements Attribute {
+
+        private final String value;
+        private final boolean present;
+
+        public Fake() {
+            this("", false);
+        }
+
+        public Fake(String value) {
+            this(value, false);
+        }
+
+        public Fake(boolean present) {
+            this("", present);
+        }
+
+        public Fake(String value, boolean present) {
+            this.value = value;
+            this.present = present;
+        }
+
+        @Override
+        public String value() {
+            return value;
+        }
+
+        @Override
+        public boolean present() {
+            return present;
+        }
+    }
 }
