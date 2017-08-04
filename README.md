@@ -13,21 +13,40 @@ sunshine
 
 What is Sunshine?
 =================
-**Sunshine** is a Java library which allows you to distribute automated tests as an Java application (JAR file).
+**Sunshine** is a wrapper on xUnit test runners (such as TestNG, Junit...) which allows automatically
+[find classes with tests](#filter-tests-to-be-run) within the jar file, passes them to desired test runner and reports
+an execution status.
 
 How does Sunshine work?
 =======================
-Once you have configured Sunshine for your project, you are able to build `my-tests.jar` file with your automated tests.
-Next time, when you will run automated tests with `java -jar my-tests.jar`, Sunshine will 
+Once you have configured Sunshine for your project, you are able to build `my-automated-tests.jar`
+file with your automated tests.
+Next time, when you will run automated tests with `java -jar my-automated-tests.jar`, Sunshine will
 1. scan all classes within your JAR
-2. filter classes by provided pattern (find out classes with desired tests)
-3. run found tests with configured test runners
-4. print pass/fail statistic
+2. filter classes by [provided pattern](#filter-tests-to-be-run)
+3. run found tests using defined test runner
+4. report run statistic and exit code of the test runner
+
+Sample output:
+```bash
+$ java -jar sunshine-testng-integration-tests-unspecified.jar
+The following pattern will be used for classes filtering: (.+)([Tt]est)([\w\d]+)?
+Sunshine found 3 classes by the specified pattern. They all will be passed to appropriate xUnit engine.
+Classes:
+- io.github.tatools.testngtests.PassedTest
+- io.github.tatools.testngtests.TestNGXmlTest1
+- io.github.tatools.testngtests.TestNGXmlTest2
+
+===============================================
+Sunshine suite
+Total tests run: 3, Failures: 0, Skips: 0
+===============================================
+```
 
 Supported Java tests runners
 ============================
 - [TestNG](http://testng.org) - tested on `6.11`
-- [JUnit 4](http://junit.org/junit4) - tested on `4.11`
+- [JUnit4](http://junit.org/junit4) - tested on `4.11`
 
 How to start using?
 ===================
@@ -38,28 +57,32 @@ How to start using?
     ```
 2. Add Sunshine dependency based on your tests runner:
     - use `sunshine-testng` for TestNG
-    - use `sunshine-junit4` for Junit 4
+    - use `sunshine-junit4` for Junit4
 3. Configure main class for your JAR:
     - use `io.github.tatools.sunshine.testng.Sunshine` for TestNG
-    - use `io.github.tatools.sunshine.junit4.Sunshine` for JUnit 4
+    - use `io.github.tatools.sunshine.junit4.Sunshine` for JUnit4
     - or create your own configuration
-4. Create JAR file with `mvn clean build` or `gradle clean build`
+4. Build JAR file with `mvn clean build` or `gradle clean build`
 5. Run tests with `java -jar my-automated-tests.jar`
 
-Check out [TestNG + Gradle](sunshine-testng-integration-tests/build.gradle) or 
-[JUnit + Gradle](sunshine-junit4-integration-tests/build.gradle)(fat jar example with 
-[Shadow plugin](https://github.com/johnrengelman/shadow)) integration examples.
+Check out [TestNG + Gradle](sunshine-testng-integration-tests/build.gradle) or
+[JUnit + Gradle](sunshine-junit4-integration-tests/build.gradle) integration examples.
+Look [here](sunshine-junit4-integration-tests/build.gradle) if you wish to configure `fat jar` with TestNG + Gradle +
+[Gradle's Shadow plugin](https://github.com/johnrengelman/shadow).
 
 How to customize Sunshine?
 ==========================
 Filter tests to be run
 ----------------------
-[Java Pattern matching](https://docs.oracle.com/javase/8/docs/api/java/util/regex/Pattern.html) is used to filter 
-required Java classes. Sunshine uses a string representation of a class to filter files with tests. For instance, 
+[Java pattern matching](https://docs.oracle.com/javase/8/docs/api/java/util/regex/Pattern.html) is used to filter
+Java classes. Sunshine uses a string representation of a class as an input to a filter. For instance,
 you have `LoginTest` class in `com.example.mypackage` package. It will be converted to `com.example.mypackage.LoginTest`
-and then put to the filter. By default, filter enables all classes that have `test` word in the class name 
-(`(.+)([Tt]est)([\\w\\d]+)?` is the default regex). If you wish to define your own tests filter, you can provide the run 
-command with own regex: `java -Dtests="your regex here" -jar my-tests.jar`.
+and then put to the filter.
+
+The default filter enables all classes that have `test` word in the class name
+(a regex is **`(.+)([Tt]est)([\\w\\d]+)?`**). If you wish to redefine the default filter, just add `-Dtests=your-regex`
+argument to your run command. For instance, `java -Dtests="^(com.company.smoke)(.+)" -jar my-automated-tests.jar`
+allows Sunshine to use classes only from `com.company.smoke` package.
 
 TestNG configuration
 --------------------
