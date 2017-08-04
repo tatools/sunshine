@@ -9,7 +9,10 @@ sunshine
 
 [![Rultor.com](http://www.rultor.com/b/tatools/sunshine)](http://www.rultor.com/p/tatools/sunshine)
 
-@todo #18:15m Add maven central badge here.
+| Component       | Dependency   |
+| --------------- | :----------: |
+| sunshine-testng | [![Maven Central](https://img.shields.io/maven-central/v/io.github.tatools/sunshine-testng.svg)](https://maven-badges.herokuapp.com/maven-central/io.github.tatools/sunshine-testng) |
+| sunshine-junit4 | [![Maven Central](https://img.shields.io/maven-central/v/io.github.tatools/sunshine-junit4.svg)](https://maven-badges.herokuapp.com/maven-central/io.github.tatools/sunshine-junit4) |
 
 What is Sunshine?
 =================
