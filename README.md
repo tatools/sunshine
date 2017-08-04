@@ -7,9 +7,6 @@ sunshine
 [![codecov](https://codecov.io/gh/tatools/sunshine/branch/master/graph/badge.svg)](https://codecov.io/gh/tatools/sunshine)
 [![PDD status](http://www.0pdd.com/svg?name=tatools/sunshine)](http://www.0pdd.com/p?name=tatools/sunshine)
 
-[![Issue Stats](http://issuestats.com/github/tatools/sunshine/badge/issue)](http://issuestats.com/github/tatools/sunshine)
-[![Issue Stats](http://issuestats.com/github/tatools/sunshine/badge/pr)](http://issuestats.com/github/tatools/sunshine)
-
 [![Rultor.com](http://www.rultor.com/b/tatools/sunshine)](http://www.rultor.com/p/tatools/sunshine)
 
 @todo #18:15m Add maven central badge here.
