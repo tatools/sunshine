@@ -17,7 +17,7 @@ import java.io.IOException;
 public final class LoadableTestNGSuite implements TestNGSuite {
 
     private final SunshineSuite artifacts;
-    private final Directory suitePath;
+    private final File suiteXml;
 
     /**
      * Construct new instance with the specified file system, suite's directory and tests filter.
@@ -61,8 +61,8 @@ public final class LoadableTestNGSuite implements TestNGSuite {
      * @since 0.1
      */
     public LoadableTestNGSuite(SunshineSuite suite, Directory xmlSuiteDirectory) {
-        this.artifacts = suite;
-        this.suitePath = xmlSuiteDirectory;
+        artifacts = suite;
+        suiteXml = new FileBase(xmlSuiteDirectory, "sunshine-suite.xml");
     }
 
     @Override
@@ -75,9 +75,8 @@ public final class LoadableTestNGSuite implements TestNGSuite {
                 test.setSuite(xmlSuite);
                 xmlSuite.addTest(test);
             }
-            FileBase fileBase = new FileBase(this.suitePath, "sunshine-suite.xml");
-            fileBase.write(xmlSuite.toXml());
-            return fileBase;
+            suiteXml.write(xmlSuite.toXml());
+            return suiteXml;
         } catch (TestException | IOException e) {
             throw new SuiteException(e);
         }
