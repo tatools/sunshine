@@ -7,6 +7,8 @@ import org.testng.xml.XmlTest;
 import java.io.IOException;
 
 /**
+ * The {@link LoadableTestNGSuite} class represents a TestNG suite prepared from the Java classes.
+ *
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
  * @version $Id$
  * @since 0.1
@@ -59,8 +61,8 @@ public final class LoadableTestNGSuite implements TestNGSuite {
      * @since 0.1
      */
     public LoadableTestNGSuite(SunshineSuite suite, Directory xmlSuiteDirectory) {
-        artifacts = suite;
-        suitePath = xmlSuiteDirectory;
+        this.artifacts = suite;
+        this.suitePath = xmlSuiteDirectory;
     }
 
     @Override
@@ -68,12 +70,12 @@ public final class LoadableTestNGSuite implements TestNGSuite {
         XmlSuite xmlSuite = new XmlSuite();
         xmlSuite.setName("Sunshine suite");
         try {
-            for (SunshineTest sunshineTest : artifacts.tests()) {
+            for (SunshineTest sunshineTest : this.artifacts.tests()) {
                 XmlTest test = new TestNGTest(sunshineTest).object();
                 test.setSuite(xmlSuite);
                 xmlSuite.addTest(test);
             }
-            FileBase fileBase = new FileBase(suitePath, "sunshine-suite.xml");
+            FileBase fileBase = new FileBase(this.suitePath, "sunshine-suite.xml");
             fileBase.write(xmlSuite.toXml());
             return fileBase;
         } catch (TestException | IOException e) {
