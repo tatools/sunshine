@@ -35,16 +35,32 @@ public final class LoadableTestNGSuite implements TestNGSuite {
         );
     }
 
-    public LoadableTestNGSuite(FileSystem fileSystem, Directory suitePath, Condition filter) {
+    /**
+     * Constructs new instance with the specified file system, suite's directory and tests filter. All filtered tests
+     * will be printed to {@link System#out}.
+     *
+     * @param fileSystem        the place with the tests
+     * @param xmlSuiteDirectory the place to store suite file
+     * @param filter            the filter to be used to select desired tests
+     * @since 0.1
+     */
+    public LoadableTestNGSuite(FileSystem fileSystem, Directory xmlSuiteDirectory, Condition filter) {
         this(
                 new SunshineSuitePrintable(new SunshineSuiteFilterable(new SunshineSuiteBase(fileSystem), filter)),
-                suitePath
+                xmlSuiteDirectory
         );
     }
 
-    public LoadableTestNGSuite(SunshineSuite artifacts, Directory suitePath) {
-        this.artifacts = artifacts;
-        this.suitePath = suitePath;
+    /**
+     * Constructs new instance with the specified suite and suite's directory.
+     *
+     * @param suite             the tests to be used
+     * @param xmlSuiteDirectory the directory to store suite file
+     * @since 0.1
+     */
+    public LoadableTestNGSuite(SunshineSuite suite, Directory xmlSuiteDirectory) {
+        artifacts = suite;
+        suitePath = xmlSuiteDirectory;
     }
 
     @Override
@@ -52,12 +68,12 @@ public final class LoadableTestNGSuite implements TestNGSuite {
         XmlSuite xmlSuite = new XmlSuite();
         xmlSuite.setName("Sunshine suite");
         try {
-            for (SunshineTest sunshineTest : this.artifacts.tests()) {
+            for (SunshineTest sunshineTest : artifacts.tests()) {
                 XmlTest test = new TestNGTest(sunshineTest).object();
                 test.setSuite(xmlSuite);
                 xmlSuite.addTest(test);
             }
-            FileBase fileBase = new FileBase(this.suitePath, "sunshine-suite.xml");
+            FileBase fileBase = new FileBase(suitePath, "sunshine-suite.xml");
             fileBase.write(xmlSuite.toXml());
             return fileBase;
         } catch (TestException | IOException e) {
