@@ -1,5 +1,17 @@
 import groovy.io.FileType
 
+plugins {
+    id 'io.codearte.nexus-staging' version '0.9.0'
+}
+
+// configure "nexus-staging" plugin
+nexusStaging {
+    packageGroup= "io.github.tatools"
+    delayBetweenRetriesInMillis = 60000
+    username = sonatypeUsername
+    password = sonatypePassword
+}
+
 subprojects {
     apply plugin: 'java'
     group 'io.github.tatools'

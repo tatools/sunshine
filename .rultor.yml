@@ -30,3 +30,4 @@ release:
     ./gradlew updateVersion -PnewVersion=${tag}
     git commit -am "${tag}"
     ./gradlew -i clean uploadArchives
+    ./gradlew closeAndReleaseRepository
