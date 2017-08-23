@@ -7,7 +7,8 @@ import org.testng.xml.XmlTest;
 import java.io.IOException;
 
 /**
- * The {@link LoadableTestNGSuite} class represents a TestNG suite prepared from the Java classes.
+ * The {@link LoadableTestNGSuite} class represents a TestNG suite prepared from the Java classes. The suite has to
+ * be saved as a TestNG XML file.
  *
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
  * @version $Id$
@@ -18,6 +19,37 @@ public final class LoadableTestNGSuite implements TestNGSuite {
 
     private final SunshineSuite artifacts;
     private final File suiteXml;
+
+    /**
+     * Constructs new instance with the specified file system and tests filter. All filtered tests
+     * will be printed to {@link System#out}.
+     * <p>The TestNG XML file will be saved to the default temporary folder.</p>
+     *
+     * @param fileSystem the place with the tests
+     * @param filter     the filter to be used to select desired tests
+     * @since 0.2
+     */
+    public LoadableTestNGSuite(FileSystem fileSystem, Condition filter) {
+        this(new SunshineSuitePrintable(new SunshineSuiteFilterable(new SunshineSuiteBase(fileSystem), filter)));
+    }
+
+    /**
+     * Constructs new instance with the specified suite.
+     * <p>The TestNG XML file will be saved to the temporary folder.</p>
+     *
+     * @param suite the tests to be used
+     * @since 0.2
+     */
+    public LoadableTestNGSuite(SunshineSuite suite) {
+        this(
+                suite,
+                new DirectoryWithAutomaticCreation(
+                        new DirectoryWithAutomaticDeletion(
+                                new DirectorySafe(new AttributeOfReportFolder(new ConfigFromSunshine()))
+                        )
+                )
+        );
+    }
 
     /**
      * Construct new instance with the specified file system, suite's directory and tests filter.

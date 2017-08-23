@@ -18,22 +18,18 @@ public final class Sunshine {
         if (args != null && args.length > 0) {
             new TestNGEngine(new PreparedTestNGSuite(args[0])).run();
         } else {
-            final Config config = new ConfigFromSunshine();
             new TestNGEngine(
                     new CachedTestNGSuite(
                             new LoadableTestNGSuite(
                                     new FileSystemOfClasspathClasses(),
-                                    new DirectoryWithAutomaticCreation(
-                                            new DirectoryWithAutomaticDeletion(
-                                                    new DirectorySafe(new AttributeOfReportFolder(config))
-                                            )
-                                    ),
                                     new RegexCondition(
                                             new AttributeWithPrintableValue(
                                                     "The following pattern will be used for classes filtering:",
                                                     new AttributeFromSequence(
                                                             new AttributeOfTestPatternFromCli(),
-                                                            new AttributeOfTestPatternFromConfig(config)
+                                                            new AttributeOfTestPatternFromConfig(
+                                                                    new ConfigFromSunshine()
+                                                            )
                                                     )
                                             )
                                     )

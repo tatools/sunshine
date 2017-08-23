@@ -27,4 +27,15 @@ public class LoadableTestNGSuiteTest {
                 new Fake(true)
         ).tests();
     }
+
+    @Test
+    public void testDefaultSuiteDirectoryCreation() throws SuiteException {
+        new LoadableTestNGSuite(ArrayList::new).tests();
+    }
+
+
+    @Test
+    public void testFileSystemFilteringWithDefaultSuiteFolder() throws SuiteException {
+        new LoadableTestNGSuite(ArrayList::new, new Fake(true)).tests();
+    }
 }
