@@ -15,12 +15,20 @@ import java.util.Arrays;
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
  * @version $Id$
  * @since 0.1
+ * @deprecated since 0.2. Use {@link Junit4Kernel} instead. Please pay attention to {@link Engine#run()}.
  */
+@Deprecated
 public final class Junit4Engine implements Engine<RunListener> {
 
     private final JUnitCore jUnitCore;
     private final Suite<Class<?>[]> suite;
 
+    /**
+     * Constructs the new instance.
+     *
+     * @param suite the suite to be used
+     * @deprecated since 0.2.
+     */
     public Junit4Engine(Suite<Class<?>[]> suite) {
         this(new JUnitCore(), suite);
     }
