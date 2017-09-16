@@ -16,7 +16,9 @@ import java.util.Collections;
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
  * @version $Id$
  * @since 0.1
+ * @deprecated since 0.2. Use {@link TestNGKernel} instead. Please pay attention to {@link Engine#run()}.
  */
+@Deprecated
 public final class TestNGEngine implements Engine<ITestNGListener> {
 
     private final TestNG engine;
@@ -27,7 +29,9 @@ public final class TestNGEngine implements Engine<ITestNGListener> {
      * an TestNG runner.
      *
      * @param tests an instance of a {@link TestNGSuite} where need to find tests
+     * @deprecated since 0.2.
      */
+    @Deprecated
     public TestNGEngine(TestNGSuite tests) {
         this(new TestNG(false), tests);
     }
@@ -40,9 +44,9 @@ public final class TestNGEngine implements Engine<ITestNGListener> {
     @Override
     public void run() throws EngineException {
         try {
-            engine.setTestSuites(Collections.singletonList(tests.tests().path().toString()));
-            engine.run();
-            System.exit(engine.getStatus());
+            this.engine.setTestSuites(Collections.singletonList(this.tests.tests().path().toString()));
+            this.engine.run();
+            System.exit(this.engine.getStatus());
         } catch (SuiteException e) {
             throw new EngineException("Some problem occurs in the TestNG engine", e);
         }
@@ -58,6 +62,6 @@ public final class TestNGEngine implements Engine<ITestNGListener> {
     public TestNGEngine with(ITestNGListener... listeners) {
         final TestNG testNG = new TestNG(false);
         Arrays.stream(listeners).forEach(testNG::addListener);
-        return new TestNGEngine(testNG, tests);
+        return new TestNGEngine(testNG, this.tests);
     }
 }

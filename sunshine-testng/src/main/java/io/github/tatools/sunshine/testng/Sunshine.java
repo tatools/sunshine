@@ -14,12 +14,12 @@ import io.github.tatools.sunshine.core.*;
  */
 public final class Sunshine {
 
-    public static void main(String[] args) throws EngineException {
+    public static void main(String[] args) {
         if (args != null && args.length > 0) {
-            new TestNGEngine(new PreparedTestNGSuite(args[0])).run();
+            new Sun(new TestNGKernel(new PreparedTestNGSuite(args[0]))).shine();
         } else {
-            new TestNGEngine(
-                    new CachedTestNGSuite(
+            new Sun(
+                    new TestNGKernel(
                             new LoadableTestNGSuite(
                                     new FileSystemOfClasspathClasses(),
                                     new RegexCondition(
@@ -35,7 +35,7 @@ public final class Sunshine {
                                     )
                             )
                     )
-            ).run();
+            ).shine();
         }
     }
 }
