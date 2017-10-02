@@ -1,7 +1,7 @@
 package io.github.tatools.sunshine.junit4;
 
-import io.github.tatools.sunshine.core.*;
 
+import io.github.tatools.sunshine.core.*;
 
 /**
  * The {@link Sunshine} class is a main class to run Junit4 tests.
@@ -16,7 +16,6 @@ public final class Sunshine {
         new Sun(
                 new Junit4Kernel(
                         new JunitSuite(
-                                new FileSystemOfClasspathClasses(),
                                 new RegexCondition(
                                         new AttributeWithPrintableValue(
                                                 "The following pattern will be used for classes filtering:",

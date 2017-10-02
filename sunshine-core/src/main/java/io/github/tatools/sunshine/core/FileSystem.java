@@ -22,7 +22,7 @@ public interface FileSystem {
     class Fake implements FileSystem {
         private final List<FileSystemPath> files;
 
-        Fake(FileSystemPath... files) {
+        public Fake(FileSystemPath... files) {
             this(Arrays.asList(files));
         }
 
