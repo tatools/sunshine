@@ -1,12 +1,11 @@
 package io.github.tatools.sunshine.testng;
 
-import io.github.tatools.sunshine.core.Condition.Fake;
-import io.github.tatools.sunshine.core.SuiteException;
+import io.github.tatools.sunshine.core.*;
+import org.hamcrest.CustomMatcher;
+import org.hamcrest.MatcherAssert;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TemporaryFolder;
-
-import java.util.ArrayList;
 
 
 /**
@@ -21,21 +20,51 @@ public class LoadableTestNGSuiteTest {
 
     @Test
     public void testAutomaticSuiteDirectoryCreation() throws SuiteException {
-        new LoadableTestNGSuite(
-                ArrayList::new,
-                this.testFolder.getRoot().getAbsolutePath() + "/custom",
-                new Fake(true)
-        ).tests();
+        MatcherAssert.assertThat(
+                new LoadableTestNGSuite(
+                        new FileSystem.Fake(),
+                        this.testFolder.getRoot().getAbsolutePath() + "/custom",
+                        new Condition.Fake(true)
+                ).tests(),
+                new SuiteFileMatcher()
+        );
     }
 
     @Test
     public void testDefaultSuiteDirectoryCreation() throws SuiteException {
-        new LoadableTestNGSuite(ArrayList::new).tests();
+        MatcherAssert.assertThat(
+                new LoadableTestNGSuite(new SunshineSuite.Fake()).tests(),
+                new SuiteFileMatcher()
+        );
     }
 
 
     @Test
     public void testFileSystemFilteringWithDefaultSuiteFolder() throws SuiteException {
-        new LoadableTestNGSuite(ArrayList::new, new Fake(true)).tests();
+        MatcherAssert.assertThat(
+                new LoadableTestNGSuite(new FileSystem.Fake(), new Condition.Fake(true)).tests(),
+                new SuiteFileMatcher()
+        );
+    }
+
+    @Test
+    public void testDefaultTestsFiltering() throws SuiteException {
+        MatcherAssert.assertThat(
+                new LoadableTestNGSuite(new Condition.Fake(false)).tests(),
+                new SuiteFileMatcher()
+        );
+    }
+
+    private static class SuiteFileMatcher extends CustomMatcher<File> {
+
+        public SuiteFileMatcher() {
+            super("Check existence of a suite file");
+        }
+
+        @Override
+        public boolean matches(Object item) {
+            final File file = (File) item;
+            return file.exist();
+        }
     }
 }

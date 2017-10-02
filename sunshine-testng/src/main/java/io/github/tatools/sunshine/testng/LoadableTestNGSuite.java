@@ -17,8 +17,21 @@ import java.io.IOException;
 @SuppressWarnings("WeakerAccess")
 public final class LoadableTestNGSuite implements TestNGSuite {
 
+    private static final String SUITE_NAME = "Sunshine suite";
+    private static final String SUITE_XML_FILE_NAME = "sunshine-suite.xml";
     private final SunshineSuite artifacts;
     private final File suiteXml;
+
+    /**
+     * Construct the new instance with the specified tests filter. All tests will be loaded from the classpath.
+     *
+     * @param filter the filter to be used to select desired tests
+     * @see #LoadableTestNGSuite(FileSystem, Condition)
+     * @since 0.2
+     */
+    public LoadableTestNGSuite(Condition filter) {
+        this(new FileSystemOfClasspathClasses(), filter);
+    }
 
     /**
      * Constructs new instance with the specified file system and tests filter. All filtered tests
@@ -93,22 +106,22 @@ public final class LoadableTestNGSuite implements TestNGSuite {
      * @since 0.1
      */
     public LoadableTestNGSuite(SunshineSuite suite, Directory xmlSuiteDirectory) {
-        artifacts = suite;
-        suiteXml = new FileBase(xmlSuiteDirectory, "sunshine-suite.xml");
+        this.artifacts = suite;
+        this.suiteXml = new FileBase(xmlSuiteDirectory, SUITE_XML_FILE_NAME);
     }
 
     @Override
     public File tests() throws SuiteException {
         XmlSuite xmlSuite = new XmlSuite();
-        xmlSuite.setName("Sunshine suite");
+        xmlSuite.setName(SUITE_NAME);
         try {
             for (SunshineTest sunshineTest : this.artifacts.tests()) {
                 XmlTest test = new TestNGTest(sunshineTest).object();
                 test.setSuite(xmlSuite);
                 xmlSuite.addTest(test);
             }
-            suiteXml.write(xmlSuite.toXml());
-            return suiteXml;
+            this.suiteXml.write(xmlSuite.toXml());
+            return this.suiteXml;
         } catch (TestException | IOException e) {
             throw new SuiteException(e);
         }

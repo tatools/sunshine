@@ -21,7 +21,6 @@ public final class Sunshine {
             new Sun(
                     new TestNGKernel(
                             new LoadableTestNGSuite(
-                                    new FileSystemOfClasspathClasses(),
                                     new RegexCondition(
                                             new AttributeWithPrintableValue(
                                                     "The following pattern will be used for classes filtering:",
