@@ -16,7 +16,7 @@ public class JunitStatusTest {
     public void codeIfPassed() {
         MatcherAssert.assertThat(
                 new JunitStatus(new FakeResult(true, 0, 0, 0)).code(),
-                Matchers.is(0)
+                Matchers.is((short) 0)
         );
     }
 
@@ -24,7 +24,7 @@ public class JunitStatusTest {
     public void codeIfFailed() {
         MatcherAssert.assertThat(
                 new JunitStatus(new FakeResult(false, 0, 0, 0)).code(),
-                Matchers.is(1)
+                Matchers.is((short) 1)
         );
     }
 

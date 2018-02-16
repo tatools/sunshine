@@ -17,6 +17,6 @@ public class TestNGTestTest {
 
     @Test
     public void withRealClass() throws TestException {
-        new TestNGTest("io/github/tatools/sunshine/core/Engine.class").object();
+        new TestNGTest("io/github/tatools/sunshine/core/Test.class").object();
     }
 }
