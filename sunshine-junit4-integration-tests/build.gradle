@@ -37,7 +37,7 @@ task runIntegrationTests { Task task ->
         task.project.exec {
             executable "sh"
             args "-c", "cd build/libs/ && " +
-                    "java -Dtests=\"(io.github.tatools.junit4tests)(.+)?\" -jar ${project.name}-${version}-all.jar " +
+                    "java -Dtests-regex=\"(io.github.tatools.junit4tests)(.+)?\" -jar ${project.name}-${version}-all.jar " +
                     "| grep \"Total tests run: 1, Failures: 0, Skips: 0\""
         }
     }

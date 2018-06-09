@@ -36,7 +36,7 @@ public class FileSystemPathBaseTest {
     public void exist() {
         MatcherAssert.assertThat(
                 "File is absent",
-                new FileSystemPathBase("src/test/resources/test.properties").exist()
+                new FileSystemPathBase("src/main/java/io/github/tatools/sunshine/core/FileSystemPathBase.java").exist()
         );
     }
 }

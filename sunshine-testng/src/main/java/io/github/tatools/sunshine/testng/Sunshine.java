@@ -1,6 +1,8 @@
 package io.github.tatools.sunshine.testng;
 
-import io.github.tatools.sunshine.core.*;
+import io.github.tatools.sunshine.core.RegexCondition;
+import io.github.tatools.sunshine.core.Sun;
+import io.github.tatools.sunshine.core.VerboseRegex;
 
 /**
  * The {@link Sunshine} class is a main class to run TestNG tests.
@@ -18,23 +20,7 @@ public final class Sunshine {
         if (args != null && args.length > 0) {
             new Sun(new TestNGKernel(new PreparedTestNGSuite(args[0]))).shine();
         } else {
-            new Sun(
-                    new TestNGKernel(
-                            new LoadableTestNGSuite(
-                                    new RegexCondition(
-                                            new AttributeWithPrintableValue(
-                                                    "The following pattern will be used for classes filtering:",
-                                                    new AttributeFromSequence(
-                                                            new AttributeOfTestPatternFromCli(),
-                                                            new AttributeOfTestPatternFromConfig(
-                                                                    new ConfigFromSunshine()
-                                                            )
-                                                    )
-                                            )
-                                    )
-                            )
-                    )
-            ).shine();
+            new Sun(new TestNGKernel(new LoadableTestNGSuite(new VerboseRegex(new RegexCondition())))).shine();
         }
     }
 }

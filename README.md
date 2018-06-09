@@ -60,7 +60,7 @@ How to start using?
     src/test   <- your unit tests here
     ```
 2. Add Sunshine [dependency](#tests-runners) based on your tests runner
-3. Configure [tests runner](#tests-runners) class for your JAR (like [here](sunshine-testng-integration-tests/build.gradle#L4))
+3. Configure [tests runner](#tests-runners) class for your JAR (like [here](sunshine-testng-integration-tests/build.gradle) at line 4)
 4. Build JAR file with `mvn clean package` or `gradle clean build`
 5. Run tests with `java -jar my-automated-tests.jar`
 
@@ -80,9 +80,9 @@ Java classes. Sunshine uses a string representation of a class as an input to a 
 you have `LoginTest` class in `com.example.mypackage` package. It will be converted to `com.example.mypackage.LoginTest`
 and then put to the filter.
 
-The default filter enables all classes that have `test` word in the class name
-(a regex is **`(.+)([Tt]est)([\\w\\d]+)?`**). If you wish to redefine the default filter, just add `-Dtests=your-regex`
-argument to your run command. For instance, `java -Dtests="^(com.company.smoke)(.+)" -jar my-automated-tests.jar`
+The default filter enables all classes that have `Test` word in the class name
+(a regex is **`(.+)(Test)([\w\d]+)?`**). If you wish to redefine the default filter, just add `-Dtests-regex=your-regex`
+argument to your run command. For instance, `java -Dtests-regex="^(com.company.smoke)(.+)" -jar my-automated-tests.jar`
 allows Sunshine to use classes only from `com.company.smoke` package.
 
 Create custom tests runner

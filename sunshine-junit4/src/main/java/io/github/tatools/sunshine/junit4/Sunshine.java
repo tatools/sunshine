@@ -1,7 +1,9 @@
 package io.github.tatools.sunshine.junit4;
 
 
-import io.github.tatools.sunshine.core.*;
+import io.github.tatools.sunshine.core.RegexCondition;
+import io.github.tatools.sunshine.core.Sun;
+import io.github.tatools.sunshine.core.VerboseRegex;
 
 /**
  * The {@link Sunshine} class is a main class to run Junit4 tests.
@@ -13,20 +15,6 @@ import io.github.tatools.sunshine.core.*;
 public final class Sunshine {
 
     public static void main(String[] args) {
-        new Sun(
-                new Junit4Kernel(
-                        new JunitSuite(
-                                new RegexCondition(
-                                        new AttributeWithPrintableValue(
-                                                "The following pattern will be used for classes filtering:",
-                                                new AttributeFromSequence(
-                                                        new AttributeOfTestPatternFromCli(),
-                                                        new AttributeOfTestPatternFromConfig(new ConfigFromSunshine())
-                                                )
-                                        )
-                                )
-                        )
-                )
-        ).shine();
+        new Sun(new Junit4Kernel(new JunitSuite(new VerboseRegex(new RegexCondition())))).shine();
     }
 }
