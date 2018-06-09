@@ -48,7 +48,7 @@ public final class LoadableTestNGSuite implements TestNGSuite {
 
     /**
      * Constructs new instance with the specified suite.
-     * <p>The TestNG XML file will be saved to the temporary folder.</p>
+     * <p>The TestNG XML file will be saved to the temporary directory named "./sunshine-generated-suites".</p>
      *
      * @param suite the tests to be used
      * @since 0.2
@@ -58,7 +58,7 @@ public final class LoadableTestNGSuite implements TestNGSuite {
                 suite,
                 new DirectoryWithAutomaticCreation(
                         new DirectoryWithAutomaticDeletion(
-                                new DirectorySafe(new AttributeOfReportFolder(new ConfigFromSunshine()))
+                                new DirectorySafe("./sunshine-generated-suites")
                         )
                 )
         );
