@@ -1,15 +1,5 @@
-apply plugin: 'jacoco'
 apply plugin: 'maven'
 apply plugin: 'signing'
-
-jacocoTestReport {
-    reports {
-        xml.enabled = true
-        html.enabled = true
-    }
-}
-
-check.dependsOn(jacocoTestReport)
 
 dependencies {
     compileOnly 'org.projectlombok:lombok:1.16.14'

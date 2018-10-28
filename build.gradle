@@ -6,11 +6,12 @@ plugins {
 
 // configure "nexus-staging" plugin
 nexusStaging {
-    packageGroup= "io.github.tatools"
+    packageGroup = "io.github.tatools"
     delayBetweenRetriesInMillis = 60000
     username = sonatypeUsername
     password = sonatypePassword
 }
+
 
 subprojects {
     apply plugin: 'java'
@@ -23,14 +24,15 @@ subprojects {
         mavenCentral()
     }
 }
-
 project(':sunshine-core') {
+    apply from: rootProject.file('gradle/jacoco.gradle')
     dependencies {
         compileOnly project(':sunshine-core-deps')
     }
 }
 
 project(':sunshine-junit4') {
+    apply from: rootProject.file('gradle/jacoco.gradle')
     dependencies {
         compile project(':sunshine-core')
     }
@@ -43,6 +45,7 @@ project(':sunshine-junit4-integration-tests') {
 }
 
 project(':sunshine-testng') {
+    apply from: rootProject.file('gradle/jacoco.gradle')
     dependencies {
         compile project(':sunshine-core')
     }
