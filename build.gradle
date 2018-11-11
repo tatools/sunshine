@@ -1,31 +1,29 @@
 import groovy.io.FileType
 
 plugins {
-    id 'io.codearte.nexus-staging' version '0.9.0'
+    id "com.jfrog.bintray" version "1.7" apply false
 }
 
-// configure "nexus-staging" plugin
-nexusStaging {
-    packageGroup = "io.github.tatools"
-    delayBetweenRetriesInMillis = 60000
-    username = sonatypeUsername
-    password = sonatypePassword
+ext {
+    GITHUB_URL = "https://github.com/tatools/sunshine"
+    BINTRAY_ORG = "tatools"
 }
-
 
 subprojects {
     apply plugin: 'java'
-    group 'io.github.tatools'
+    group 'org.tatools'
     version "${version}"
     sourceCompatibility = JavaVersion.VERSION_1_8
 
     repositories {
         mavenLocal()
+        jcenter()
         mavenCentral()
     }
 }
 project(':sunshine-core') {
     apply from: rootProject.file('gradle/jacoco.gradle')
+    apply from: rootProject.file('gradle/bintray.gradle')
     dependencies {
         compileOnly project(':sunshine-core-deps')
     }
@@ -33,6 +31,7 @@ project(':sunshine-core') {
 
 project(':sunshine-junit4') {
     apply from: rootProject.file('gradle/jacoco.gradle')
+    apply from: rootProject.file('gradle/bintray.gradle')
     dependencies {
         compile project(':sunshine-core')
     }
@@ -46,6 +45,7 @@ project(':sunshine-junit4-integration-tests') {
 
 project(':sunshine-testng') {
     apply from: rootProject.file('gradle/jacoco.gradle')
+    apply from: rootProject.file('gradle/bintray.gradle')
     dependencies {
         compile project(':sunshine-core')
     }

@@ -1,0 +1,85 @@
+apply plugin: 'com.jfrog.bintray'
+apply plugin: 'maven'
+apply plugin: 'maven-publish'
+apply plugin: 'signing'
+
+task javadocJar(type: Jar) {
+    classifier = 'javadoc'
+    from javadoc
+}
+
+task sourcesJar(type: Jar) {
+    classifier = 'sources'
+    from sourceSets.main.allSource
+}
+
+artifacts {
+    archives jar
+    archives javadocJar
+    archives sourcesJar
+}
+
+signing {
+    sign configurations.archives
+}
+
+bintray {
+    user = bintrayUser
+    key = bintrayApiKey
+    publications = ['maven']
+    pkg {
+        userOrg = BINTRAY_ORG
+        repo = rootProject.name
+        name = project.name
+        licenses = ['Apache-2.0']
+        vcsUrl = GITHUB_URL
+        publicDownloadNumbers = true
+        version {
+            name = project.version
+            vcsTag = project.version
+        }
+    }
+}
+
+// Create the pom configuration:
+def pomConfig = {
+    licenses {
+        license {
+            name "The Apache Software License, Version 2.0"
+            url "http://www.apache.org/licenses/LICENSE-2.0.txt"
+            distribution "repo"
+        }
+    }
+    developers {
+        developer {
+            id 'extsoft'
+            name 'Dmytro Serdiuk'
+            email 'dmytro.serdiuk@gmail.com'
+        }
+    }
+
+    scm {
+        url GITHUB_URL
+    }
+}
+
+// Create the publication with the pom configuration:
+publishing {
+    publications {
+        maven(MavenPublication) {
+            from components.java
+            artifact sourcesJar
+            artifact javadocJar
+            groupId project.group
+            artifactId project.name
+            version project.version
+            pom.withXml {
+                def root = asNode()
+                root.appendNode('description', DESCRIPTION)
+                root.appendNode('name', NAME)
+                root.appendNode('url', GITHUB_URL)
+                root.children().last() + pomConfig
+            }
+        }
+    }
+}

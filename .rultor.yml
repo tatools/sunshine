@@ -11,7 +11,7 @@ merge:
     fast-forward: only
     rebase: true
     script: |-
-        ./gradlew 
+        ./gradlew --info
         ./gradlew clean
         pdd --source=$(pwd) --verbose --file=/dev/null
     commanders:
@@ -24,10 +24,6 @@ release:
   commanders: extsoft
   script: |-
     cp ../gradle.properties .
-    cp ../secring.gpg sunshine-core
-    cp ../secring.gpg sunshine-junit4
-    cp ../secring.gpg sunshine-testng
+    cp ../secring.gpg .
     ./gradlew updateVersion -PnewVersion=${tag}
-    git commit -am "${tag}"
-    ./gradlew -i clean uploadArchives
-    ./gradlew closeAndReleaseRepository
+    ./gradlew clean ready bintrayUpload --info

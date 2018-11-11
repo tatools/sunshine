@@ -22,6 +22,13 @@ Tests runners
 
 | Component       | Dependency   | Verified on | Tests runner class |
 | --------------- | :----------: | ----------- | ------------------ |
+| sunshine-testng | [![Maven Central](https://img.shields.io/maven-central/v/org.tatools/sunshine-testng.svg)](https://maven-badges.herokuapp.com/maven-central/org.tatools/sunshine-testng) | [TestNG](http://testng.org) `6.11` | [`org.tatools.sunshine.testng.Sunshine`](sunshine-testng/src/main/java/org/tatools/sunshine/testng/Sunshine.java) |
+| sunshine-junit4 | [![Maven Central](https://img.shields.io/maven-central/v/org.tatools/sunshine-junit4.svg)](https://maven-badges.herokuapp.com/maven-central/org.tatools/sunshine-junit4) | [JUnit4](http://junit.org/junit4) `4.11` | [`org.tatools.sunshine.junit4.Sunshine`](sunshine-junit4/src/main/java/org/tatools/sunshine/junit4/Sunshine.java) |
+
+For `version` <= `0.3.0`
+
+| Component       | Dependency   | Verified on | Tests runner class |
+| --------------- | :----------: | ----------- | ------------------ |
 | sunshine-testng | [![Maven Central](https://img.shields.io/maven-central/v/io.github.tatools/sunshine-testng.svg)](https://maven-badges.herokuapp.com/maven-central/io.github.tatools/sunshine-testng) | [TestNG](http://testng.org) `6.11` | [`io.github.tatools.sunshine.testng.Sunshine`](sunshine-testng/src/main/java/io/github/tatools/sunshine/testng/Sunshine.java) |
 | sunshine-junit4 | [![Maven Central](https://img.shields.io/maven-central/v/io.github.tatools/sunshine-junit4.svg)](https://maven-badges.herokuapp.com/maven-central/io.github.tatools/sunshine-junit4) | [JUnit4](http://junit.org/junit4) `4.11` | [`io.github.tatools.sunshine.junit4.Sunshine`](sunshine-junit4/src/main/java/io/github/tatools/sunshine/junit4/Sunshine.java) |
 
@@ -42,9 +49,9 @@ $ java -jar sunshine-testng-integration-tests-unspecified.jar
 The following pattern will be used for classes filtering: (.+)([Tt]est)([\w\d]+)?
 Sunshine found 3 classes by the specified pattern. They all will be passed to appropriate xUnit engine.
 Classes:
-- io.github.tatools.testngtests.PassedTest
-- io.github.tatools.testngtests.TestNGXmlTest1
-- io.github.tatools.testngtests.TestNGXmlTest2
+- org.tatools.testngtests.PassedTest
+- org.tatools.testngtests.TestNGXmlTest1
+- org.tatools.testngtests.TestNGXmlTest2
 
 ===============================================
 Sunshine suite

@@ -2,8 +2,8 @@ name: "Sunshine TestNG integration tests"
 tests:
   - name: 1
     classes:
-      - io.github.tatools.testngtests.TestNGXmlTest1
+    - org.tatools.testngtests.TestNGXmlTest1
 
   - name: 2
     classes:
-      - io.github.tatools.testngtests.TestNGXmlTest1
+    - org.tatools.testngtests.TestNGXmlTest1

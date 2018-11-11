@@ -1,11 +1,8 @@
-apply plugin: 'maven'
-apply plugin: 'signing'
-
-
 dependencies {
     compileOnly 'org.projectlombok:lombok:1.16.14'
     testCompile 'org.hamcrest:hamcrest-all:1.3'
     testCompile 'junit:junit:4.11'
+    testCompile 'com.github.stefanbirkner:system-rules:1.18.0'
 }
 
 task copyUnitTestsDependencies(type: Copy) {
@@ -21,69 +18,5 @@ test.dependsOn(copyUnitTestsDependencies)
 task ready(dependsOn: check) {
     doLast {
         println("Unit testing of Sunshine core is completed.")
-    }
-}
-
-task javadocJar(type: Jar) {
-    classifier = 'javadoc'
-    from javadoc
-}
-
-task sourcesJar(type: Jar) {
-    classifier = 'sources'
-    from sourceSets.main.allSource
-}
-
-artifacts {
-    archives jar
-    archives javadocJar
-    archives sourcesJar
-}
-
-signing {
-    sign configurations.archives
-}
-
-uploadArchives {
-    repositories {
-        mavenDeployer {
-            beforeDeployment { MavenDeployment deployment -> signing.signPom(deployment) }
-
-            repository(url: "https://oss.sonatype.org/service/local/staging/deploy/maven2/") {
-                authentication(userName: sonatypeUsername, password: sonatypePassword)
-            }
-
-            snapshotRepository(url: "https://oss.sonatype.org/content/repositories/snapshots/") {
-                authentication(userName: sonatypeUsername, password: sonatypePassword)
-            }
-
-            pom.project {
-                name "${project.name} core"
-                packaging 'jar'
-                description "Unified ${project.name} core"
-                url 'https://github.com/tatools/sunshine'
-
-                scm {
-                    connection 'scm:git@github.com:tatools/sunshine.git'
-                    developerConnection 'scm:git@github.com:tatools/sunshine.git'
-                    url 'https://github.com/tatools/sunshine/tree/master'
-                }
-
-                licenses {
-                    license {
-                        name 'The Apache License, Version 2.0'
-                        url 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-                    }
-                }
-
-                developers {
-                    developer {
-                        id 'extsoft'
-                        name 'Dmytro Serdiuk'
-                        email 'dmytro.serdiuk@gmail.com'
-                    }
-                }
-            }
-        }
     }
 }

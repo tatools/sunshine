@@ -12,7 +12,7 @@ apply plugin: 'com.github.johnrengelman.shadow'
 dependencies {
     jar {
         manifest {
-            attributes 'Main-Class': 'io.github.tatools.sunshine.junit4.Sunshine'
+            attributes 'Main-Class': 'org.tatools.sunshine.junit4.Sunshine'
             attributes "Class-Path": configurations.runtime.collect {
                 "deps/" + it.getName()
             }.join(' ')
@@ -37,7 +37,7 @@ task runIntegrationTests { Task task ->
         task.project.exec {
             executable "sh"
             args "-c", "cd build/libs/ && " +
-                    "java -Dtests-regex=\"(io.github.tatools.junit4tests)(.+)?\" -jar ${project.name}-${version}-all.jar " +
+                    "java -Dtests-regex=\"(org.tatools.junit4tests)(.+)?\" -jar ${project.name}-${version}-all.jar " +
                     "| grep \"Total tests run: 1, Failures: 0, Skips: 0\""
         }
     }
