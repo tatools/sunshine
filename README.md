@@ -109,3 +109,17 @@ If you have any questions or something is not clear for you or want more functio
 
 Before sending any pull request, please submit new issue or pick up existing one, discuss requirements and 
 implementation details (optional).
+
+Development notes
+=================
+
+Update docs
+-----------
+Before generate documentation, you need to install required Python's dependencies with `pip install -r docs/requirements.txt`.
+
+When you are ready to review your changes, you can build static HTML pages with
+```bash
+cd docs
+make html
+open _build/html/index.html
+```

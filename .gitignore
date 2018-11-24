@@ -14,3 +14,6 @@ hs_err_pid*
 .idea/
 build/
 .DS_Store
+_build/
+.python-version
+*.iml
