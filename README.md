@@ -1,5 +1,7 @@
 sunshine
 ========
+Please read the users documentation on [http://sunshine.tatools.org](http://sunshine.tatools.org).
+
 
 [![Join the chat at https://gitter.im/tatools/sunshine](https://badges.gitter.im/tatools/sunshine.svg)](https://gitter.im/tatools/sunshine?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
@@ -12,11 +14,6 @@ sunshine
 
 [![Rultor.com](http://www.rultor.com/b/tatools/sunshine)](http://www.rultor.com/p/tatools/sunshine)
 
-What is Sunshine?
-=================
-**Sunshine** is a wrapper on Java xUnit test runners (such as TestNG, Junit...) which allows automatically
-[find classes with tests](#filter-tests-to-be-run) within the jar file, passes them to desired test runner and reports
-an execution status.
 
 Tests runners
 -------------
