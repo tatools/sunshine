@@ -23,7 +23,6 @@ decrypt:
 release:
   commanders: extsoft
   script: |-
-    cp ../gradle.properties .
-    cp ../secring.gpg .
+    cp -v ../gradle.properties ../secring.gpg ./
     ./gradlew updateVersion -PnewVersion=${tag}
     ./gradlew clean ready bintrayUpload --info
