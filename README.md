@@ -1,5 +1,8 @@
 sunshine
 ========
+Sunshine allows you to manage suits of your automated tests directly from Java code. It can work
+on top of [TestNg](https://testng.org/doc/index.html) or [JUnit4](https://junit.org/junit4/).
+
 Please read the users documentation on [http://sunshine.tatools.org](http://sunshine.tatools.org).
 
 
@@ -30,32 +33,6 @@ For `version` <= `0.3.0`
 | sunshine-testng | [![Maven Central](https://img.shields.io/maven-central/v/io.github.tatools/sunshine-testng.svg)](https://maven-badges.herokuapp.com/maven-central/io.github.tatools/sunshine-testng) | [TestNG](http://testng.org) `6.11` | [`io.github.tatools.sunshine.testng.Sunshine`](sunshine-testng/src/main/java/io/github/tatools/sunshine/testng/Sunshine.java) |
 | sunshine-junit4 | [![Maven Central](https://img.shields.io/maven-central/v/io.github.tatools/sunshine-junit4.svg)](https://maven-badges.herokuapp.com/maven-central/io.github.tatools/sunshine-junit4) | [JUnit4](http://junit.org/junit4) `4.11` | [`io.github.tatools.sunshine.junit4.Sunshine`](sunshine-junit4/src/main/java/io/github/tatools/sunshine/junit4/Sunshine.java) |
 
-
-How does Sunshine work?
-=======================
-Once you have configured Sunshine for your project, you are able to build `my-automated-tests.jar`
-file with your automated tests.
-Next time, when you will run automated tests with `java -jar my-automated-tests.jar`, Sunshine will:
-1. scan all classes within your JAR
-2. filter classes by [provided pattern](#filter-tests-to-be-run)
-3. run found tests using defined test runner
-4. report run statistic and exit code of the test runner
-
-Sample output of [internal integration tests](sunshine-testng-integration-tests):
-```bash
-$ java -jar sunshine-testng-integration-tests-unspecified.jar
-The following pattern will be used for classes filtering: (.+)([Tt]est)([\w\d]+)?
-Sunshine found 3 classes by the specified pattern. They all will be passed to appropriate xUnit engine.
-Classes:
-- org.tatools.testngtests.PassedTest
-- org.tatools.testngtests.TestNGXmlTest1
-- org.tatools.testngtests.TestNGXmlTest2
-
-===============================================
-Sunshine suite
-Total tests run: 3, Failures: 0, Skips: 0
-===============================================
-```
 
 How to start using?
 ===================

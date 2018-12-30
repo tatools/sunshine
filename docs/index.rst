@@ -9,15 +9,17 @@ Welcome to Sunshine's documentation!
 .. _JUnit4: https://junit.org/junit4/
 
 Sunshine allows you to manage suits of your automated tests directly from Java code. It can work
-on top of TestNg_ or JUnit4_. Please check out :ref:`Getting started` page to see
-how it works.
+on top of TestNg_ or JUnit4_.
+
+Please read the :ref:`Concept` to understand how it works before moving to :ref:`Getting started`.
 
 ..  toctree::
     :maxdepth: 2
     :caption: Users documentation:
 
-    Getting started <md/getting-started>
-    Artifacts <md/artifacts>
+    md/concept.md
+    md/getting-started
+    md/artifacts
 
 ..  toctree::
     :maxdepth: 2
