@@ -1,5 +1,6 @@
 dependencies {
     compileOnly 'org.projectlombok:lombok:1.16.14'
+    annotationProcessor 'org.projectlombok:lombok:1.16.14'
     compile 'junit:junit:4.11'
     testCompile 'org.hamcrest:hamcrest-all:1.3'
 }

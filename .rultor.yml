@@ -25,4 +25,4 @@ release:
   script: |-
     cp -v ../gradle.properties ../secring.gpg ./
     ./gradlew updateVersion -PnewVersion=${tag}
-    ./gradlew clean ready signArchives bintrayUpload --info
+    ./gradlew clean ready signMavenPublication bintrayUpload --info

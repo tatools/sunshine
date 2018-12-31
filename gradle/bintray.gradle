@@ -19,44 +19,6 @@ artifacts {
     archives sourcesJar
 }
 
-signing {
-    sign configurations.archives
-}
-
-bintray {
-    user = bintrayUser
-    key = bintrayApiKey
-    publications = ['maven']
-    publish = true
-    filesSpec {
-        from("${buildDir}/libs") {
-            include '*.jar.asc'
-        }
-        from("${buildDir}/publications/maven") {
-            include 'pom-default.xml.asc'
-            rename 'pom-default.xml.asc', "${project.name}-${project.version}.pom.asc"
-        }
-        into "${project.group.replaceAll(/\./, '/')}/${project.name}/${project.version}"
-    }
-    pkg {
-        userOrg = BINTRAY_ORG
-        repo = rootProject.name
-        name = project.name
-        licenses = ['Apache-2.0']
-        vcsUrl = GITHUB_URL
-        publicDownloadNumbers = true
-        version {
-            name = project.version
-            vcsTag = project.version
-            mavenCentralSync {
-                sync = true
-                user = sonatypeUsername
-                password = sonatypePassword
-            }
-        }
-    }
-}
-
 // Create the pom configuration:
 def pomConfig = {
     licenses {
@@ -95,6 +57,44 @@ publishing {
                 root.appendNode('name', NAME)
                 root.appendNode('url', GITHUB_URL)
                 root.children().last() + pomConfig
+            }
+        }
+    }
+}
+
+signing {
+    sign publishing.publications.maven
+}
+
+bintray {
+    user = bintrayUser
+    key = bintrayApiKey
+    publications = ['maven']
+    publish = true
+    filesSpec {
+        from("${buildDir}/libs") {
+            include '*.jar.asc'
+        }
+        from("${buildDir}/publications/maven") {
+            include 'pom-default.xml.asc'
+            rename 'pom-default.xml.asc', "${project.name}-${project.version}.pom.asc"
+        }
+        into "${project.group.replaceAll(/\./, '/')}/${project.name}/${project.version}"
+    }
+    pkg {
+        userOrg = BINTRAY_ORG
+        repo = rootProject.name
+        name = project.name
+        licenses = ['Apache-2.0']
+        vcsUrl = GITHUB_URL
+        publicDownloadNumbers = true
+        version {
+            name = project.version
+            vcsTag = project.version
+            mavenCentralSync {
+                sync = true
+                user = sonatypeUsername
+                password = sonatypePassword
             }
         }
     }

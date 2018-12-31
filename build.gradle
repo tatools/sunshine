@@ -1,7 +1,5 @@
-import groovy.io.FileType
-
 plugins {
-    id "com.jfrog.bintray" version "1.7" apply false
+    id "com.jfrog.bintray" version "1.8.4" apply false
 }
 
 ext {
@@ -61,7 +59,7 @@ defaultTasks 'clean', 'ready'
 
 //task to write the version parameter given via command line into the "gradle.properties" files.
 // Call with: gradle updateVersion -PnewVersion=1.0.1-SNAPSHOT
-task('updateVersion') << {
+task('updateVersion') {
     if (project.hasProperty('newVersion')) {
         //set version in gradle settings
         project.version = project.newVersion
