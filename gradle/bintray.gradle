@@ -28,6 +28,16 @@ bintray {
     key = bintrayApiKey
     publications = ['maven']
     publish = true
+    filesSpec {
+        from("${buildDir}/libs") {
+            include '*.jar.asc'
+        }
+        from("${buildDir}/publications/maven") {
+            include 'pom-default.xml.asc'
+            rename 'pom-default.xml.asc', "${project.name}-${project.version}.pom.asc"
+        }
+        into "${project.group.replaceAll(/\./, '/')}/${project.name}/${project.version}"
+    }
     pkg {
         userOrg = BINTRAY_ORG
         repo = rootProject.name
