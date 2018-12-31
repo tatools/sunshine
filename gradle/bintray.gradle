@@ -27,6 +27,7 @@ bintray {
     user = bintrayUser
     key = bintrayApiKey
     publications = ['maven']
+    publish = true
     pkg {
         userOrg = BINTRAY_ORG
         repo = rootProject.name
