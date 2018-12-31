@@ -38,6 +38,11 @@ bintray {
         version {
             name = project.version
             vcsTag = project.version
+            mavenCentralSync {
+                sync = true
+                user = sonatypeUsername
+                password = sonatypePassword
+            }
         }
     }
 }
