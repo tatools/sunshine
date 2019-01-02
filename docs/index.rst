@@ -5,11 +5,11 @@
 
 Welcome to Sunshine's documentation!
 ====================================
-.. _TestNg: https://testng.org/doc/index.html
+.. _TestNG: https://testng.org/doc/index.html
 .. _JUnit4: https://junit.org/junit4/
 
 Sunshine allows you to manage suits of your automated tests directly from Java code. It can work
-on top of TestNg_ or JUnit4_.
+on top of TestNG_ or JUnit4_.
 
 Please read the :ref:`Concept` to understand how it works before moving to :ref:`Getting started`.
 
@@ -20,9 +20,10 @@ Please read the :ref:`Concept` to understand how it works before moving to :ref:
     md/concept.md
     md/getting-started
     md/artifacts
+    md/entry-points
 
 ..  toctree::
-    :maxdepth: 2
+    :maxdepth: 1
     :caption: Development:
     :hidden:
 

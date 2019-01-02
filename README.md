@@ -34,25 +34,6 @@ For `version` <= `0.3.0`
 | sunshine-junit4 | [![Maven Central](https://img.shields.io/maven-central/v/io.github.tatools/sunshine-junit4.svg)](https://maven-badges.herokuapp.com/maven-central/io.github.tatools/sunshine-junit4) | [JUnit4](http://junit.org/junit4) `4.11` | [`io.github.tatools.sunshine.junit4.Sunshine`](sunshine-junit4/src/main/java/io/github/tatools/sunshine/junit4/Sunshine.java) |
 
 
-How to start using?
-===================
-1. Make sure you have the following project structure:
-    ```
-    src/main   <- your code here, including automated tests
-    src/test   <- your unit tests here
-    ```
-2. Add Sunshine [dependency](#tests-runners) based on your tests runner
-3. Configure [tests runner](#tests-runners) class for your JAR (like [here](sunshine-testng-integration-tests/build.gradle) at line 4)
-4. Build JAR file with `mvn clean package` or `gradle clean build`
-5. Run tests with `java -jar my-automated-tests.jar`
-
-Check out [TestNG + Gradle](sunshine-testng-integration-tests/build.gradle) or
-[JUnit + Gradle](sunshine-junit4-integration-tests/build.gradle) integration examples.
-Look [here](sunshine-junit4-integration-tests/build.gradle) if you wish to configure `fat jar` with TestNG + Gradle +
-[Gradle's Shadow plugin](https://github.com/johnrengelman/shadow). And 
-[here](https://github.com/extsoft/jcat/commit/65558e95cb94a2c995ec67fa09bf501a740dcff4/pom.xml#diff-600376dffeb79835ede4a0b285078036)
-is an example of a `fat jar` with Maven + TestNG.
-
 How to customize Sunshine?
 ==========================
 Filter tests to be run
