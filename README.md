@@ -18,22 +18,6 @@ Please read the users documentation on [http://sunshine.tatools.org](http://suns
 [![Rultor.com](http://www.rultor.com/b/tatools/sunshine)](http://www.rultor.com/p/tatools/sunshine)
 
 
-Tests runners
--------------
-
-| Component       | Dependency   | Verified on | Tests runner class |
-| --------------- | :----------: | ----------- | ------------------ |
-| sunshine-testng | [![Maven Central](https://img.shields.io/maven-central/v/org.tatools/sunshine-testng.svg)](https://maven-badges.herokuapp.com/maven-central/org.tatools/sunshine-testng) | [TestNG](http://testng.org) `6.11` | [`org.tatools.sunshine.testng.Sunshine`](sunshine-testng/src/main/java/org/tatools/sunshine/testng/Sunshine.java) |
-| sunshine-junit4 | [![Maven Central](https://img.shields.io/maven-central/v/org.tatools/sunshine-junit4.svg)](https://maven-badges.herokuapp.com/maven-central/org.tatools/sunshine-junit4) | [JUnit4](http://junit.org/junit4) `4.11` | [`org.tatools.sunshine.junit4.Sunshine`](sunshine-junit4/src/main/java/org/tatools/sunshine/junit4/Sunshine.java) |
-
-For `version` <= `0.3.0`
-
-| Component       | Dependency   | Verified on | Tests runner class |
-| --------------- | :----------: | ----------- | ------------------ |
-| sunshine-testng | [![Maven Central](https://img.shields.io/maven-central/v/io.github.tatools/sunshine-testng.svg)](https://maven-badges.herokuapp.com/maven-central/io.github.tatools/sunshine-testng) | [TestNG](http://testng.org) `6.11` | [`io.github.tatools.sunshine.testng.Sunshine`](sunshine-testng/src/main/java/io/github/tatools/sunshine/testng/Sunshine.java) |
-| sunshine-junit4 | [![Maven Central](https://img.shields.io/maven-central/v/io.github.tatools/sunshine-junit4.svg)](https://maven-badges.herokuapp.com/maven-central/io.github.tatools/sunshine-junit4) | [JUnit4](http://junit.org/junit4) `4.11` | [`io.github.tatools.sunshine.junit4.Sunshine`](sunshine-junit4/src/main/java/io/github/tatools/sunshine/junit4/Sunshine.java) |
-
-
 How to customize Sunshine?
 ==========================
 Filter tests to be run
