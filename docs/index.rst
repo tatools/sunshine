@@ -11,30 +11,17 @@ Welcome to Sunshine's documentation!
 Sunshine allows you to manage suits of your automated tests directly from Java code. It can work
 on top of TestNG_ or JUnit4_.
 
-Please read the :ref:`Concept` to understand how it works before moving to :ref:`Getting started`.
-
 ..  toctree::
     :maxdepth: 2
-    :caption: Users documentation:
 
     md/concept.md
     md/getting-started.md
     md/artifacts.md
     md/entry-points.md
 
-..  toctree::
-    :maxdepth: 1
-    :caption: Development:
-    :hidden:
+..  note::
+    Please read the :ref:`Concept` to understand how it works before moving to :ref:`Getting started`.
 
-    GitHub link <https://github.com/tatools/sunshine>
-    Main README <md/link-to-readme>
+.. _GitHub repository: https://github.com/tatools/sunshine
 
-Want to contribute? Please read more :ref:`here<How to contribute?>`.
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+Want to contribute? Please visit `GitHub repository`_.
