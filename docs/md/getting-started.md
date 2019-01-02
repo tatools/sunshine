@@ -19,10 +19,12 @@ So, please move everything to `src/main` except unit tests.
 ## Step 2: Add Sunshine library
 Sunshine's library has to be selected based on a test runner is used by the project.
 Please refer to
-[![sunshine-testng](https://img.shields.io/maven-central/v/org.tatools/sunshine-testng.svg?label=sunshine-testng)](https://search.maven.org/search?q=g:%22org.tatools%22%20AND%20a:%22sunshine-testng%22) if you use TestNG or
-[![sunshine-junit4](https://img.shields.io/maven-central/v/org.tatools/sunshine-junit4.svg?label=sunshine-junit4)](https://search.maven.org/search?q=g:%22org.tatools%22%20AND%20a:%22sunshine-junit4%22) for JUnit4.
+[![](https://img.shields.io/maven-central/v/org.tatools/sunshine-testng.svg?label=sunshine-testng)](https://search.maven.org/search?q=g:%22org.tatools%22%20AND%20a:%22sunshine-testng%22)
+if you use TestNG or
+[![](https://img.shields.io/maven-central/v/org.tatools/sunshine-junit4.svg?label=sunshine-junit4)](https://search.maven.org/search?q=g:%22org.tatools%22%20AND%20a:%22sunshine-junit4%22)
+for JUnit4.
 
-To find out more references please visit [artifacts](artifacts.md) page.
+To find out more references please visit [artifacts page](artifacts.md).
 
 ## Step 3: Configure code packaging
 The recommended packaging is an `uber-JAR` - also known as a `fat JAR` or `JAR with dependencies` -

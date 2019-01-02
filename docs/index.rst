@@ -18,9 +18,9 @@ Please read the :ref:`Concept` to understand how it works before moving to :ref:
     :caption: Users documentation:
 
     md/concept.md
-    md/getting-started
-    md/artifacts
-    md/entry-points
+    md/getting-started.md
+    md/artifacts.md
+    md/entry-points.md
 
 ..  toctree::
     :maxdepth: 1
