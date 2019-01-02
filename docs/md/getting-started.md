@@ -34,9 +34,6 @@ How to configure an uber-JAR depends on a build tool is used by a project. But r
 of the configuration, [a JAR's entry point](https://docs.oracle.com/javase/tutorial/deployment/jar/appman.html)
 has to be defined.
 
-Sunshine has predefined classes to be used as the entry points. Use
-[org.tatools.sunshine.testng.Sunshine](https://github.com/tatools/sunshine/blob/master/sunshine-testng/src/main/java/org/tatools/sunshine/testng/Sunshine.java)
-for TestNG or
-[org.tatools.sunshine.junit4.Sunshine](https://github.com/tatools/sunshine/blob/master/sunshine-junit4/src/main/java/org/tatools/sunshine/junit4/Sunshine.java)
-for JUnit4. However, Sunshine was designed to encourage you to create your own configurations based
-on the project's requirements. Please visit [entry points page](entry-points.md) to find out more.
+There are predefined classes to be used as the entry points for each test runner. However,
+Sunshine was designed to encourage you to create your own configurations based on the project's requirements. 
+Please visit [entry points page](entry-points.md) to find out more.

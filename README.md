@@ -17,31 +17,6 @@ Please read the users documentation on [http://sunshine.tatools.org](http://suns
 
 [![Rultor.com](http://www.rultor.com/b/tatools/sunshine)](http://www.rultor.com/p/tatools/sunshine)
 
-
-How to customize Sunshine?
-==========================
-Filter tests to be run
-----------------------
-[Java pattern matching](https://docs.oracle.com/javase/8/docs/api/java/util/regex/Pattern.html) is used to filter
-Java classes. Sunshine uses a string representation of a class as an input to a filter. For instance,
-you have `LoginTest` class in `com.example.mypackage` package. It will be converted to `com.example.mypackage.LoginTest`
-and then put to the filter.
-
-The default filter enables all classes that have `Test` word in the class name
-(a regex is **`(.+)(Test)([\w\d]+)?`**). If you wish to redefine the default filter, just add `-Dtests-regex=your-regex`
-argument to your run command. For instance, `java -Dtests-regex="^(com.company.smoke)(.+)" -jar my-automated-tests.jar`
-allows Sunshine to use classes only from `com.company.smoke` package.
-
-Create custom tests runner
---------------------------
-Although Sunshine has [predefined tests runners](#tests-runners), in some cases you may need a custom one. For instance, 
-you would like to run the same tests with different configurations (managed by listeners etc.) or to define your own 
-filtering rules.
-
-That's why Sunshine design allows easy create a runner. To do that, first of all, take a look for 
-[standard runners](#tests-runners) and, of course, custom one like in 
-[extsoft/jcat](https://github.com/extsoft/jcat/commit/65558e95cb94a2c995ec67fa09bf501a740dcff4).
-
 How to contribute?
 ==================
 If you have any questions or something is not clear for you or want more functionality then please submit 
