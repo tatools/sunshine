@@ -1,10 +1,8 @@
-sunshine
-========
+# Sunshine
 Sunshine allows you to manage suits of your automated tests directly from Java code. It can work
 on top of [TestNg](https://testng.org/doc/index.html) or [JUnit4](https://junit.org/junit4/).
 
 Please read the users documentation on [http://sunshine.tatools.org](http://sunshine.tatools.org).
-
 
 [![Join the chat at https://gitter.im/tatools/sunshine](https://badges.gitter.im/tatools/sunshine.svg)](https://gitter.im/tatools/sunshine?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
@@ -17,24 +15,25 @@ Please read the users documentation on [http://sunshine.tatools.org](http://suns
 
 [![Rultor.com](http://www.rultor.com/b/tatools/sunshine)](http://www.rultor.com/p/tatools/sunshine)
 
-How to contribute?
-==================
-If you have any questions or something is not clear for you or want more functionality then please submit 
-[new issue](https://github.com/tatools/sunshine/issues/new).
+## How to contribute?
+If you have any questions or want more functionality, please submit [a new issue](https://github.com/tatools/sunshine/issues/new).
 
-Before sending any pull request, please submit new issue or pick up existing one, discuss requirements and 
-implementation details (optional).
+Before sending any pull request, please discuss requirements/changes to be implemented using an existing issue or
+by creating a new one.
 
-Development notes
-=================
+## Development notes
+### Code assessment
+Run `./gradlew` (or `gradlew.bat`). It will execute unit & integration tests and let you know if everything is working fine. 
 
-Update docs
------------
-Before generate documentation, you need to install required Python's dependencies with `pip install -r docs/requirements.txt`.
+### Docs review
+Automatic analysis of documentation changes in not configured. That's why manual validation is required.
 
-When you are ready to review your changes, you can build static HTML pages with
+The following snippet allows generation of HTML version of the documentation
 ```bash
 cd docs
-make html
+rm -r _build && make html
 open _build/html/index.html
 ```
+
+Please take into account, you need to install required Python's dependencies with `pip install -r docs/requirements.txt`
+before.
