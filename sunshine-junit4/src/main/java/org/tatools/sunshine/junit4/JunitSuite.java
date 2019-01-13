@@ -36,7 +36,7 @@ public final class JunitSuite implements Suite<Class<?>[]> {
      * @since 0.1
      */
     public JunitSuite(FileSystem fileSystem, Condition filter) {
-        this(new SunshineSuitePrintable(new SunshineSuiteFilterable(new SunshineSuiteBase(fileSystem), filter)));
+        this(new SunshineSuitePrintable(new SunshineSuiteFilterable(new SuiteFromFileSystem(fileSystem), filter)));
     }
 
     /**

@@ -64,7 +64,7 @@ public final class LoadableTestNGSuite implements TestNGSuite {
      * @param filter     the filter to be used to select desired tests
      */
     public LoadableTestNGSuite(String suiteName, FileSystem fileSystem, Condition filter) {
-        this(suiteName, new SunshineSuitePrintable(new SunshineSuiteFilterable(new SunshineSuiteBase(fileSystem), filter)));
+        this(suiteName, new SunshineSuitePrintable(new SunshineSuiteFilterable(new SuiteFromFileSystem(fileSystem), filter)));
     }
 
     /**
@@ -150,7 +150,7 @@ public final class LoadableTestNGSuite implements TestNGSuite {
      */
     public LoadableTestNGSuite(String suiteName, FileSystem fileSystem, Directory xmlSuiteDirectory, Condition filter) {
         this(suiteName,
-                new SunshineSuitePrintable(new SunshineSuiteFilterable(new SunshineSuiteBase(fileSystem), filter)),
+                new SunshineSuitePrintable(new SunshineSuiteFilterable(new SuiteFromFileSystem(fileSystem), filter)),
                 xmlSuiteDirectory
         );
     }
