@@ -1,6 +1,8 @@
 package org.tatools.sunshine.core;
 
 /**
+ * The interface represents a test like a Java class.
+ *
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
  * @version $Id$
  * @since 0.1

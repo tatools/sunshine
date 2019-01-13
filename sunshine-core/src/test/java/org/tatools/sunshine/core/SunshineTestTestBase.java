@@ -20,9 +20,17 @@ public class SunshineTestTestBase {
     }
 
     @Test
-    public void toStringImpl() {
+    public void testToStringWithClassExtension() {
         MatcherAssert.assertThat(
                 new SunshineTestBase("org/tatools/sunshine/core/SunshineTestBase.class").toString(),
+                Matchers.equalTo("org.tatools.sunshine.core.SunshineTestBase")
+        );
+    }
+
+    @Test
+    public void testToStringWithoutClassExtension() {
+        MatcherAssert.assertThat(
+                new SunshineTestBase("org/tatools/sunshine/core/SunshineTestBase").toString(),
                 Matchers.equalTo("org.tatools.sunshine.core.SunshineTestBase")
         );
     }

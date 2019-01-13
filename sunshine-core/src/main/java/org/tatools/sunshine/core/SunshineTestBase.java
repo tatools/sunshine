@@ -6,31 +6,29 @@ import lombok.EqualsAndHashCode;
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
  * @version $Id$
  * @since 0.1
+ * @deprecated use {@link ClasspathBasedTest} instead of.
  */
+@Deprecated
 @EqualsAndHashCode
 public final class SunshineTestBase implements SunshineTest {
-    private final String path;
+    private final SunshineTest origin;
 
     public SunshineTestBase(String path) {
-        this.path = path;
+        this.origin = new ClasspathBasedTest(path);
     }
 
     @Override
     public Class object() throws TestException {
-        try {
-            return Class.forName(toString());
-        } catch (ClassNotFoundException e) {
-            throw new TestException(e);
-        }
+        return this.origin.object();
     }
 
     @Override
     public boolean match(Condition condition) {
-        return condition.applicable(this.toString());
+        return this.origin.match(condition);
     }
 
     @Override
     public String toString() {
-        return path.replaceAll("[/\\\\]", ".").replaceFirst("^\\.", "").replace(".class", "");
+        return this.origin.toString();
     }
 }

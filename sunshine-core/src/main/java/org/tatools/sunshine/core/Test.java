@@ -1,7 +1,7 @@
 package org.tatools.sunshine.core;
 
 /**
- * The interface represents a class with a test.
+ * The interface represents a test like an generic object.
  *
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
  * @version $Id$
