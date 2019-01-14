@@ -54,3 +54,64 @@ Class: [`org.tatools.sunshine.junit4.Sunshine`](https://github.com/tatools/sunsh
 
 The class exposes the same behavior as default TestNG entry point exposes except the last option. All tests will be
 executed using JUnit4.
+
+## Code snippets for different use cases
+### Specify regex
+There is a regex which has used to filter classes from current classpath.
+
+TestNG sample
+```java
+new Sun(
+    new TestNGKernel(
+        new LoadableTestNGSuite(
+            new VerboseRegex(
+                new RegexCondition("^my.package(.+)?")
+            )
+        )
+    )
+).shine();
+```
+JUnit4 sample
+```java
+new Sun(
+    new Junit4Kernel(
+        new JunitSuite(
+            new VerboseRegex(
+                new RegexCondition("^my.package(.+)?")
+            )
+        )
+    )
+).shine();
+```
+
+### Specify classes directly
+There are some classes which have to be treat as a test suite. 
+
+TestNG sample
+```java
+new Sun(
+    new TestNGKernel(
+        new LoadableTestNGSuite(
+            new SuiteFromClasses(
+                TestNGTest1.class,
+                TestNGTest2.class,
+                TestNGTest3.class
+            )
+        )
+    )
+).shine();
+```
+JUnit4 sample
+```java
+new Sun(
+    new Junit4Kernel(
+        new JunitSuite(
+            new SuiteFromClasses(
+                JUnitTest1.class,
+                JUnitTest2.class,
+                JUnitTest3.class
+            )
+        )
+    )
+).shine();
+```

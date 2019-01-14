@@ -12,7 +12,7 @@ Sunshine allows you to manage suits of your automated tests directly from Java c
 on top of TestNG_ or JUnit4_.
 
 ..  toctree::
-    :maxdepth: 2
+    :maxdepth: 3
 
     md/concept.md
     md/getting-started.md

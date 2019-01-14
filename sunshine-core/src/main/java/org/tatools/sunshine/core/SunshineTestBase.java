@@ -6,7 +6,7 @@ import lombok.EqualsAndHashCode;
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
  * @version $Id$
  * @since 0.1
- * @deprecated use {@link ClasspathBasedTest} instead of.
+ * @deprecated use {@link TestFromFile} instead of.
  */
 @Deprecated
 @EqualsAndHashCode
@@ -14,7 +14,7 @@ public final class SunshineTestBase implements SunshineTest {
     private final SunshineTest origin;
 
     public SunshineTestBase(String path) {
-        this.origin = new ClasspathBasedTest(path);
+        this.origin = new TestFromFile(path);
     }
 
     @Override

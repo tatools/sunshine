@@ -9,7 +9,7 @@ import lombok.EqualsAndHashCode;
  * @version $Id$
  */
 @EqualsAndHashCode
-public final class ClasspathBasedTest implements SunshineTest {
+public final class TestFromFile implements SunshineTest {
     private final String path;
 
     /**
@@ -18,7 +18,7 @@ public final class ClasspathBasedTest implements SunshineTest {
      * @param path is a relative path in a file system which includes class name (like {@code org/my/tests/Test1}).
      *             It has to be relative to current classpath. It can have {@code .class} extension or not.
      */
-    public ClasspathBasedTest(String path) {
+    public TestFromFile(String path) {
         this.path = path;
     }
 
