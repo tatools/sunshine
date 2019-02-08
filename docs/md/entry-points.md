@@ -115,3 +115,19 @@ new Sun(
     )
 ).shine();
 ```
+
+### Sequential execution of `Kernel`s
+There is a suite of tests which needs to be checked with several different listeners. For instance,
+if a listener is not configured, the tests will use some cache, otherwise, no cache before each test.
+And we have to run the suite with and without the listener.
+
+There is a specific `Kernel` called `SequentialExecution` which allows execution of described use case:
+```java
+final Kernel<ITestNGListener> suite = new TestNGKernel(....);
+new Sun(
+    new SequentialExecution<>(
+        suite,
+        suite.with(new CleanCacheListener())
+    )
+).shine();
+```
