@@ -14,7 +14,6 @@ public class SuiteFromFileSystemTest {
     public void tests() throws SuiteException {
         MatcherAssert.assertThat(
                 new SuiteFromFileSystem(new FileSystem.Fake(new FileSystemPath.Fake("a"))).tests(),
-                Matchers.hasSize(1)
-        );
+                Matchers.hasSize(1));
     }
 }

@@ -7,5 +7,4 @@ package org.tatools.testng;
  * @version $Id$
  * @since 0.1
  */
-public class Test1 {
-}
+public class Test1 {}

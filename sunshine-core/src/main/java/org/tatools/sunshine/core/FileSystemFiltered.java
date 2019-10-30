@@ -1,9 +1,8 @@
 package org.tatools.sunshine.core;
 
-import lombok.EqualsAndHashCode;
-
 import java.util.List;
 import java.util.stream.Collectors;
+import lombok.EqualsAndHashCode;
 
 /**
  * The {@link FileSystemFiltered} class allows to filter files by given condition.

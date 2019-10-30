@@ -1,12 +1,11 @@
 package org.tatools.sunshine.core;
 
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import org.hamcrest.CustomTypeSafeMatcher;
 import org.hamcrest.MatcherAssert;
 import org.hamcrest.Matchers;
 import org.junit.Test;
-
-import java.nio.file.Path;
-import java.nio.file.Paths;
 
 /**
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
@@ -19,40 +18,35 @@ public class FileSystemPathRelativeTest {
     public void asStringForParentWithSlashInTheEnd() {
         MatcherAssert.assertThat(
                 new FileSystemPathRelative("/a/b/", "/a/b/c").path(),
-                Matchers.is(new PathMatcher("c"))
-        );
+                Matchers.is(new PathMatcher("c")));
     }
 
     @Test
     public void asStringForParentWithoutSlashInTheEnd() {
         MatcherAssert.assertThat(
                 new FileSystemPathRelative("/a/b", "/a/b/c").path(),
-                Matchers.is(new PathMatcher("c"))
-        );
+                Matchers.is(new PathMatcher("c")));
     }
 
     @Test
     public void asStringWhenParentIsEqualsToFull() {
         MatcherAssert.assertThat(
                 new FileSystemPathRelative("/a/b/c", "/a/b/c").path(),
-                Matchers.is(new PathMatcher("/a/b/c"))
-        );
+                Matchers.is(new PathMatcher("/a/b/c")));
     }
 
     @Test
     public void asStringForRelativeParentWithSlashInTheEnd() {
         MatcherAssert.assertThat(
                 new FileSystemPathRelative("a/b/", "a/b/c").path(),
-                Matchers.is(new PathMatcher("c"))
-        );
+                Matchers.is(new PathMatcher("c")));
     }
 
     @Test
     public void asStringForRelativeParentWithoutSlashInTheEnd() {
         MatcherAssert.assertThat(
                 new FileSystemPathRelative("a/b", "a/b/c").path(),
-                Matchers.is(new PathMatcher("c"))
-        );
+                Matchers.is(new PathMatcher("c")));
     }
 
     private final class PathMatcher extends CustomTypeSafeMatcher<Path> {

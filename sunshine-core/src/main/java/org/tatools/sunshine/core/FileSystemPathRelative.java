@@ -1,9 +1,8 @@
 package org.tatools.sunshine.core;
 
+import java.nio.file.Path;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
-
-import java.nio.file.Path;
 
 /**
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
@@ -37,6 +36,7 @@ public class FileSystemPathRelative implements FileSystemPath {
 
     @Override
     public final boolean exist() {
-        throw new UnsupportedOperationException("Can't say definitely about existence of a path: " + path());
+        throw new UnsupportedOperationException(
+                "Can't say definitely about existence of a path: " + path());
     }
 }

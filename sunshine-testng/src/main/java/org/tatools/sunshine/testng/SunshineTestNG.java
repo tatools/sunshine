@@ -1,9 +1,8 @@
 package org.tatools.sunshine.testng;
 
+import java.util.List;
 import org.testng.ISuite;
 import org.testng.TestNG;
-
-import java.util.List;
 
 /**
  * The {@link SunshineTestNG} class is the default configuration of TestNG defined for Sunshine.
@@ -17,8 +16,8 @@ final class SunshineTestNG extends TestNG {
     private final List<ISuite> database;
 
     /**
-     * Constructs the instance of TestNG without default listeners and with 0 verbose mode (no logs). All executed
-     * suites will be saved to a given list.
+     * Constructs the instance of TestNG without default listeners and with 0 verbose mode (no
+     * logs). All executed suites will be saved to a given list.
      *
      * @param suitesHolder the list to store suites
      */

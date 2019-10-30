@@ -7,7 +7,6 @@ import org.junit.Test;
 import org.junit.rules.TemporaryFolder;
 import org.tatools.sunshine.core.*;
 
-
 /**
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
  * @version $Id$
@@ -15,44 +14,36 @@ import org.tatools.sunshine.core.*;
  */
 public class LoadableTestNGSuiteTest {
 
-    @Rule
-    public TemporaryFolder testFolder = new TemporaryFolder();
+    @Rule public TemporaryFolder testFolder = new TemporaryFolder();
 
     @Test
     public void testAutomaticSuiteDirectoryCreation() throws SuiteException {
         MatcherAssert.assertThat(
                 new LoadableTestNGSuite(
-                        new FileSystem.Fake(),
-                        this.testFolder.getRoot().getAbsolutePath() + "/custom",
-                        new Condition.Fake(true)
-                ).tests(),
-                new SuiteFileMatcher()
-        );
+                                new FileSystem.Fake(),
+                                this.testFolder.getRoot().getAbsolutePath() + "/custom",
+                                new Condition.Fake(true))
+                        .tests(),
+                new SuiteFileMatcher());
     }
 
     @Test
     public void testDefaultSuiteDirectoryCreation() throws SuiteException {
         MatcherAssert.assertThat(
-                new LoadableTestNGSuite(new SunshineSuite.Fake()).tests(),
-                new SuiteFileMatcher()
-        );
+                new LoadableTestNGSuite(new SunshineSuite.Fake()).tests(), new SuiteFileMatcher());
     }
-
 
     @Test
     public void testFileSystemFilteringWithDefaultSuiteFolder() throws SuiteException {
         MatcherAssert.assertThat(
                 new LoadableTestNGSuite(new FileSystem.Fake(), new Condition.Fake(true)).tests(),
-                new SuiteFileMatcher()
-        );
+                new SuiteFileMatcher());
     }
 
     @Test
     public void testDefaultTestsFiltering() throws SuiteException {
         MatcherAssert.assertThat(
-                new LoadableTestNGSuite(new Condition.Fake(false)).tests(),
-                new SuiteFileMatcher()
-        );
+                new LoadableTestNGSuite(new Condition.Fake(false)).tests(), new SuiteFileMatcher());
     }
 
     private static class SuiteFileMatcher extends CustomMatcher<File> {

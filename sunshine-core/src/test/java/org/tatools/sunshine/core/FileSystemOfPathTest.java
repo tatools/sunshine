@@ -5,7 +5,6 @@ import org.hamcrest.MatcherAssert;
 import org.hamcrest.Matchers;
 import org.junit.Test;
 
-
 /**
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
  * @version $Id$
@@ -17,12 +16,14 @@ public class FileSystemOfPathTest {
 
     @Test
     public void files() throws FileSystemException {
-        CustomTypeSafeMatcher<Integer> matcher = new CustomTypeSafeMatcher<Integer>("Has at least one item") {
-            @Override
-            protected boolean matchesSafely(Integer item) {
-                return item > 0;
-            }
-        };
-        MatcherAssert.assertThat(new FileSystemOfPath(RESOURCES).files(), Matchers.hasSize(matcher));
+        CustomTypeSafeMatcher<Integer> matcher =
+                new CustomTypeSafeMatcher<Integer>("Has at least one item") {
+                    @Override
+                    protected boolean matchesSafely(Integer item) {
+                        return item > 0;
+                    }
+                };
+        MatcherAssert.assertThat(
+                new FileSystemOfPath(RESOURCES).files(), Matchers.hasSize(matcher));
     }
 }

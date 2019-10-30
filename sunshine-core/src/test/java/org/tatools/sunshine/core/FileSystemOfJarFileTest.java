@@ -14,8 +14,7 @@ public class FileSystemOfJarFileTest {
     public void files() throws FileSystemException {
         MatcherAssert.assertThat(
                 new FileSystemOfJarFile("build/sample-tests.jar").files(),
-                Matchers.hasItem(new FileSystemPathBase("org/tatools/testng/Test1.class"))
-        );
+                Matchers.hasItem(new FileSystemPathBase("org/tatools/testng/Test1.class")));
     }
 
     @Test(expected = FileSystemException.class)

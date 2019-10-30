@@ -1,10 +1,9 @@
 package org.tatools.sunshine.core;
 
+import java.nio.file.Paths;
 import org.hamcrest.MatcherAssert;
 import org.hamcrest.Matchers;
 import org.junit.Test;
-
-import java.nio.file.Paths;
 
 /**
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
@@ -17,9 +16,7 @@ public class FileSystemPathBaseTest {
     public void path() {
         final String path = "aa";
         MatcherAssert.assertThat(
-                new FileSystemPathBase(path).path(),
-                Matchers.equalTo(Paths.get(path))
-        );
+                new FileSystemPathBase(path).path(), Matchers.equalTo(Paths.get(path)));
     }
 
     @Test
@@ -28,15 +25,15 @@ public class FileSystemPathBaseTest {
         final String file = "file";
         MatcherAssert.assertThat(
                 new FileSystemPathBase(directory, file).path(),
-                Matchers.equalTo(Paths.get(directory + "/" + file))
-        );
+                Matchers.equalTo(Paths.get(directory + "/" + file)));
     }
 
     @Test
     public void exist() {
         MatcherAssert.assertThat(
                 "File is absent",
-                new FileSystemPathBase("src/main/java/org/tatools/sunshine/core/FileSystemPathBase.java").exist()
-        );
+                new FileSystemPathBase(
+                                "src/main/java/org/tatools/sunshine/core/FileSystemPathBase.java")
+                        .exist());
     }
 }

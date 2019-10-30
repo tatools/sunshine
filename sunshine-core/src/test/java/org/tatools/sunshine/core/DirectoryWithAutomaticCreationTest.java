@@ -1,12 +1,10 @@
 package org.tatools.sunshine.core;
 
-
+import java.io.IOException;
 import org.hamcrest.MatcherAssert;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TemporaryFolder;
-
-import java.io.IOException;
 
 /**
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
@@ -14,12 +12,12 @@ import java.io.IOException;
  * @since 0.1
  */
 public class DirectoryWithAutomaticCreationTest {
-    @Rule
-    public TemporaryFolder testFolder = new TemporaryFolder();
+    @Rule public TemporaryFolder testFolder = new TemporaryFolder();
 
     @Test
     public void create() throws IOException {
-        final FileSystemPathBase path = new FileSystemPathBase(testFolder.newFolder().toString(), "a");
+        final FileSystemPathBase path =
+                new FileSystemPathBase(testFolder.newFolder().toString(), "a");
         new DirectoryWithAutomaticCreation(new DirectoryBase(path)).create();
         MatcherAssert.assertThat("The directory wasn't created", path.exist());
     }
@@ -33,14 +31,16 @@ public class DirectoryWithAutomaticCreationTest {
 
     @Test
     public void exist() throws IOException {
-        final FileSystemPathBase path = new FileSystemPathBase(testFolder.newFolder().toString(), "a");
+        final FileSystemPathBase path =
+                new FileSystemPathBase(testFolder.newFolder().toString(), "a");
         new DirectoryWithAutomaticCreation(new DirectoryBase(path)).exist();
         MatcherAssert.assertThat("The directory wasn't created", path.exist());
     }
 
     @Test
     public void path() throws IOException {
-        final FileSystemPathBase path = new FileSystemPathBase(testFolder.newFolder().toString(), "a");
+        final FileSystemPathBase path =
+                new FileSystemPathBase(testFolder.newFolder().toString(), "a");
         new DirectoryWithAutomaticCreation(new DirectoryBase(path)).path();
         MatcherAssert.assertThat("The directory wasn't created", path.exist());
     }

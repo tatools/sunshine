@@ -1,11 +1,10 @@
 package org.tatools.sunshine.core;
 
-import lombok.EqualsAndHashCode;
-import lombok.ToString;
-
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 /**
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)

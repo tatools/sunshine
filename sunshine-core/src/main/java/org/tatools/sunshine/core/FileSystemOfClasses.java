@@ -1,8 +1,7 @@
 package org.tatools.sunshine.core;
 
-import lombok.EqualsAndHashCode;
-
 import java.util.List;
+import lombok.EqualsAndHashCode;
 
 /**
  * The {@link FileSystemOfClasses} class allows to select only Java classes.
@@ -17,12 +16,13 @@ final class FileSystemOfClasses implements FileSystem {
     private final FileSystem fileSystem;
 
     FileSystemOfClasses(FileSystem fileSystem) {
-        this.fileSystem = new FileSystemFiltered(
-                new FileSystemOfFileSystems(
-                        fileSystem,
-                        new FileSystemOfJarFiles(new FileSystemFiltered(fileSystem, new JarCondition()))
-                ), new ClassCondition()
-        );
+        this.fileSystem =
+                new FileSystemFiltered(
+                        new FileSystemOfFileSystems(
+                                fileSystem,
+                                new FileSystemOfJarFiles(
+                                        new FileSystemFiltered(fileSystem, new JarCondition()))),
+                        new ClassCondition());
     }
 
     @Override
@@ -36,7 +36,6 @@ final class FileSystemOfClasses implements FileSystem {
             return identity.matches(".+\\.class$") && !identity.contains("$");
         }
     }
-
 
     private final class JarCondition implements Condition {
         @Override

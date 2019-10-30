@@ -4,8 +4,8 @@ import java.io.PrintStream;
 import java.util.Arrays;
 
 /**
- * The implementation allows printing of encapsulated condition to the standard output. The printing will happen only
- * once before the first usage of {@link #applicable(String)}.
+ * The implementation allows printing of encapsulated condition to the standard output. The printing
+ * will happen only once before the first usage of {@link #applicable(String)}.
  *
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
  * @version $Id$
@@ -14,7 +14,7 @@ import java.util.Arrays;
 public class VerboseRegex implements Condition {
 
     private final RegexCondition regexCondition;
-    private final boolean[] say = new boolean[]{true};
+    private final boolean[] say = new boolean[] {true};
     private final PrintStream printer;
 
     /**
@@ -30,7 +30,7 @@ public class VerboseRegex implements Condition {
      * Construct the object.
      *
      * @param regexCondition the condition
-     * @param printer        a print stream
+     * @param printer a print stream
      */
     VerboseRegex(RegexCondition regexCondition, PrintStream printer) {
         this.regexCondition = regexCondition;
@@ -43,9 +43,7 @@ public class VerboseRegex implements Condition {
             this.printer.println(
                     String.format(
                             "The following pattern will be used for classes filtering: %s",
-                            this.regexCondition.regex.pattern()
-                    )
-            );
+                            this.regexCondition.regex.pattern()));
             Arrays.fill(say, false);
         }
         return this.regexCondition.applicable(identity);

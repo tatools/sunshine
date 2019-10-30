@@ -1,8 +1,8 @@
 package org.tatools.sunshine.core;
 
 /**
- * The {@link SuiteException} class is a default exception to handle errors which may occur in the implementations of
- * a {@link Suite}.
+ * The {@link SuiteException} class is a default exception to handle errors which may occur in the
+ * implementations of a {@link Suite}.
  *
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
  * @version $Id$

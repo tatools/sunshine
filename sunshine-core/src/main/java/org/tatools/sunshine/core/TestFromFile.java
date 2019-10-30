@@ -15,8 +15,9 @@ public class TestFromFile implements SunshineTest {
     /**
      * Construct the new instance.
      *
-     * @param path is a relative path in a file system which includes class name (like {@code org/my/tests/Test1}).
-     *             It has to be relative to current classpath. It can have {@code .class} extension or not.
+     * @param path is a relative path in a file system which includes class name (like {@code
+     *     org/my/tests/Test1}). It has to be relative to current classpath. It can have {@code
+     *     .class} extension or not.
      */
     public TestFromFile(String path) {
         this.path = path;

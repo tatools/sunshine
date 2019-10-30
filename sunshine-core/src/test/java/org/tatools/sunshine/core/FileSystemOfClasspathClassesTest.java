@@ -13,6 +13,7 @@ public class FileSystemOfClasspathClassesTest {
 
     @Test
     public void files() throws FileSystemException {
-        MatcherAssert.assertThat(new FileSystemOfClasspathClasses().files(), Matchers.not(Matchers.empty()));
+        MatcherAssert.assertThat(
+                new FileSystemOfClasspathClasses().files(), Matchers.not(Matchers.empty()));
     }
 }

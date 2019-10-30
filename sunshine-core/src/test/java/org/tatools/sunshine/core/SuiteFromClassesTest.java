@@ -13,8 +13,6 @@ public class SuiteFromClassesTest {
     @Test
     public void tests() throws SuiteException {
         MatcherAssert.assertThat(
-                new SuiteFromClasses(SuiteFromClasses.class).tests(),
-                Matchers.hasSize(1)
-        );
+                new SuiteFromClasses(SuiteFromClasses.class).tests(), Matchers.hasSize(1));
     }
 }

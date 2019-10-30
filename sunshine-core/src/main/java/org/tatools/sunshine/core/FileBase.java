@@ -1,10 +1,9 @@
 package org.tatools.sunshine.core;
 
-import lombok.EqualsAndHashCode;
-
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import lombok.EqualsAndHashCode;
 
 /**
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)

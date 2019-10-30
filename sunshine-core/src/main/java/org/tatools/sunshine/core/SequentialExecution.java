@@ -38,7 +38,6 @@ public class SequentialExecution<Listener> implements Kernel<Listener> {
         return new SequentialExecution<>(
                 this.elements.stream()
                         .map(listenerKernel -> listenerKernel.with(listeners))
-                        .collect(Collectors.toList())
-        );
+                        .collect(Collectors.toList()));
     }
 }

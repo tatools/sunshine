@@ -12,7 +12,8 @@ import java.util.List;
  */
 public interface FileSystem {
     /**
-     * Returns a list of files within given file system. An implementation may support recursive search or not.
+     * Returns a list of files within given file system. An implementation may support recursive
+     * search or not.
      *
      * @return a list of files
      * @throws FileSystemException if some error occurs

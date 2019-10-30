@@ -1,13 +1,12 @@
 package org.tatools.sunshine.core;
 
-import lombok.EqualsAndHashCode;
-
 import java.util.ArrayList;
 import java.util.List;
+import lombok.EqualsAndHashCode;
 
 /**
- * The {@link FileSystemOfFileSystems} class allows to represent several fileSystems as an instance of
- * {@link FileSystem} interface.
+ * The {@link FileSystemOfFileSystems} class allows to represent several fileSystems as an instance
+ * of {@link FileSystem} interface.
  *
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
  * @version $Id$
@@ -19,7 +18,7 @@ final class FileSystemOfFileSystems implements FileSystem {
     private final FileSystem[] fileSystems;
 
     FileSystemOfFileSystems(List<FileSystem> fileSystems) {
-        this(fileSystems.toArray(new FileSystem[]{}));
+        this(fileSystems.toArray(new FileSystem[] {}));
     }
 
     FileSystemOfFileSystems(FileSystem... fileSystems) {

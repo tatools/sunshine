@@ -20,6 +20,8 @@ public class SunshineSuiteFilterable implements SunshineSuite {
 
     @Override
     public final List<SunshineTest> tests() throws SuiteException {
-        return suite.tests().stream().filter(classTest -> classTest.match(filter)).collect(Collectors.toList());
+        return suite.tests().stream()
+                .filter(classTest -> classTest.match(filter))
+                .collect(Collectors.toList());
     }
 }

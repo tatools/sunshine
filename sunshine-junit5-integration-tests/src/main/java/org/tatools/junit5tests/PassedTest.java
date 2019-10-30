@@ -1,6 +1,5 @@
 package org.tatools.junit5tests;
 
-
 import org.junit.jupiter.api.Test;
 
 /**
@@ -9,6 +8,5 @@ import org.junit.jupiter.api.Test;
  */
 public class PassedTest {
     @Test
-    public void test() {
-    }
+    public void test() {}
 }

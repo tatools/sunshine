@@ -1,12 +1,11 @@
 package org.tatools.sunshine.testng;
 
+import java.util.ArrayList;
+import java.util.List;
 import org.tatools.sunshine.core.Status;
 import org.testng.ISuite;
 import org.testng.ISuiteResult;
 import org.testng.ITestContext;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
  * The class provides an implementation of the {@link Status} of TestNG execution.

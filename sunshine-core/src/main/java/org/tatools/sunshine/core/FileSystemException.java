@@ -1,8 +1,8 @@
 package org.tatools.sunshine.core;
 
 /**
- * The {@link FileSystemException} class is a default exception to handle errors which may occur in the implementations of
- * a {@link FileSystem} interface.
+ * The {@link FileSystemException} class is a default exception to handle errors which may occur in
+ * the implementations of a {@link FileSystem} interface.
  *
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
  * @version $Id$

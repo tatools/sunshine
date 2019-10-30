@@ -23,9 +23,10 @@ public class CompositeStatus implements Status {
 
     /**
      * Returns the exit code of an execution provided by xunit tests runner.
-     * <p>
-     * The code will be a maximum value from all available codes expect zero ones. If there is no
-     * maximal value, 0 is given (means all are passed), otherwise, a non-zero number (if there is at least one failure).
+     *
+     * <p>The code will be a maximum value from all available codes expect zero ones. If there is no
+     * maximal value, 0 is given (means all are passed), otherwise, a non-zero number (if there is
+     * at least one failure).
      *
      * @return a calculated exit code
      */

@@ -1,8 +1,7 @@
 package org.tatools.sunshine.core;
 
-import lombok.EqualsAndHashCode;
-
 import java.util.regex.Pattern;
+import lombok.EqualsAndHashCode;
 
 /**
  * The implementation provides an ability to use a regex pattern for analyzing an identity.
@@ -17,8 +16,8 @@ public class RegexCondition implements Condition {
     final Pattern regex;
 
     /**
-     * Use a value of "tests-regex" system property as a regex pattern. If the system property is not set,
-     * the "(.+)(Test)([\w\d]+)?" value is used.
+     * Use a value of "tests-regex" system property as a regex pattern. If the system property is
+     * not set, the "(.+)(Test)([\w\d]+)?" value is used.
      */
     public RegexCondition() {
         this(System.getProperty("tests-regex", "(.+)(Test)([\\w\\d]+)?"));

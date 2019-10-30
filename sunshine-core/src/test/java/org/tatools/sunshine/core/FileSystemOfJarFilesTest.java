@@ -14,13 +14,10 @@ public class FileSystemOfJarFilesTest {
     public void files() throws FileSystemException {
         MatcherAssert.assertThat(
                 new FileSystemOfJarFiles(
-                        new FileSystem.Fake(
-                                new FileSystemPath.Fake("build/sample-tests.jar"),
-                                new FileSystemPath.Fake("build/sample-tests.jar")
-                        )
-                ).files(),
-                Matchers.hasSize(20)
-        );
+                                new FileSystem.Fake(
+                                        new FileSystemPath.Fake("build/sample-tests.jar"),
+                                        new FileSystemPath.Fake("build/sample-tests.jar")))
+                        .files(),
+                Matchers.hasSize(20));
     }
-
 }

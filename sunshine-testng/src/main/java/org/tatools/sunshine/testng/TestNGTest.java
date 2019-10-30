@@ -1,10 +1,9 @@
 package org.tatools.sunshine.testng;
 
+import java.util.Collections;
 import org.tatools.sunshine.core.*;
 import org.testng.xml.XmlClass;
 import org.testng.xml.XmlTest;
-
-import java.util.Collections;
 
 /**
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
@@ -34,8 +33,7 @@ final class TestNGTest implements Test<XmlTest> {
     public boolean match(Condition condition) {
         throw new UnsupportedOperationException(
                 String.format(
-                        "%s is not able to handle %s condition", this.getClass().getName(), condition.getClass().getName()
-                )
-        );
+                        "%s is not able to handle %s condition",
+                        this.getClass().getName(), condition.getClass().getName()));
     }
 }

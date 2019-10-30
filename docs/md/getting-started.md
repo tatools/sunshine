@@ -8,8 +8,8 @@ Suppose, there is a Maven project with automated tests
 ├── README.md
 ├── pom.xml
 └── src
-    ├── main
-    └── test
+   ├── main
+   └── test
 ```
 Usually, the code is located under `src/main` directory and automated tests under `src/test`.
 According to [Sunshine's concept](concept.md), the code and automated tests have to live together in `src/main`.
@@ -34,5 +34,5 @@ of the configuration, [a JAR's entry point](https://docs.oracle.com/javase/tutor
 has to be defined.
 
 There are predefined classes to be used as the entry points for each test runner. However,
-Sunshine was designed to encourage you to create your own configurations based on the project's requirements. 
+Sunshine was designed to encourage you to create your own configurations based on the project's requirements.
 Please visit [entry points page](entry-points.md) to find out more.

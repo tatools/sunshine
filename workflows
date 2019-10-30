@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+set -e
+
+formatting()    {
+    ./gradlew spotlessApply
+}
+
+testing() {
+    ./gradlew clean ready
+}
+
+documentation-preview() {
+    cd docs
+    rm -rf _build
+    make html
+    open _build/html/index.html
+}
+
+main() {
+    if [[ -n ${1} ]]; then
+        eval "${1}"
+    else
+        cat <<MESSAGE
+${BASH_SOURCE} <workflow>
+
+Workflows:
+- formatting                runs the Spotless to format the code.
+- testing                   runs unit, integration, and formatting check.
+- documentation-preview     generates HTML pages and opens in a browser.
+
+MESSAGE
+        exit 1
+    fi
+}
+
+main ${@}

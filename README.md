@@ -21,8 +21,15 @@ Before sending any pull request, please discuss requirements/changes to be imple
 by creating a new one.
 
 ## Development notes
+If you will install <https://elegant-git.bees-hive.org> and use Git via CLI, all required workflows
+will be executed automatically. Otherwise, you can do it manually by running `./workflows` script.
+
+### Code formatting
+We use <https://github.com/diffplug/spotless> to format the code. Please run
+`./gradlew spotlessApply` to call the formatting manually.
+
 ### Code assessment
-Run `./gradlew` (or `gradlew.bat`). It will execute unit & integration tests and let you know if everything is working fine. 
+Run `./gradlew` (or `gradlew.bat`). It will execute unit, integration tests, and formatting verifications.
 
 ### Docs review
 Automatic analysis of documentation changes in not configured. That's why manual validation is required.

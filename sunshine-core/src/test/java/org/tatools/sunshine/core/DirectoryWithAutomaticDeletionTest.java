@@ -1,14 +1,12 @@
 package org.tatools.sunshine.core;
 
-
+import java.io.IOException;
+import java.nio.file.Path;
 import org.hamcrest.MatcherAssert;
 import org.hamcrest.Matchers;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TemporaryFolder;
-
-import java.io.IOException;
-import java.nio.file.Path;
 
 /**
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
@@ -16,8 +14,7 @@ import java.nio.file.Path;
  * @since 0.1
  */
 public class DirectoryWithAutomaticDeletionTest {
-    @Rule
-    public TemporaryFolder testFolder = new TemporaryFolder();
+    @Rule public TemporaryFolder testFolder = new TemporaryFolder();
 
     @Test
     public void create() throws IOException {
@@ -38,9 +35,8 @@ public class DirectoryWithAutomaticDeletionTest {
         MatcherAssert.assertThat(
                 "The directory isn't present",
                 new DirectoryWithAutomaticDeletion(
-                        new Directory.Fake(testFolder.getRoot().toPath(), true)
-                ).exist()
-        );
+                                new Directory.Fake(testFolder.getRoot().toPath(), true))
+                        .exist());
     }
 
     @Test
@@ -48,7 +44,6 @@ public class DirectoryWithAutomaticDeletionTest {
         final Path file = testFolder.getRoot().toPath();
         MatcherAssert.assertThat(
                 new DirectoryWithAutomaticDeletion(new Directory.Fake(file)).path(),
-                Matchers.equalTo(file)
-        );
+                Matchers.equalTo(file));
     }
 }

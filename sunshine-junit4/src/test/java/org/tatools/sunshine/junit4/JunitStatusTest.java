@@ -5,7 +5,6 @@ import org.hamcrest.Matchers;
 import org.junit.Test;
 import org.junit.runner.Result;
 
-
 /**
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
  * @version $Id$
@@ -15,41 +14,31 @@ public class JunitStatusTest {
     @Test
     public void codeIfPassed() {
         MatcherAssert.assertThat(
-                new JunitStatus(new FakeResult(true, 0, 0, 0)).code(),
-                Matchers.is((short) 0)
-        );
+                new JunitStatus(new FakeResult(true, 0, 0, 0)).code(), Matchers.is((short) 0));
     }
 
     @Test
     public void codeIfFailed() {
         MatcherAssert.assertThat(
-                new JunitStatus(new FakeResult(false, 0, 0, 0)).code(),
-                Matchers.is((short) 1)
-        );
+                new JunitStatus(new FakeResult(false, 0, 0, 0)).code(), Matchers.is((short) 1));
     }
 
     @Test
     public void runCount() {
         MatcherAssert.assertThat(
-                new JunitStatus(new FakeResult(false, 3, 0, 0)).runCount(),
-                Matchers.is(3)
-        );
+                new JunitStatus(new FakeResult(false, 3, 0, 0)).runCount(), Matchers.is(3));
     }
 
     @Test
     public void failureCount() {
         MatcherAssert.assertThat(
-                new JunitStatus(new FakeResult(false, 0, 2, 0)).failureCount(),
-                Matchers.is(2)
-        );
+                new JunitStatus(new FakeResult(false, 0, 2, 0)).failureCount(), Matchers.is(2));
     }
 
     @Test
     public void ignoreCount() {
         MatcherAssert.assertThat(
-                new JunitStatus(new FakeResult(false, 0, 0, 5)).ignoreCount(),
-                Matchers.is(5)
-        );
+                new JunitStatus(new FakeResult(false, 0, 0, 5)).ignoreCount(), Matchers.is(5));
     }
 
     private final class FakeResult extends Result {

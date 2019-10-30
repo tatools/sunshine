@@ -1,5 +1,5 @@
 # Entry points
-An entry point is a Java class which is configured for a JAR and will be used when 
+An entry point is a Java class which is configured for a JAR and will be used when
 ```bash
 java -jar my.jar
 ```
@@ -14,7 +14,7 @@ Sunshine's wrapper:
 
 Also, there is a `SunshineSuite` interface with several core implementations which allow seeking
 and filtering of the classes to be treated as tests. Sunshine uses a string representation of a class
-as an input to a filter which uses 
+as an input to a filter which uses
 [Java pattern matching](https://docs.oracle.com/javase/8/docs/api/java/util/regex/Pattern.html)
 to filter classes. For instance, there is a `LoginTest` class in `com.example.mypackage` package.
 It will be converted to `com.example.mypackage.LoginTest` and then put to a filter.
@@ -45,7 +45,7 @@ The class exposes the following behavior:
 2. `java -Dtests-regex="^(com.company.smoke)(.+)" -jar my.jar` does the same as the previous one except
 a class name has to match with `^(com.company.smoke)(.+)` regex.
 3. `java -jar my.jar testng.xml` runs tests defined in `testng.xml` file (it can be either
-[TestNG XML](http://testng.org/doc/documentation-main.html#testng-xml) or 
+[TestNG XML](http://testng.org/doc/documentation-main.html#testng-xml) or
 [TestNG YAML](http://testng.org/doc/documentation-main.html#yaml)).
 
 
@@ -91,7 +91,7 @@ new Sun(
 ```
 
 ### Specify classes directly
-There are some classes which have to be treat as a test suite. 
+There are some classes which have to be treat as a test suite.
 
 TestNG sample
 ```java

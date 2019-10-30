@@ -1,6 +1,5 @@
 package org.tatools.junit4tests;
 
-
 import org.junit.Test;
 
 /**
@@ -10,6 +9,5 @@ import org.junit.Test;
  */
 public class PassedTest {
     @Test
-    public void test() {
-    }
+    public void test() {}
 }

@@ -1,13 +1,12 @@
 package org.tatools.sunshine.core;
 
-import lombok.EqualsAndHashCode;
-
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
+import lombok.EqualsAndHashCode;
 
 /**
  * The {@link FileSystemOfJarFile} class allows to search files in given <b>jar</b> file.

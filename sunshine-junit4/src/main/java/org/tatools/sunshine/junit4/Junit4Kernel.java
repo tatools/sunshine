@@ -1,11 +1,10 @@
 package org.tatools.sunshine.junit4;
 
+import java.util.Arrays;
 import org.junit.runner.Computer;
 import org.junit.runner.JUnitCore;
 import org.junit.runner.notification.RunListener;
 import org.tatools.sunshine.core.*;
-
-import java.util.Arrays;
 
 /**
  * The class provides a {@link Kernel} implementation of JUnit runner.
@@ -20,8 +19,8 @@ public class Junit4Kernel implements Kernel<RunListener> {
     private final Suite<Class<?>[]> suiteForRun;
 
     /**
-     * Initializes a newly created {@link Junit4Kernel} object so that it represents
-     * an JUnit 4 runner.
+     * Initializes a newly created {@link Junit4Kernel} object so that it represents an JUnit 4
+     * runner.
      *
      * @param suite the tests suite
      */

@@ -1,12 +1,11 @@
 package org.tatools.sunshine.testng;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import org.hamcrest.MatcherAssert;
 import org.hamcrest.Matchers;
 import org.junit.Test;
 import org.testng.ISuite;
-
-import java.util.ArrayList;
-import java.util.Arrays;
 
 /**
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)

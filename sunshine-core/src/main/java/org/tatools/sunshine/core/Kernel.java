@@ -46,7 +46,7 @@ public interface Kernel<Listener> {
         /**
          * Constructs a new object.
          *
-         * @param status             a status of the execution
+         * @param status a status of the execution
          * @param availableListeners a list which will store all listeners
          */
         public Fake(Status status, List<Object> availableListeners) {
@@ -62,10 +62,7 @@ public interface Kernel<Listener> {
         @Override
         public Kernel<?> with(Object... objects) {
             this.listeners.addAll(Arrays.asList(objects));
-            return new Fake(
-                    this.result,
-                    this.listeners
-            );
+            return new Fake(this.result, this.listeners);
         }
     }
 }

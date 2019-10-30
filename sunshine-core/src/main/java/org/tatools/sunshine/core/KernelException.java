@@ -1,8 +1,8 @@
 package org.tatools.sunshine.core;
 
 /**
- * The {@link KernelException} class is a default exception to handle errors which may occur in the implementations of
- * an {@link Kernel}.
+ * The {@link KernelException} class is a default exception to handle errors which may occur in the
+ * implementations of an {@link Kernel}.
  *
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
  * @version $Id$

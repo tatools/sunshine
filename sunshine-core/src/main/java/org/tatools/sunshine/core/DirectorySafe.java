@@ -1,13 +1,12 @@
 package org.tatools.sunshine.core;
 
-import lombok.EqualsAndHashCode;
-
 import java.io.IOException;
 import java.nio.file.Path;
+import lombok.EqualsAndHashCode;
 
 /**
- * The class allows communicating with a {@link Directory} object safely. This means it does not touch real file system
- * until it's really needed.
+ * The class allows communicating with a {@link Directory} object safely. This means it does not
+ * touch real file system until it's really needed.
  *
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
  * @version $Id$

@@ -16,8 +16,7 @@ public class Junit5Status implements Status {
     private final short failed = 1;
 
     /**
-     * Initializes a newly created instance to represent a status of
-     * JUnit 5 execution.
+     * Initializes a newly created instance to represent a status of JUnit 5 execution.
      *
      * @param testExecutionSummary the report provided by {@link SummaryGeneratingListener}
      */

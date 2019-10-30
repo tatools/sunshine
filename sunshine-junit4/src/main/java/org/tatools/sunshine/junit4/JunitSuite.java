@@ -1,9 +1,8 @@
 package org.tatools.sunshine.junit4;
 
-import org.tatools.sunshine.core.*;
-
 import java.util.ArrayList;
 import java.util.List;
+import org.tatools.sunshine.core.*;
 
 /**
  * The {@link JunitSuite} class represents a JUnit 4 suite prepared from the Java classes.
@@ -17,7 +16,8 @@ public class JunitSuite implements Suite<Class<?>[]> {
     private final SunshineSuite suite;
 
     /**
-     * Construct the new instance with the specified tests filter. All tests will be loaded from the classpath.
+     * Construct the new instance with the specified tests filter. All tests will be loaded from the
+     * classpath.
      *
      * @param filter the filter to be used to select desired tests
      * @see #JunitSuite(FileSystem, Condition)
@@ -28,15 +28,17 @@ public class JunitSuite implements Suite<Class<?>[]> {
     }
 
     /**
-     * Construct the new instance with the specified file system and tests filter. All filtered tests
-     * will be printed to {@link System#out}.
+     * Construct the new instance with the specified file system and tests filter. All filtered
+     * tests will be printed to {@link System#out}.
      *
      * @param fileSystem the place with the tests
-     * @param filter     the filter to be used to select desired tests
+     * @param filter the filter to be used to select desired tests
      * @since 0.1
      */
     public JunitSuite(FileSystem fileSystem, Condition filter) {
-        this(new SunshineSuitePrintable(new SunshineSuiteFilterable(new SuiteFromFileSystem(fileSystem), filter)));
+        this(
+                new SunshineSuitePrintable(
+                        new SunshineSuiteFilterable(new SuiteFromFileSystem(fileSystem), filter)));
     }
 
     /**
@@ -59,6 +61,6 @@ public class JunitSuite implements Suite<Class<?>[]> {
                 throw new SuiteException(e);
             }
         }
-        return tests.toArray(new Class[]{});
+        return tests.toArray(new Class[] {});
     }
 }

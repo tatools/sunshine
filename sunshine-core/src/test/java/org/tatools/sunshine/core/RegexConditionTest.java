@@ -1,12 +1,11 @@
 package org.tatools.sunshine.core;
 
+import java.util.Arrays;
+import java.util.Collection;
 import org.hamcrest.MatcherAssert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
-
-import java.util.Arrays;
-import java.util.Collection;
 
 /**
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
@@ -24,20 +23,20 @@ public class RegexConditionTest {
 
     @Parameterized.Parameters
     public static Collection<Object[]> data() {
-        return Arrays.asList(new Object[][]{
-                {"io.github.my.FirstTest"},
-                {"io.github.my.FirstTest1"},
-                {"io.github.my.Test"},
-                {"io.github.my.1Test"},
-                {"io.github.my.FirstTestDo"},
-        });
+        return Arrays.asList(
+                new Object[][] {
+                    {"io.github.my.FirstTest"},
+                    {"io.github.my.FirstTest1"},
+                    {"io.github.my.Test"},
+                    {"io.github.my.1Test"},
+                    {"io.github.my.FirstTestDo"},
+                });
     }
 
     @Test
     public void applicable() {
         MatcherAssert.assertThat(
                 "Regex doesn't work for " + this.className,
-                new RegexCondition().applicable(this.className)
-        );
+                new RegexCondition().applicable(this.className));
     }
 }

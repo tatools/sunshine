@@ -1,6 +1,5 @@
 package org.tatools.sunshine.core;
 
-
 /**
  * The interface represents some tests.
  *

@@ -1,5 +1,6 @@
 package org.tatools.sunshine.junit5;
 
+import java.util.ArrayList;
 import lombok.EqualsAndHashCode;
 import org.hamcrest.MatcherAssert;
 import org.hamcrest.Matchers;
@@ -8,9 +9,6 @@ import org.junit.platform.engine.TestExecutionResult;
 import org.junit.platform.launcher.TestExecutionListener;
 import org.junit.platform.launcher.TestIdentifier;
 import org.tatools.sunshine.core.KernelException;
-
-import java.util.ArrayList;
-
 
 /**
  * @author Dmytro Serdiuk
@@ -21,11 +19,8 @@ public class Junit5KernelTest {
     @Test
     public void run() throws KernelException {
         MatcherAssert.assertThat(
-                new Junit5Kernel(ArrayList::new).status().code(),
-                Matchers.equalTo((short) 0)
-        );
+                new Junit5Kernel(ArrayList::new).status().code(), Matchers.equalTo((short) 0));
     }
-
 
     @Test
     public void with() throws KernelException {
@@ -40,7 +35,8 @@ public class Junit5KernelTest {
         private int call = 0;
 
         @Override
-        public void executionFinished(TestIdentifier testIdentifier, TestExecutionResult testExecutionResult) {
+        public void executionFinished(
+                TestIdentifier testIdentifier, TestExecutionResult testExecutionResult) {
             this.call = 1;
         }
     }

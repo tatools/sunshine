@@ -1,14 +1,12 @@
 package org.tatools.sunshine.core;
 
-
+import java.io.IOException;
+import java.nio.file.Files;
 import org.hamcrest.MatcherAssert;
 import org.hamcrest.Matchers;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TemporaryFolder;
-
-import java.io.IOException;
-import java.nio.file.Files;
 
 /**
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
@@ -16,8 +14,7 @@ import java.nio.file.Files;
  * @since 0.1
  */
 public class FileBaseTest {
-    @Rule
-    public TemporaryFolder testFolder = new TemporaryFolder();
+    @Rule public TemporaryFolder testFolder = new TemporaryFolder();
 
     @Test
     public void write() throws IOException {

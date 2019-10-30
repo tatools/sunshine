@@ -1,14 +1,13 @@
 package org.tatools.sunshine.testng;
 
-import org.tatools.sunshine.core.*;
-import org.testng.ISuite;
-import org.testng.ITestNGListener;
-import org.testng.TestNG;
-
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
+import org.tatools.sunshine.core.*;
+import org.testng.ISuite;
+import org.testng.ITestNGListener;
+import org.testng.TestNG;
 
 /**
  * The {@link TestNGKernel} class allows to run TestNG for given {@link FileSystem}.
@@ -24,8 +23,8 @@ public class TestNGKernel implements Kernel<ITestNGListener> {
     private final List<ISuite> suites;
 
     /**
-     * Initializes a newly created {@link TestNGKernel} object so that it represents
-     * an TestNG runner.
+     * Initializes a newly created {@link TestNGKernel} object so that it represents an TestNG
+     * runner.
      *
      * @param tests an instance of a {@link TestNGSuite} where need to find tests
      */
@@ -35,12 +34,12 @@ public class TestNGKernel implements Kernel<ITestNGListener> {
         this.suite = tests;
     }
 
-
     @Override
     public final Status status() throws KernelException {
         try {
             this.suites.clear();
-            this.engine.setTestSuites(Collections.singletonList(this.suite.tests().path().toString()));
+            this.engine.setTestSuites(
+                    Collections.singletonList(this.suite.tests().path().toString()));
             this.engine.run();
             return new TestNGStatus(engine.getStatus(), this.suites);
         } catch (SuiteException e) {

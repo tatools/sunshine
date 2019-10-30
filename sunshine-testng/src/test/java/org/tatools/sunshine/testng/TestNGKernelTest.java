@@ -19,16 +19,19 @@ public class TestNGKernelTest {
     @Test
     public void status() throws KernelException {
         MatcherAssert.assertThat(
-                new TestNGKernel(() -> new FileSystemPath.Fake("src/test/resources/testng.xml")).status().code(),
-                Matchers.equalTo((short) 0)
-        );
+                new TestNGKernel(() -> new FileSystemPath.Fake("src/test/resources/testng.xml"))
+                        .status()
+                        .code(),
+                Matchers.equalTo((short) 0));
     }
 
     @Test(expected = KernelException.class)
     public void runWithFail() throws KernelException {
-        new TestNGKernel(() -> {
-            throw new SuiteException("Fail");
-        }).status();
+        new TestNGKernel(
+                        () -> {
+                            throw new SuiteException("Fail");
+                        })
+                .status();
     }
 
     @Test

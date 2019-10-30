@@ -22,8 +22,8 @@ public class Junit5Kernel implements Kernel<TestExecutionListener> {
     private final SummaryGeneratingListener reporter;
 
     /**
-     * Initializes a newly created {@link Junit5Kernel} object so that it represents
-     * an JUnit 4 runner.
+     * Initializes a newly created {@link Junit5Kernel} object so that it represents an JUnit 4
+     * runner.
      *
      * @param sunshineSuite the suite with desired tests
      */
@@ -32,8 +32,8 @@ public class Junit5Kernel implements Kernel<TestExecutionListener> {
     }
 
     /**
-     * Initializes a newly created {@link Junit5Kernel} object so that it represents
-     * an JUnit 4 runner.
+     * Initializes a newly created {@link Junit5Kernel} object so that it represents an JUnit 4
+     * runner.
      *
      * @param launcher the launcher for a given test suite
      * @param sunshineSuite the suite with desired tests
@@ -57,11 +57,13 @@ public class Junit5Kernel implements Kernel<TestExecutionListener> {
             launcher.execute(
                     LauncherDiscoveryRequestBuilder.request()
                             .selectors(
-                                    tests.tests().stream().map(
-                                            sunshineTest -> DiscoverySelectors.selectClass(sunshineTest.toString())
-                                    ).toArray(DiscoverySelector[]::new)
-                            ).build()
-            );
+                                    tests.tests().stream()
+                                            .map(
+                                                    sunshineTest ->
+                                                            DiscoverySelectors.selectClass(
+                                                                    sunshineTest.toString()))
+                                            .toArray(DiscoverySelector[]::new))
+                            .build());
             return new Junit5Status(this.reporter.getSummary());
         } catch (SuiteException e) {
             throw new KernelException("Some problem occurs in the Junit5Kernel", e);
@@ -69,14 +71,15 @@ public class Junit5Kernel implements Kernel<TestExecutionListener> {
     }
 
     /**
-     * Returns a new instance of the JUnit 5 kernel with provided listeners based
-     * on the current instance configuration.
+     * Returns a new instance of the JUnit 5 kernel with provided listeners based on the current
+     * instance configuration.
      *
      * @param testExecutionListeners at least one desired listener
      * @return the new instance of the JUnit 5 kernel
      */
     @Override
-    public final Kernel<TestExecutionListener> with(TestExecutionListener... testExecutionListeners) {
+    public final Kernel<TestExecutionListener> with(
+            TestExecutionListener... testExecutionListeners) {
         final Launcher fork = LauncherFactory.create();
         fork.registerTestExecutionListeners(testExecutionListeners);
         return new Junit5Kernel(fork, this.tests);

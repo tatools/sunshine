@@ -18,23 +18,24 @@ public class Junit4KernelTest {
     @Test
     public void run() throws KernelException {
         MatcherAssert.assertThat(
-                new Junit4Kernel(() -> new Class[]{}).status().code(),
-                Matchers.equalTo((short) 0)
-        );
+                new Junit4Kernel(() -> new Class[] {}).status().code(),
+                Matchers.equalTo((short) 0));
     }
 
     @Test(expected = KernelException.class)
     public void runWithFail() throws KernelException {
-        new Junit4Kernel(() -> {
-            throw new SuiteException("Fail");
-        }).status();
+        new Junit4Kernel(
+                        () -> {
+                            throw new SuiteException("Fail");
+                        })
+                .status();
     }
 
     @Test
     public void with() throws KernelException {
         final Listener l1 = new Listener();
         final Listener l2 = new Listener();
-        new Junit4Kernel(() -> new Class[]{}).with(l1).with(l2).status();
+        new Junit4Kernel(() -> new Class[] {}).with(l1).with(l2).status();
         MatcherAssert.assertThat(l1, Matchers.not(Matchers.equalTo(l2)));
     }
 

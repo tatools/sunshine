@@ -27,14 +27,10 @@ public interface Directory extends FileSystemPath {
         }
 
         @Override
-        public void create() {
-
-        }
+        public void create() {}
 
         @Override
-        public void remove() {
-
-        }
+        public void remove() {}
 
         @Override
         public Path path() {

@@ -1,6 +1,5 @@
 package org.tatools.sunshine.core;
 
-
 import java.io.IOException;
 import java.nio.file.Path;
 
@@ -19,16 +18,18 @@ public class DirectoryWithAutomaticDeletion implements Directory {
 
     @Override
     public final void create() throws IOException {
-        Runtime.getRuntime().addShutdownHook(new Thread("ds") {
-            @Override
-            public void run() {
-                try {
-                    directory.remove();
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                }
-            }
-        });
+        Runtime.getRuntime()
+                .addShutdownHook(
+                        new Thread("ds") {
+                            @Override
+                            public void run() {
+                                try {
+                                    directory.remove();
+                                } catch (IOException e) {
+                                    throw new RuntimeException(e);
+                                }
+                            }
+                        });
         directory.create();
     }
 

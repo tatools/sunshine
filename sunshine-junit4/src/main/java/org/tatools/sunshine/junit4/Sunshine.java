@@ -1,6 +1,5 @@
 package org.tatools.sunshine.junit4;
 
-
 import org.tatools.sunshine.core.RegexCondition;
 import org.tatools.sunshine.core.Sun;
 import org.tatools.sunshine.core.VerboseRegex;
