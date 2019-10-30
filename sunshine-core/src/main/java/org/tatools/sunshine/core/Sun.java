@@ -8,7 +8,7 @@ package org.tatools.sunshine.core;
  * @version $Id$
  * @since 0.2
  */
-public final class Sun implements Star {
+public class Sun implements Star {
 
     private static final int SUNSHINE_ERROR = 12;
     private final Kernel<?> core;
@@ -28,7 +28,7 @@ public final class Sun implements Star {
      * appropriate {@link Kernel}.
      */
     @Override
-    public void shine() {
+    public final void shine() {
         try {
             final Status status = this.core.status();
             System.out.println(

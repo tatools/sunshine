@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
  * @version $Id$
  */
-public final class SuiteFromFileSystem implements SunshineSuite {
+public class SuiteFromFileSystem implements SunshineSuite {
     private final FileSystem fileSystem;
 
     /**
@@ -24,7 +24,7 @@ public final class SuiteFromFileSystem implements SunshineSuite {
     }
 
     @Override
-    public List<SunshineTest> tests() throws SuiteException {
+    public final List<SunshineTest> tests() throws SuiteException {
         try {
             return fileSystem.files().stream()
                     .map(f -> new TestFromFile(f.path().toString()))

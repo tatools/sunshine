@@ -11,7 +11,7 @@ import java.util.Arrays;
  * @version $Id$
  * @since 0.3.0
  */
-public final class VerboseRegex implements Condition {
+public class VerboseRegex implements Condition {
 
     private final RegexCondition regexCondition;
     private final boolean[] say = new boolean[]{true};
@@ -38,7 +38,7 @@ public final class VerboseRegex implements Condition {
     }
 
     @Override
-    public boolean applicable(String identity) {
+    public final boolean applicable(String identity) {
         if (say[0]) {
             this.printer.println(
                     String.format(

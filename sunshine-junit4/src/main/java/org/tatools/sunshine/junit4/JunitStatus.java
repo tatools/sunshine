@@ -10,7 +10,7 @@ import org.tatools.sunshine.core.Status;
  * @version $Id$
  * @since 0.2
  */
-public final class JunitStatus implements Status {
+public class JunitStatus implements Status {
 
     private final Result status;
 
@@ -25,7 +25,7 @@ public final class JunitStatus implements Status {
     }
 
     @Override
-    public short code() {
+    public final short code() {
         if (this.status.wasSuccessful()) {
             return (short) 0;
         }
@@ -33,17 +33,17 @@ public final class JunitStatus implements Status {
     }
 
     @Override
-    public int runCount() {
+    public final int runCount() {
         return status.getRunCount();
     }
 
     @Override
-    public int failureCount() {
+    public final int failureCount() {
         return status.getFailureCount();
     }
 
     @Override
-    public int ignoreCount() {
+    public final int ignoreCount() {
         return status.getIgnoreCount();
     }
 }

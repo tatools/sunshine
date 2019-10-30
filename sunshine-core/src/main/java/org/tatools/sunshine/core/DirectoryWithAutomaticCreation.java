@@ -8,7 +8,7 @@ import java.nio.file.Path;
  * @version $Id$
  * @since 0.1
  */
-public final class DirectoryWithAutomaticCreation implements Directory {
+public class DirectoryWithAutomaticCreation implements Directory {
 
     private final Directory directory;
 
@@ -17,17 +17,17 @@ public final class DirectoryWithAutomaticCreation implements Directory {
     }
 
     @Override
-    public void create() throws IOException {
+    public final void create() throws IOException {
         this.directory.create();
     }
 
     @Override
-    public void remove() throws IOException {
+    public final void remove() throws IOException {
         this.directory.remove();
     }
 
     @Override
-    public Path path() {
+    public final Path path() {
         try {
             this.create();
             return this.directory.path();
@@ -37,7 +37,7 @@ public final class DirectoryWithAutomaticCreation implements Directory {
     }
 
     @Override
-    public boolean exist() {
+    public final boolean exist() {
         try {
             this.create();
             return true;

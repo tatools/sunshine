@@ -16,7 +16,7 @@ import java.util.stream.Collectors;
  * @since 0.1
  */
 @EqualsAndHashCode
-public final class FileSystemOfClasspathClasses implements FileSystem {
+public class FileSystemOfClasspathClasses implements FileSystem {
 
     private final FileSystem fileSystem;
 
@@ -37,7 +37,7 @@ public final class FileSystemOfClasspathClasses implements FileSystem {
 
 
     @Override
-    public List<FileSystemPath> files() throws FileSystemException {
+    public final List<FileSystemPath> files() throws FileSystemException {
         return fileSystem.files();
     }
 }

@@ -12,7 +12,7 @@ import java.nio.file.Path;
  * @since 0.1
  */
 @EqualsAndHashCode
-public final class FileBase implements File {
+public class FileBase implements File {
 
     private final FileSystemPath fileSystemPath;
 
@@ -33,17 +33,17 @@ public final class FileBase implements File {
     }
 
     @Override
-    public Path path() {
+    public final Path path() {
         return fileSystemPath.path();
     }
 
     @Override
-    public boolean exist() {
+    public final boolean exist() {
         return fileSystemPath.exist();
     }
 
     @Override
-    public void write(String data) throws IOException {
+    public final void write(String data) throws IOException {
         Files.write(this.path(), data.getBytes());
     }
 }

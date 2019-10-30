@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
  * @version $Id$
  * @since 0.1
  */
-public final class SunshineSuiteFilterable implements SunshineSuite {
+public class SunshineSuiteFilterable implements SunshineSuite {
 
     private final SunshineSuite suite;
     private final Condition filter;
@@ -19,7 +19,7 @@ public final class SunshineSuiteFilterable implements SunshineSuite {
     }
 
     @Override
-    public List<SunshineTest> tests() throws SuiteException {
+    public final List<SunshineTest> tests() throws SuiteException {
         return suite.tests().stream().filter(classTest -> classTest.match(filter)).collect(Collectors.toList());
     }
 }

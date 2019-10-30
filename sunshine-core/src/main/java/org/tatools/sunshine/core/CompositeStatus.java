@@ -8,7 +8,7 @@ import java.util.List;
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
  * @version $Id$
  */
-public final class CompositeStatus implements Status {
+public class CompositeStatus implements Status {
 
     private final List<Status> sources;
 
@@ -30,7 +30,7 @@ public final class CompositeStatus implements Status {
      * @return a calculated exit code
      */
     @Override
-    public short code() {
+    public final short code() {
         return this.sources.stream()
                 .map(Status::code)
                 .filter(code -> code != 0)
@@ -44,7 +44,7 @@ public final class CompositeStatus implements Status {
      * @return a count of total tests
      */
     @Override
-    public int runCount() {
+    public final int runCount() {
         return this.sources.stream().mapToInt(Status::runCount).sum();
     }
 
@@ -54,7 +54,7 @@ public final class CompositeStatus implements Status {
      * @return a count of failed tests
      */
     @Override
-    public int failureCount() {
+    public final int failureCount() {
         return this.sources.stream().mapToInt(Status::failureCount).sum();
     }
 
@@ -64,7 +64,7 @@ public final class CompositeStatus implements Status {
      * @return a count of ignored tests
      */
     @Override
-    public int ignoreCount() {
+    public final int ignoreCount() {
         return this.sources.stream().mapToInt(Status::ignoreCount).sum();
     }
 }

@@ -12,7 +12,7 @@ import java.util.List;
  * @version $Id$
  * @since 0.1
  */
-public final class JunitSuite implements Suite<Class<?>[]> {
+public class JunitSuite implements Suite<Class<?>[]> {
 
     private final SunshineSuite suite;
 
@@ -50,7 +50,7 @@ public final class JunitSuite implements Suite<Class<?>[]> {
     }
 
     @Override
-    public Class<?>[] tests() throws SuiteException {
+    public final Class<?>[] tests() throws SuiteException {
         List<Class<?>> tests = new ArrayList<>();
         for (SunshineTest test : this.suite.tests()) {
             try {

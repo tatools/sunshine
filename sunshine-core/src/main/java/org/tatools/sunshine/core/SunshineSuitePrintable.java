@@ -7,7 +7,7 @@ import java.util.List;
  * @version $Id$
  * @since 0.1
  */
-public final class SunshineSuitePrintable implements SunshineSuite {
+public class SunshineSuitePrintable implements SunshineSuite {
 
     private final SunshineSuite sunshineSuite;
 
@@ -16,7 +16,7 @@ public final class SunshineSuitePrintable implements SunshineSuite {
     }
 
     @Override
-    public List<SunshineTest> tests() throws SuiteException {
+    public final List<SunshineTest> tests() throws SuiteException {
         final List<SunshineTest> tests = this.sunshineSuite.tests();
         final StringBuilder message = new StringBuilder();
         message.append("Sunshine found ")

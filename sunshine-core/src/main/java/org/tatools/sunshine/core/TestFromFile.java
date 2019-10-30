@@ -9,7 +9,7 @@ import lombok.EqualsAndHashCode;
  * @version $Id$
  */
 @EqualsAndHashCode
-public final class TestFromFile implements SunshineTest {
+public class TestFromFile implements SunshineTest {
     private final String path;
 
     /**
@@ -23,7 +23,7 @@ public final class TestFromFile implements SunshineTest {
     }
 
     @Override
-    public Class object() throws TestException {
+    public final Class object() throws TestException {
         try {
             return Class.forName(toString());
         } catch (ClassNotFoundException e) {
@@ -32,12 +32,12 @@ public final class TestFromFile implements SunshineTest {
     }
 
     @Override
-    public boolean match(Condition condition) {
+    public final boolean match(Condition condition) {
         return condition.applicable(this.toString());
     }
 
     @Override
-    public String toString() {
+    public final String toString() {
         return path.replaceAll("[/\\\\]", ".").replaceFirst("^\\.", "").replace(".class", "");
     }
 }

@@ -8,7 +8,7 @@ import org.tatools.sunshine.core.FileSystemPathBase;
  * @version $Id$
  * @since 0.1
  */
-public final class PreparedTestNGSuite implements TestNGSuite {
+public class PreparedTestNGSuite implements TestNGSuite {
 
     private final FileSystemPath fileSystemPath;
 
@@ -21,7 +21,7 @@ public final class PreparedTestNGSuite implements TestNGSuite {
     }
 
     @Override
-    public FileSystemPath tests() {
+    public final FileSystemPath tests() {
         return fileSystemPath;
     }
 }

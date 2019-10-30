@@ -14,7 +14,7 @@ import java.util.Comparator;
  * @since 0.1
  */
 @EqualsAndHashCode
-public final class DirectoryBase implements Directory {
+public class DirectoryBase implements Directory {
 
     private final FileSystemPath fileSystemPath;
 
@@ -31,12 +31,12 @@ public final class DirectoryBase implements Directory {
     }
 
     @Override
-    public void create() throws IOException {
+    public final void create() throws IOException {
         Files.createDirectory(fileSystemPath.path());
     }
 
     @Override
-    public void remove() throws IOException {
+    public final void remove() throws IOException {
         Files.walk(fileSystemPath.path(), FileVisitOption.FOLLOW_LINKS)
                 .sorted(Comparator.reverseOrder())
                 .map(Path::toFile)
@@ -44,12 +44,12 @@ public final class DirectoryBase implements Directory {
     }
 
     @Override
-    public boolean exist() {
+    public final boolean exist() {
         return fileSystemPath.exist();
     }
 
     @Override
-    public Path path() {
+    public final Path path() {
         return fileSystemPath.path();
     }
 }

@@ -15,7 +15,7 @@ import java.io.IOException;
  * @since 0.1
  */
 @SuppressWarnings("WeakerAccess")
-public final class LoadableTestNGSuite implements TestNGSuite {
+public class LoadableTestNGSuite implements TestNGSuite {
 
     private static final String SUNSHINE_SUITE = "Sunshine suite";
     private final String name;
@@ -192,7 +192,7 @@ public final class LoadableTestNGSuite implements TestNGSuite {
     }
 
     @Override
-    public File tests() throws SuiteException {
+    public final File tests() throws SuiteException {
         XmlSuite xmlSuite = new XmlSuite();
         xmlSuite.setName(this.name);
         try {

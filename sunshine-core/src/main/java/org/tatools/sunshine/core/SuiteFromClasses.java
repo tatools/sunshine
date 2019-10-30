@@ -10,7 +10,7 @@ import java.util.stream.Collectors;
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
  * @version $Id$
  */
-public final class SuiteFromClasses implements SunshineSuite {
+public class SuiteFromClasses implements SunshineSuite {
     private final Class[] classes;
 
     /**
@@ -23,7 +23,7 @@ public final class SuiteFromClasses implements SunshineSuite {
     }
 
     @Override
-    public List<SunshineTest> tests() throws SuiteException {
+    public final List<SunshineTest> tests() throws SuiteException {
         return Arrays.stream(this.classes).map(TestFromClass::new).collect(Collectors.toList());
     }
 }

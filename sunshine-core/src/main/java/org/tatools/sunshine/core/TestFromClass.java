@@ -9,7 +9,7 @@ import lombok.EqualsAndHashCode;
  * @version $Id$
  */
 @EqualsAndHashCode
-public final class TestFromClass implements SunshineTest {
+public class TestFromClass implements SunshineTest {
     private final Class origin;
 
     /**
@@ -22,17 +22,17 @@ public final class TestFromClass implements SunshineTest {
     }
 
     @Override
-    public Class object() throws TestException {
+    public final Class object() throws TestException {
         return this.origin;
     }
 
     @Override
-    public boolean match(Condition condition) {
+    public final boolean match(Condition condition) {
         return condition.applicable(this.toString());
     }
 
     @Override
-    public String toString() {
+    public final String toString() {
         return this.origin.getName();
     }
 }

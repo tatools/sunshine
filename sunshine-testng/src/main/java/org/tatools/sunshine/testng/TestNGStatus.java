@@ -15,7 +15,7 @@ import java.util.List;
  * @version $Id$
  * @since 0.2
  */
-public final class TestNGStatus implements Status {
+public class TestNGStatus implements Status {
 
     private final short exit_code;
     private final List<ISuite> reports;
@@ -27,26 +27,25 @@ public final class TestNGStatus implements Status {
         this.counts = new ArrayList<>(3);
     }
 
-
     @Override
-    public short code() {
+    public final short code() {
         return this.exit_code;
     }
 
     @Override
-    public int runCount() {
+    public final int runCount() {
         this.calculate();
         return this.counts.get(0).intValue();
     }
 
     @Override
-    public int failureCount() {
+    public final int failureCount() {
         this.calculate();
         return this.counts.get(1).intValue();
     }
 
     @Override
-    public int ignoreCount() {
+    public final int ignoreCount() {
         this.calculate();
         return this.counts.get(2).intValue();
     }

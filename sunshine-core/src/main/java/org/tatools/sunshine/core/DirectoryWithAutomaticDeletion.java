@@ -9,7 +9,7 @@ import java.nio.file.Path;
  * @version $Id$
  * @since 0.1
  */
-public final class DirectoryWithAutomaticDeletion implements Directory {
+public class DirectoryWithAutomaticDeletion implements Directory {
 
     private final Directory directory;
 
@@ -18,7 +18,7 @@ public final class DirectoryWithAutomaticDeletion implements Directory {
     }
 
     @Override
-    public void create() throws IOException {
+    public final void create() throws IOException {
         Runtime.getRuntime().addShutdownHook(new Thread("ds") {
             @Override
             public void run() {
@@ -33,17 +33,17 @@ public final class DirectoryWithAutomaticDeletion implements Directory {
     }
 
     @Override
-    public void remove() throws IOException {
+    public final void remove() throws IOException {
         directory.remove();
     }
 
     @Override
-    public Path path() {
+    public final Path path() {
         return directory.path();
     }
 
     @Override
-    public boolean exist() {
+    public final boolean exist() {
         return directory.exist();
     }
 }

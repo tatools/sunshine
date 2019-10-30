@@ -14,7 +14,7 @@ import java.nio.file.Path;
  * @since 0.1
  */
 @EqualsAndHashCode
-public final class DirectorySafe implements Directory {
+public class DirectorySafe implements Directory {
 
     private final Directory directory;
 
@@ -35,26 +35,26 @@ public final class DirectorySafe implements Directory {
     }
 
     @Override
-    public void create() throws IOException {
+    public final void create() throws IOException {
         if (!directory.exist()) {
             directory.create();
         }
     }
 
     @Override
-    public void remove() throws IOException {
+    public final void remove() throws IOException {
         if (directory.exist()) {
             directory.remove();
         }
     }
 
     @Override
-    public boolean exist() {
+    public final boolean exist() {
         return directory.exist();
     }
 
     @Override
-    public Path path() {
+    public final Path path() {
         return directory.path();
     }
 }

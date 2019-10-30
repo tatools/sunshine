@@ -14,7 +14,7 @@ import java.nio.file.Paths;
  */
 @EqualsAndHashCode
 @ToString
-public final class FileSystemPathBase implements FileSystemPath {
+public class FileSystemPathBase implements FileSystemPath {
 
     private final Path directory;
     private final String file;
@@ -41,12 +41,12 @@ public final class FileSystemPathBase implements FileSystemPath {
     }
 
     @Override
-    public Path path() {
+    public final Path path() {
         return directory.resolve(file);
     }
 
     @Override
-    public boolean exist() {
+    public final boolean exist() {
         return Files.exists(path());
     }
 }

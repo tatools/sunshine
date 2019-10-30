@@ -12,7 +12,7 @@ import java.nio.file.Path;
  */
 @EqualsAndHashCode
 @ToString(of = {"artifactPath"})
-public final class FileSystemPathRelative implements FileSystemPath {
+public class FileSystemPathRelative implements FileSystemPath {
     private final FileSystemPath fromPath;
     private final FileSystemPath artifactPath;
 
@@ -30,13 +30,13 @@ public final class FileSystemPathRelative implements FileSystemPath {
     }
 
     @Override
-    public Path path() {
+    public final Path path() {
         if (fromPath.equals(artifactPath)) return artifactPath.path();
         return fromPath.path().relativize(artifactPath.path());
     }
 
     @Override
-    public boolean exist() {
+    public final boolean exist() {
         throw new UnsupportedOperationException("Can't say definitely about existence of a path: " + path());
     }
 }

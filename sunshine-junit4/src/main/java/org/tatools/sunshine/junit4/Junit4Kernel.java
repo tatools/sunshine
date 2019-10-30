@@ -14,7 +14,7 @@ import java.util.Arrays;
  * @version $Id$
  * @since 0.1
  */
-public final class Junit4Kernel implements Kernel<RunListener> {
+public class Junit4Kernel implements Kernel<RunListener> {
 
     private final JUnitCore junit;
     private final Suite<Class<?>[]> suiteForRun;
@@ -41,7 +41,7 @@ public final class Junit4Kernel implements Kernel<RunListener> {
      * @throws KernelException if any error occurs during JUnit tests execution.
      */
     @Override
-    public Status status() throws KernelException {
+    public final Status status() throws KernelException {
         try {
             return new JunitStatus(this.junit.run(new Computer(), this.suiteForRun.tests()));
         } catch (SuiteException e) {
@@ -56,7 +56,7 @@ public final class Junit4Kernel implements Kernel<RunListener> {
      * @return the new instance of the JUnit kernel
      */
     @Override
-    public Junit4Kernel with(RunListener... listeners) {
+    public final Junit4Kernel with(RunListener... listeners) {
         final JUnitCore jUnitCore = new JUnitCore();
         Arrays.stream(listeners).forEach(jUnitCore::addListener);
         return new Junit4Kernel(jUnitCore, this.suiteForRun);

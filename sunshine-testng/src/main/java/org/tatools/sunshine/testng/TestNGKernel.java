@@ -17,7 +17,7 @@ import java.util.List;
  * @version $Id$
  * @since 0.2
  */
-public final class TestNGKernel implements Kernel<ITestNGListener> {
+public class TestNGKernel implements Kernel<ITestNGListener> {
 
     private final TestNG engine;
     private final TestNGSuite suite;
@@ -37,7 +37,7 @@ public final class TestNGKernel implements Kernel<ITestNGListener> {
 
 
     @Override
-    public Status status() throws KernelException {
+    public final Status status() throws KernelException {
         try {
             this.suites.clear();
             this.engine.setTestSuites(Collections.singletonList(this.suite.tests().path().toString()));
@@ -55,7 +55,7 @@ public final class TestNGKernel implements Kernel<ITestNGListener> {
      * @return an instance of {@link TestNGKernel}
      */
     @Override
-    public TestNGKernel with(ITestNGListener... listeners) {
+    public final TestNGKernel with(ITestNGListener... listeners) {
         final TestNGKernel kernel = new TestNGKernel(this.suite);
         Arrays.stream(listeners).forEach(kernel.engine::addListener);
         return kernel;

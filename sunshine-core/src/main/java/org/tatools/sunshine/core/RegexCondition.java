@@ -12,7 +12,7 @@ import java.util.regex.Pattern;
  * @since 0.1
  */
 @EqualsAndHashCode
-public final class RegexCondition implements Condition {
+public class RegexCondition implements Condition {
 
     final Pattern regex;
 
@@ -43,7 +43,7 @@ public final class RegexCondition implements Condition {
     }
 
     @Override
-    public boolean applicable(String identity) {
+    public final boolean applicable(String identity) {
         return regex.matcher(identity).matches();
     }
 }
