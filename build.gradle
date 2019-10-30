@@ -63,6 +63,12 @@ project(':sunshine-junit5') {
     }
 }
 
+project(':sunshine-junit5-integration-tests') {
+    dependencies {
+        compile project(':sunshine-junit5')
+    }
+}
+
 defaultTasks 'clean', 'ready'
 
 //task to write the version parameter given via command line into the "gradle.properties" files.

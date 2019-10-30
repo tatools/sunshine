@@ -1,0 +1,52 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+        classpath 'com.github.jengelman.gradle.plugins:shadow:4.0.3'
+    }
+}
+
+apply plugin: 'com.github.johnrengelman.shadow'
+
+dependencies {
+    jar {
+        manifest {
+            attributes 'Main-Class': 'org.tatools.sunshine.junit5.Sunshine'
+            attributes "Class-Path": configurations.runtime.collect {
+                "deps/" + it.getName()
+            }.join(' ')
+        }
+    }
+}
+
+task storeDependencies(type: Copy) {
+    into "$buildDir/libs/deps"
+    from configurations.runtime
+}
+
+build.dependsOn(storeDependencies)
+
+task runIntegrationTests { Task task ->
+    doLast {
+        task.project.exec {
+            executable "sh"
+            args "-c", "cd build/libs/ && java -jar ${project.name}-${version}.jar " +
+                    "| grep \"Total tests run: 1, Failures: 0, Skips: 0\""
+        }
+        task.project.exec {
+            executable "sh"
+            args "-c", "cd build/libs/ && " +
+                    "java -Dtests-regex=\"(org.tatools.junit5tests)(.+)?\" -jar ${project.name}-${version}-all.jar " +
+                    "| grep \"Total tests run: 1, Failures: 0, Skips: 0\""
+        }
+    }
+}
+runIntegrationTests.dependsOn(build)
+runIntegrationTests.dependsOn(shadowJar)
+
+task ready(dependsOn: runIntegrationTests) {
+    doLast {
+        println("Sunshine Junit5 integration testing is completed.")
+    }
+}
