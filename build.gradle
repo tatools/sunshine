@@ -55,6 +55,14 @@ project(':sunshine-testng-integration-tests') {
     }
 }
 
+project(':sunshine-junit5') {
+    apply from: rootProject.file('gradle/jacoco.gradle')
+    apply from: rootProject.file('gradle/bintray.gradle')
+    dependencies {
+        compile project(':sunshine-core')
+    }
+}
+
 defaultTasks 'clean', 'ready'
 
 //task to write the version parameter given via command line into the "gradle.properties" files.

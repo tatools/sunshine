@@ -55,6 +55,12 @@ Class: [`org.tatools.sunshine.junit4.Sunshine`](https://github.com/tatools/sunsh
 The class exposes the same behavior as default TestNG entry point exposes except the last option. All tests will be
 executed using JUnit4.
 
+## Default JUnit5 entry point
+Class: [`org.tatools.sunshine.junit5.Sunshine`](https://github.com/tatools/sunshine/blob/master/sunshine-junit5/src/main/java/org/tatools/sunshine/junit5/Sunshine.java)
+
+The class exposes the same behavior as default TestNG entry point exposes except the last option. All tests will be
+executed using JUnit5.
+
 ## Code snippets for different use cases
 ### Specify regex
 There is a regex which has used to filter classes from current classpath.

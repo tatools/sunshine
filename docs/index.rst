@@ -7,9 +7,11 @@ Welcome to Sunshine's documentation!
 ====================================
 .. _TestNG: https://testng.org/doc/index.html
 .. _JUnit4: https://junit.org/junit4/
+.. _JUnit5: https://junit.org/junit5/
 
-Sunshine allows you to manage suits of your automated tests directly from Java code. It can work
-on top of TestNG_ or JUnit4_.
+
+Sunshine allows you to manage suits of your automated tests directly from Java code. It supports
+TestNG_, JUnit4_, and JUnit5_.
 
 ..  toctree::
     :maxdepth: 3
