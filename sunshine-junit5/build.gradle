@@ -10,6 +10,6 @@ dependencies {
 
 task ready(dependsOn: check) {
     doLast {
-        println("Unit testing of Sunshine Junit5 is completed.")
+        println("Unit testing of Sunshine JUnit 5 is completed.")
     }
 }

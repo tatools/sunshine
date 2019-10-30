@@ -23,7 +23,7 @@ public class Junit5Kernel implements Kernel<TestExecutionListener> {
 
     /**
      * Initializes a newly created {@link Junit5Kernel} object so that it represents
-     * an JUnit4 runner.
+     * an JUnit 4 runner.
      *
      * @param sunshineSuite the suite with desired tests
      */
@@ -33,7 +33,7 @@ public class Junit5Kernel implements Kernel<TestExecutionListener> {
 
     /**
      * Initializes a newly created {@link Junit5Kernel} object so that it represents
-     * an JUnit4 runner.
+     * an JUnit 4 runner.
      *
      * @param launcher the launcher for a given test suite
      * @param sunshineSuite the suite with desired tests

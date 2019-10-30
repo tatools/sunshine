@@ -21,7 +21,7 @@ public final class Junit4Kernel implements Kernel<RunListener> {
 
     /**
      * Initializes a newly created {@link Junit4Kernel} object so that it represents
-     * an JUnit4 runner.
+     * an JUnit 4 runner.
      *
      * @param suite the tests suite
      */
@@ -45,7 +45,7 @@ public final class Junit4Kernel implements Kernel<RunListener> {
         try {
             return new JunitStatus(this.junit.run(new Computer(), this.suiteForRun.tests()));
         } catch (SuiteException e) {
-            throw new KernelException("Some problem occurs in the Junit4Kernel", e);
+            throw new KernelException("Some problem occurs in the JUnit 4 kernel", e);
         }
     }
 

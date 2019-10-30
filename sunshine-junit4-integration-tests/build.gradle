@@ -47,6 +47,6 @@ runIntegrationTests.dependsOn(shadowJar)
 
 task ready(dependsOn: runIntegrationTests) {
     doLast {
-        println("Sunshine Junit4 integration testing is completed.")
+        println("Sunshine JUnit 4 integration testing is completed.")
     }
 }

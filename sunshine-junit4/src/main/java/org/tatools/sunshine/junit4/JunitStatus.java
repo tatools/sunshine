@@ -16,9 +16,9 @@ public final class JunitStatus implements Status {
 
     /**
      * Initializes a newly created {@link JunitStatus} object so that it represents
-     * a status of JUnit4 execution.
+     * a status of JUnit 4 execution.
      *
-     * @param result the Junit4 result
+     * @param result the JUnit 4 result
      */
     public JunitStatus(Result result) {
         this.status = result;

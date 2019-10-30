@@ -49,17 +49,17 @@ a class name has to match with `^(com.company.smoke)(.+)` regex.
 [TestNG YAML](http://testng.org/doc/documentation-main.html#yaml)).
 
 
-## Default JUnit4 entry point
+## Default JUnit 4 entry point
 Class: [`org.tatools.sunshine.junit4.Sunshine`](https://github.com/tatools/sunshine/blob/master/sunshine-junit4/src/main/java/org/tatools/sunshine/junit4/Sunshine.java)
 
 The class exposes the same behavior as default TestNG entry point exposes except the last option. All tests will be
-executed using JUnit4.
+executed using JUnit 4.
 
-## Default JUnit5 entry point
+## Default JUnit 5 entry point
 Class: [`org.tatools.sunshine.junit5.Sunshine`](https://github.com/tatools/sunshine/blob/master/sunshine-junit5/src/main/java/org/tatools/sunshine/junit5/Sunshine.java)
 
 The class exposes the same behavior as default TestNG entry point exposes except the last option. All tests will be
-executed using JUnit5.
+executed using JUnit 5.
 
 ## Code snippets for different use cases
 ### Specify regex
@@ -77,7 +77,7 @@ new Sun(
     )
 ).shine();
 ```
-JUnit4 sample
+JUnit 4 sample
 ```java
 new Sun(
     new Junit4Kernel(
@@ -107,7 +107,7 @@ new Sun(
     )
 ).shine();
 ```
-JUnit4 sample
+JUnit 4 sample
 ```java
 new Sun(
     new Junit4Kernel(

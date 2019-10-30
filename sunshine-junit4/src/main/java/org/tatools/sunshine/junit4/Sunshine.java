@@ -6,7 +6,7 @@ import org.tatools.sunshine.core.Sun;
 import org.tatools.sunshine.core.VerboseRegex;
 
 /**
- * The {@link Sunshine} class is a main class to run Junit4 tests.
+ * The {@link Sunshine} class is a main class to run Junit 4 tests.
  *
  * @author Dmytro Serdiuk (dmytro.serdiuk@gmail.com)
  * @version $Id$
