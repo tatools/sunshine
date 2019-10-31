@@ -4,9 +4,7 @@ on top of [TestNg](https://testng.org/doc/index.html) or [JUnit4](https://junit.
 
 Please read the users documentation on [http://sunshine.tatools.org](http://sunshine.tatools.org).
 
-[![Join the chat at https://gitter.im/tatools/sunshine](https://badges.gitter.im/tatools/sunshine.svg)](https://gitter.im/tatools/sunshine?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-
-[![Build Status](https://travis-ci.org/tatools/sunshine.svg?branch=master)](https://travis-ci.org/tatools/sunshine)
+[![Build Status](https://github.com/tatools/sunshine/workflows/Quality%20pipeline/badge.svg)](https://github.com/tatools/sunshine/actions?workflow=Quality+pipeline)
 [![Documentation Status](https://readthedocs.org/projects/sunshine/badge/?version=latest)](http://sunshine.tatools.org/en/latest/?badge=latest)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/b9ccdf7644db4658bb998eb3c8f0689b)](https://www.codacy.com/app/extsoft/sunshine?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=tatools/sunshine&amp;utm_campaign=Badge_Grade)
 [![codebeat badge](https://codebeat.co/badges/74ffce5e-e3be-45b7-9459-98d13f5f4d4e)](https://codebeat.co/projects/github-com-tatools-sunshine-master)
