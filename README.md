@@ -12,6 +12,8 @@ Please read the users documentation on [http://sunshine.tatools.org](http://suns
 [![codecov](https://codecov.io/gh/tatools/sunshine/branch/master/graph/badge.svg)](https://codecov.io/gh/tatools/sunshine)
 [![PDD status](http://www.0pdd.com/svg?name=tatools/sunshine)](http://www.0pdd.com/p?name=tatools/sunshine)
 
+[![assistant: Elegant Git](https://img.shields.io/badge/assistant-Elegant%20Git-000000.svg)](https://github.com/bees-hive/elegant-git)
+
 [![Rultor.com](http://www.rultor.com/b/tatools/sunshine)](http://www.rultor.com/p/tatools/sunshine)
 
 ## How to contribute?
