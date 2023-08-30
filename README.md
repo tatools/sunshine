@@ -3,7 +3,7 @@ Sunshine allows you to manage suits of your automated tests directly from Java c
 [TestNg](https://testng.org/doc/index.html), [JUnit 4](https://junit.org/junit4/), and
 [JUnit 5](https://junit.org/junit5/).
 
-Please read the users documentation on [http://sunshine.tatools.org](http://sunshine.tatools.org).
+Please read the documentation at https://sunshine.readthedocs.io.
 
 [![Build Status](https://github.com/tatools/sunshine/workflows/Quality%20pipeline/badge.svg)](https://github.com/tatools/sunshine/actions?workflow=Quality+pipeline)
 [![Documentation Status](https://readthedocs.org/projects/sunshine/badge/?version=latest)](http://sunshine.tatools.org/en/latest/?badge=latest)
